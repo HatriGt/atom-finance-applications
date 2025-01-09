@@ -1,0 +1,58 @@
+# CAP AtomFinanceApplications
+_out
+*.db
+*.sqlite
+connection.properties
+default-*.json
+.cdsrc-private.json
+gen/
+node_modules/
+target/
+
+# Web IDE, App Studio
+.che/
+.gen/
+
+# MTA
+*_mta_build_tmp
+*.mtar
+mta_archives/
+
+# Other
+.DS_Store
+*.orig
+*.log
+
+*.iml
+*.flattened-pom.xml
+
+# IDEs
+# .vscode
+# .idea
+
+# @cap-js/cds-typer
+@cds-models
+
+# auto generated wildcard
+.env
+app/clearingapplication/resources/atomuiclearingclearingapplication.zip
+.env1
+setpass.bash
+setpass.sh
+setpass.sh
+setpassword.sh
+app/clearingapplication/bun.lockb
+bun.lockb
+bun.lockb
+app/clearingapplication/bun.lockb
+bun.lockb
+app/clearingapplication/bun.lockb
+ClearingAppStash.patch
+package-lock.json
+bun.lockb
+bun.lockb
+.cursorrules
+.pipeline/config.yaml
+
+app/atomfinanceapplicationsrouter/package-lock.json
+app/atomfinanceapplicationsrouter/package-lock.json

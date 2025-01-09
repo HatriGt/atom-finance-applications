@@ -1,0 +1,2229 @@
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+<edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+<edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+</edmx:Reference>
+<edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+<edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+</edmx:Reference>
+<edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+</edmx:Reference>
+<edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
+<edmx:Include Alias="Validation" Namespace="Org.OData.Validation.V1"/>
+</edmx:Reference>
+<edmx:DataServices>
+<Schema Namespace="atom.srv.mdm.product.ProductService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+<EntityContainer Name="EntityContainer">
+<EntitySet Name="DealEntities" EntityType="atom.srv.mdm.product.ProductService.DealEntities">
+<NavigationPropertyBinding Path="ItsParent" Target="DealEntities"/>
+<NavigationPropertyBinding Path="ItsFields" Target="DealEntityFields"/>
+</EntitySet>
+<EntitySet Name="DealEntityFields" EntityType="atom.srv.mdm.product.ProductService.DealEntityFields">
+<NavigationPropertyBinding Path="ItsEntity" Target="DealEntities"/>
+<NavigationPropertyBinding Path="ItsUnitReference" Target="DealEntityFields"/>
+</EntitySet>
+<EntitySet Name="Products" EntityType="atom.srv.mdm.product.ProductService.Products">
+<NavigationPropertyBinding Path="ItsInternalRiskCodes" Target="ProductInternalRiskCodes"/>
+<NavigationPropertyBinding Path="ItsProductRiskObjectTypes" Target="ProductRiskObjectTypes"/>
+<NavigationPropertyBinding Path="ItsProductEntities" Target="ProductEntities"/>
+<NavigationPropertyBinding Path="ItsPools" Target="ProductPools"/>
+<NavigationPropertyBinding Path="ItsCoverholders" Target="ProductCoverholders"/>
+<NavigationPropertyBinding Path="ItsProductDefaultDealStructures" Target="ProductDefaultDealStructures"/>
+<NavigationPropertyBinding Path="ItsLineofBusiness" Target="LineOfBusiness"/>
+</EntitySet>
+<EntitySet Name="BlocksEntity" EntityType="atom.srv.mdm.product.ProductService.BlocksEntity">
+<NavigationPropertyBinding Path="ItsSubBlocks" Target="SubBlocksEntity"/>
+<NavigationPropertyBinding Path="ItsPage" Target="ProductPages"/>
+</EntitySet>
+<EntitySet Name="SubBlocksEntity" EntityType="atom.srv.mdm.product.ProductService.SubBlocksEntity">
+<NavigationPropertyBinding Path="ItsBlock" Target="BlocksEntity"/>
+<NavigationPropertyBinding Path="ItsSubBlockFields" Target="SubBlockFields"/>
+</EntitySet>
+<EntitySet Name="SubBlockFields" EntityType="atom.srv.mdm.product.ProductService.SubBlockFields">
+<NavigationPropertyBinding Path="ItsDealEntityField" Target="DealEntityFields"/>
+<NavigationPropertyBinding Path="ItsProductEntityField" Target="ProductEntityFields"/>
+<NavigationPropertyBinding Path="ItsDealEntity" Target="DealEntities"/>
+<NavigationPropertyBinding Path="ItsSubBlock" Target="SubBlocksEntity"/>
+</EntitySet>
+<EntitySet Name="ProductEntities" EntityType="atom.srv.mdm.product.ProductService.ProductEntities">
+<NavigationPropertyBinding Path="ItsDealEntity" Target="DealEntities"/>
+<NavigationPropertyBinding Path="ItsValidations" Target="ProductEntityValidations"/>
+<NavigationPropertyBinding Path="ItsEntityFields" Target="ProductEntityFields"/>
+</EntitySet>
+<EntitySet Name="ProductEntityFields" EntityType="atom.srv.mdm.product.ProductService.ProductEntityFields">
+<NavigationPropertyBinding Path="ItsDealEntityField" Target="DealEntityFields"/>
+<NavigationPropertyBinding Path="ItsDealEntity" Target="DealEntities"/>
+</EntitySet>
+<EntitySet Name="ProductEntityValidations" EntityType="atom.srv.mdm.product.ProductService.ProductEntityValidations">
+<NavigationPropertyBinding Path="ItsProduct" Target="Products"/>
+<NavigationPropertyBinding Path="ItsEntity" Target="ProductEntities"/>
+</EntitySet>
+<EntitySet Name="ProductDefaultDealStructures" EntityType="atom.srv.mdm.product.ProductService.ProductDefaultDealStructures">
+<NavigationPropertyBinding Path="ItsProduct" Target="Products"/>
+</EntitySet>
+<EntitySet Name="ProductInternalRiskCodes" EntityType="atom.srv.mdm.product.ProductService.ProductInternalRiskCodes">
+<NavigationPropertyBinding Path="ItsInternalRiskCode" Target="InternalRiskCode"/>
+</EntitySet>
+<EntitySet Name="ProductRiskObjectTypes" EntityType="atom.srv.mdm.product.ProductService.ProductRiskObjectTypes">
+<NavigationPropertyBinding Path="ItsRiskObjectType" Target="RiskObjectType"/>
+</EntitySet>
+<EntitySet Name="ProductPools" EntityType="atom.srv.mdm.product.ProductService.ProductPools">
+<NavigationPropertyBinding Path="ItsPool" Target="Pool"/>
+<NavigationPropertyBinding Path="ItsProduct" Target="Products"/>
+</EntitySet>
+<EntitySet Name="ProductCoverholders" EntityType="atom.srv.mdm.product.ProductService.ProductCoverholders">
+<NavigationPropertyBinding Path="ItsCoverholder" Target="Coverholder"/>
+<NavigationPropertyBinding Path="ItsProduct" Target="Products"/>
+</EntitySet>
+<EntitySet Name="ProductPages" EntityType="atom.srv.mdm.product.ProductService.ProductPages"/>
+<EntitySet Name="LineOfBusiness" EntityType="atom.srv.mdm.product.ProductService.LineOfBusiness">
+<NavigationPropertyBinding Path="ItsConditionTypes" Target="ConditionType"/>
+<NavigationPropertyBinding Path="ItsPools" Target="Pool"/>
+<NavigationPropertyBinding Path="ItsInternalRiskCodes" Target="InternalRiskCode"/>
+<NavigationPropertyBinding Path="ItsLLoydsRiskCodes" Target="LloydsRiskCode"/>
+<NavigationPropertyBinding Path="ItsSegments" Target="Segment"/>
+<NavigationPropertyBinding Path="ItsPlacementTypes" Target="PlacementType"/>
+<NavigationPropertyBinding Path="ItsExposureTypes" Target="ExposureType"/>
+</EntitySet>
+<EntitySet Name="InternalRiskCode" EntityType="atom.srv.mdm.product.ProductService.InternalRiskCode">
+<NavigationPropertyBinding Path="ItsLLoydsRiskCode" Target="LloydsRiskCode"/>
+</EntitySet>
+<EntitySet Name="RiskObjectType" EntityType="atom.srv.mdm.product.ProductService.RiskObjectType"/>
+<EntitySet Name="Pool" EntityType="atom.srv.mdm.product.ProductService.Pool">
+<NavigationPropertyBinding Path="ItsPoolYWYears" Target="PoolUwy"/>
+<NavigationPropertyBinding Path="ItsLob" Target="LineOfBusiness"/>
+</EntitySet>
+<EntitySet Name="Coverholder" EntityType="atom.srv.mdm.product.ProductService.Coverholder"/>
+<EntitySet Name="ConditionType" EntityType="atom.srv.mdm.product.ProductService.ConditionType"/>
+<EntitySet Name="LloydsRiskCode" EntityType="atom.srv.mdm.product.ProductService.LloydsRiskCode">
+<NavigationPropertyBinding Path="ItsInternalRiskCodes" Target="InternalRiskCode"/>
+</EntitySet>
+<EntitySet Name="Segment" EntityType="atom.srv.mdm.product.ProductService.Segment"/>
+<EntitySet Name="PlacementType" EntityType="atom.srv.mdm.product.ProductService.PlacementType"/>
+<EntitySet Name="ExposureType" EntityType="atom.srv.mdm.product.ProductService.ExposureType"/>
+<EntitySet Name="PoolUwy" EntityType="atom.srv.mdm.product.ProductService.PoolUwy">
+<NavigationPropertyBinding Path="ItsPool" Target="Pool"/>
+<NavigationPropertyBinding Path="ItsInternalRiskCodes" Target="InternalRiskInPool"/>
+</EntitySet>
+<EntitySet Name="InternalRiskInPool" EntityType="atom.srv.mdm.product.ProductService.InternalRiskInPool">
+<NavigationPropertyBinding Path="ItsInternalRiskCode" Target="InternalRiskCode"/>
+</EntitySet>
+<FunctionImport Name="getJsonSchema" Function="atom.srv.mdm.product.ProductService.getJsonSchema"/>
+<ActionImport Name="publish" Action="atom.srv.mdm.product.ProductService.publish"/>
+</EntityContainer>
+<EntityType Name="DealEntities">
+<Key>
+<PropertyRef Name="ID"/>
+</Key>
+<Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="ACTIVE" Type="Edm.Boolean" DefaultValue="true"/>
+<Property Name="DELETED" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="PARENT_ID" Type="Edm.Int32"/>
+<Property Name="NAME" Type="Edm.String" MaxLength="50"/>
+<Property Name="NAME_PLURAL" Type="Edm.String" MaxLength="50"/>
+<Property Name="DEFAULT_CARDINALITY" Type="Edm.String" MaxLength="1" DefaultValue="n"/>
+<Property Name="FRIENDLY_NAME" Type="Edm.String" MaxLength="100"/>
+<Property Name="DATAPOINT" Type="Edm.String" MaxLength="100"/>
+<NavigationProperty Name="ItsParent" Type="atom.srv.mdm.product.ProductService.DealEntities">
+<ReferentialConstraint Property="PARENT_ID" ReferencedProperty="ID"/>
+</NavigationProperty>
+<NavigationProperty Name="ItsFields" Type="Collection(atom.srv.mdm.product.ProductService.DealEntityFields)"/>
+</EntityType>
+<EntityType Name="DealEntityFields">
+<Key>
+<PropertyRef Name="ENTITY_ID"/>
+<PropertyRef Name="FIELD_ID"/>
+</Key>
+<Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="ACTIVE" Type="Edm.Boolean" DefaultValue="true"/>
+<Property Name="DELETED" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="ENTITY_ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="FIELD_ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="FIELD_NAME" Type="Edm.String" MaxLength="50"/>
+<Property Name="DEFAULT_FIELD_LABEL" Type="Edm.String" MaxLength="50"/>
+<Property Name="DATATYPE" Type="Edm.String" MaxLength="20"/>
+<Property Name="TECHFIELD" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="LENGTH" Type="Edm.Int32"/>
+<Property Name="SCALE" Type="Edm.Int32"/>
+<Property Name="SEMANTICS" Type="Edm.String" MaxLength="50"/>
+<Property Name="UNIT_REFERENCE_ENTITY" Type="Edm.Int32"/>
+<Property Name="UNIT_REFERENCE_FIELD" Type="Edm.Int32"/>
+<Property Name="COMMON" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="CREATE_MANDATORY" Type="Edm.Boolean"/>
+<Property Name="BOOKING_MANDATORY" Type="Edm.Boolean"/>
+<NavigationProperty Name="ItsEntity" Type="atom.srv.mdm.product.ProductService.DealEntities">
+<ReferentialConstraint Property="ENTITY_ID" ReferencedProperty="ID"/>
+</NavigationProperty>
+<NavigationProperty Name="ItsUnitReference" Type="atom.srv.mdm.product.ProductService.DealEntityFields">
+<ReferentialConstraint Property="UNIT_REFERENCE_ENTITY" ReferencedProperty="ENTITY_ID"/>
+<ReferentialConstraint Property="UNIT_REFERENCE_FIELD" ReferencedProperty="FIELD_ID"/>
+</NavigationProperty>
+<Property Name="WIDTH" Type="Edm.Decimal" Precision="5" Scale="1"/>
+<Property Name="PLACE_HOLDER" Type="Edm.String" MaxLength="100"/>
+<Property Name="DEFAULT_VALUE" Type="Edm.String" MaxLength="100"/>
+<Property Name="COMPONENT_TYPE" Type="Edm.String" MaxLength="50"/>
+<Property Name="FILTERABLE" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="FILTER_ID_FIELD" Type="Edm.String" MaxLength="50"/>
+<Property Name="FILTER_TEXT_FIELD" Type="Edm.String" MaxLength="50"/>
+<Property Name="READ_ONLY" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="OPTIONS" Type="Edm.String"/>
+<Property Name="OPTIONS_IDENTIFIER" Type="Edm.String" MaxLength="50"/>
+</EntityType>
+<EntityType Name="Products">
+<Key>
+<PropertyRef Name="ID"/>
+</Key>
+<Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="ACTIVE" Type="Edm.Boolean" DefaultValue="true"/>
+<Property Name="DELETED" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="NAME" Type="Edm.String" MaxLength="30"/>
+<Property Name="DESCRIPTION" Type="Edm.String" MaxLength="255"/>
+<Property Name="BOTTOM_UP" Type="Edm.Boolean" DefaultValue="true"/>
+<Property Name="CODE" Type="Edm.String" MaxLength="3" DefaultValue=""/>
+<Property Name="LOB_ID" Type="Edm.Int32"/>
+<NavigationProperty Name="ItsInternalRiskCodes" Type="Collection(atom.srv.mdm.product.ProductService.ProductInternalRiskCodes)"/>
+<NavigationProperty Name="ItsProductRiskObjectTypes" Type="Collection(atom.srv.mdm.product.ProductService.ProductRiskObjectTypes)"/>
+<NavigationProperty Name="ItsProductEntities" Type="Collection(atom.srv.mdm.product.ProductService.ProductEntities)"/>
+<NavigationProperty Name="ItsPools" Type="Collection(atom.srv.mdm.product.ProductService.ProductPools)"/>
+<NavigationProperty Name="ItsCoverholders" Type="Collection(atom.srv.mdm.product.ProductService.ProductCoverholders)"/>
+<NavigationProperty Name="ItsProductDefaultDealStructures" Type="Collection(atom.srv.mdm.product.ProductService.ProductDefaultDealStructures)"/>
+<NavigationProperty Name="ItsLineofBusiness" Type="atom.srv.mdm.product.ProductService.LineOfBusiness">
+<ReferentialConstraint Property="LOB_ID" ReferencedProperty="ID"/>
+</NavigationProperty>
+</EntityType>
+<EntityType Name="BlocksEntity">
+<Key>
+<PropertyRef Name="ID"/>
+<PropertyRef Name="PRODUCT_ID"/>
+<PropertyRef Name="PAGE_ID"/>
+</Key>
+<Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="ACTIVE" Type="Edm.Boolean" DefaultValue="true"/>
+<Property Name="DELETED" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="PRODUCT_ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="PAGE_ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="PAGE_NAME" Type="Edm.String" MaxLength="50"/>
+<Property Name="BLOCK_NAME" Type="Edm.String" MaxLength="50"/>
+<Property Name="BLOCK_LABEL" Type="Edm.String" MaxLength="100"/>
+<NavigationProperty Name="ItsSubBlocks" Type="Collection(atom.srv.mdm.product.ProductService.SubBlocksEntity)"/>
+<NavigationProperty Name="ItsPage" Type="atom.srv.mdm.product.ProductService.ProductPages">
+<ReferentialConstraint Property="PAGE_ID" ReferencedProperty="PAGE_ID"/>
+<ReferentialConstraint Property="PRODUCT_ID" ReferencedProperty="PRODUCT_ID"/>
+</NavigationProperty>
+</EntityType>
+<EntityType Name="SubBlocksEntity">
+<Key>
+<PropertyRef Name="ID"/>
+<PropertyRef Name="PRODUCT_ID"/>
+<PropertyRef Name="ENTITY_ID"/>
+<PropertyRef Name="BLOCK_ID"/>
+</Key>
+<Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="ACTIVE" Type="Edm.Boolean" DefaultValue="true"/>
+<Property Name="DELETED" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="PRODUCT_ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="ENTITY_ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="BLOCK_ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="SUBBLOCK_NAME" Type="Edm.String" MaxLength="50"/>
+<Property Name="SUBBLOCK_LABEL" Type="Edm.String" MaxLength="50"/>
+<Property Name="SORTER" Type="Edm.Int32"/>
+<Property Name="MULTILINE" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="DISPLAY_ONLY" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="GET_URL" Type="Edm.String" MaxLength="255"/>
+<Property Name="POST_URL" Type="Edm.String" MaxLength="255"/>
+<Property Name="PUT_URL" Type="Edm.String" MaxLength="255"/>
+<Property Name="VALIDATION_URL" Type="Edm.String" MaxLength="255"/>
+<Property Name="PROPERTY" Type="Edm.String" MaxLength="100"/>
+<NavigationProperty Name="ItsBlock" Type="atom.srv.mdm.product.ProductService.BlocksEntity">
+<ReferentialConstraint Property="BLOCK_ID" ReferencedProperty="ID"/>
+</NavigationProperty>
+<NavigationProperty Name="ItsSubBlockFields" Type="Collection(atom.srv.mdm.product.ProductService.SubBlockFields)"/>
+</EntityType>
+<EntityType Name="SubBlockFields">
+<Key>
+<PropertyRef Name="ID"/>
+<PropertyRef Name="PRODUCT_ID"/>
+<PropertyRef Name="SUBBLOCK_ID"/>
+<PropertyRef Name="ENTITY_ID"/>
+<PropertyRef Name="FIELD_ID"/>
+</Key>
+<Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="ACTIVE" Type="Edm.Boolean" DefaultValue="true"/>
+<Property Name="DELETED" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="ID" Type="Edm.Int32" Nullable="false" DefaultValue="0"/>
+<Property Name="PRODUCT_ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="SUBBLOCK_ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="ENTITY_ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="FIELD_ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="FIELD_LABEL" Type="Edm.String" MaxLength="255"/>
+<Property Name="SEMANTICS" Type="Edm.String" MaxLength="50"/>
+<NavigationProperty Name="ItsDealEntityField" Type="atom.srv.mdm.product.ProductService.DealEntityFields">
+<ReferentialConstraint Property="ENTITY_ID" ReferencedProperty="ENTITY_ID"/>
+<ReferentialConstraint Property="FIELD_ID" ReferencedProperty="FIELD_ID"/>
+</NavigationProperty>
+<NavigationProperty Name="ItsProductEntityField" Type="atom.srv.mdm.product.ProductService.ProductEntityFields">
+<ReferentialConstraint Property="ENTITY_ID" ReferencedProperty="ENTITY_ID"/>
+<ReferentialConstraint Property="FIELD_ID" ReferencedProperty="FIELD_ID"/>
+<ReferentialConstraint Property="PRODUCT_ID" ReferencedProperty="PRODUCT_ID"/>
+</NavigationProperty>
+<NavigationProperty Name="ItsDealEntity" Type="atom.srv.mdm.product.ProductService.DealEntities">
+<ReferentialConstraint Property="ENTITY_ID" ReferencedProperty="ID"/>
+</NavigationProperty>
+<Property Name="CREATE_MANDATORY" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="BOOKING_MANDATORY" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="WIDTH" Type="Edm.Decimal" Precision="5" Scale="1"/>
+<Property Name="PLACE_HOLDER" Type="Edm.String" MaxLength="100"/>
+<Property Name="DEFAULT_VALUE" Type="Edm.String" MaxLength="100"/>
+<Property Name="COMPONENT_TYPE" Type="Edm.String" MaxLength="50"/>
+<Property Name="FILTERABLE" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="FILTER_ID_FIELD" Type="Edm.String" MaxLength="50"/>
+<Property Name="FILTER_TEXT_FIELD" Type="Edm.String" MaxLength="50"/>
+<Property Name="READ_ONLY" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="OPTIONS" Type="Edm.String"/>
+<Property Name="OPTIONS_IDENTIFIER" Type="Edm.String" MaxLength="50"/>
+<Property Name="SORTER" Type="Edm.Int32"/>
+<Property Name="PERSISTENCE_FIELD" Type="Edm.String" MaxLength="100"/>
+<NavigationProperty Name="ItsSubBlock" Type="atom.srv.mdm.product.ProductService.SubBlocksEntity">
+<ReferentialConstraint Property="SUBBLOCK_ID" ReferencedProperty="ID"/>
+<ReferentialConstraint Property="PRODUCT_ID" ReferencedProperty="PRODUCT_ID"/>
+<ReferentialConstraint Property="ENTITY_ID" ReferencedProperty="ENTITY_ID"/>
+</NavigationProperty>
+</EntityType>
+<EntityType Name="ProductEntities">
+<Key>
+<PropertyRef Name="ID"/>
+<PropertyRef Name="PRODUCT_ID"/>
+<PropertyRef Name="ENTITY_ID"/>
+</Key>
+<Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="ACTIVE" Type="Edm.Boolean" DefaultValue="true"/>
+<Property Name="DELETED" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="ID" Type="Edm.Int32" Nullable="false" DefaultValue="0"/>
+<Property Name="PRODUCT_ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="ENTITY_ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="CARDINALITY" Type="Edm.String" MaxLength="1"/>
+<NavigationProperty Name="ItsDealEntity" Type="atom.srv.mdm.product.ProductService.DealEntities">
+<ReferentialConstraint Property="ENTITY_ID" ReferencedProperty="ID"/>
+</NavigationProperty>
+<Property Name="NAME" Type="Edm.String" MaxLength="50"/>
+<Property Name="NAME_PLURAL" Type="Edm.String" MaxLength="50"/>
+<NavigationProperty Name="ItsValidations" Type="Collection(atom.srv.mdm.product.ProductService.ProductEntityValidations)"/>
+<NavigationProperty Name="ItsEntityFields" Type="Collection(atom.srv.mdm.product.ProductService.ProductEntityFields)"/>
+</EntityType>
+<EntityType Name="ProductEntityFields">
+<Key>
+<PropertyRef Name="ID"/>
+<PropertyRef Name="PRODUCT_ID"/>
+<PropertyRef Name="ENTITY_ID"/>
+<PropertyRef Name="FIELD_ID"/>
+</Key>
+<Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="ACTIVE" Type="Edm.Boolean" DefaultValue="true"/>
+<Property Name="DELETED" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="ID" Type="Edm.Int32" Nullable="false" DefaultValue="0"/>
+<Property Name="PRODUCT_ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="ENTITY_ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="FIELD_ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="FIELD_LABEL" Type="Edm.String" MaxLength="255"/>
+<Property Name="SEMANTICS" Type="Edm.String" MaxLength="50"/>
+<Property Name="TECHFIELD" Type="Edm.Boolean"/>
+<NavigationProperty Name="ItsDealEntityField" Type="atom.srv.mdm.product.ProductService.DealEntityFields">
+<ReferentialConstraint Property="ENTITY_ID" ReferencedProperty="ENTITY_ID"/>
+<ReferentialConstraint Property="FIELD_ID" ReferencedProperty="FIELD_ID"/>
+</NavigationProperty>
+<NavigationProperty Name="ItsDealEntity" Type="atom.srv.mdm.product.ProductService.DealEntities">
+<ReferentialConstraint Property="ENTITY_ID" ReferencedProperty="ID"/>
+</NavigationProperty>
+<Property Name="CREATE_MANDATORY" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="BOOKING_MANDATORY" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="WIDTH" Type="Edm.Decimal" Precision="5" Scale="1"/>
+<Property Name="PLACE_HOLDER" Type="Edm.String" MaxLength="100"/>
+<Property Name="DEFAULT_VALUE" Type="Edm.String" MaxLength="100"/>
+<Property Name="COMPONENT_TYPE" Type="Edm.String" MaxLength="50"/>
+<Property Name="FILTERABLE" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="FILTER_ID_FIELD" Type="Edm.String" MaxLength="50"/>
+<Property Name="FILTER_TEXT_FIELD" Type="Edm.String" MaxLength="50"/>
+<Property Name="READ_ONLY" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="OPTIONS" Type="Edm.String"/>
+<Property Name="OPTIONS_IDENTIFIER" Type="Edm.String" MaxLength="50"/>
+</EntityType>
+<EntityType Name="ProductEntityValidations">
+<Key>
+<PropertyRef Name="PRODUCT_ID"/>
+<PropertyRef Name="ENTITY_ID"/>
+<PropertyRef Name="ID"/>
+</Key>
+<Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="ACTIVE" Type="Edm.Boolean" DefaultValue="true"/>
+<Property Name="DELETED" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="PRODUCT_ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="ENTITY_ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="VALIDATION_TYPE" Type="Edm.String" MaxLength="30"/>
+<Property Name="RULE" Type="Edm.String" MaxLength="2000"/>
+<Property Name="ACTION" Type="Edm.String" MaxLength="20"/>
+<Property Name="MESSAGE_TEMPLATE" Type="Edm.String" MaxLength="255"/>
+<NavigationProperty Name="ItsProduct" Type="atom.srv.mdm.product.ProductService.Products">
+<ReferentialConstraint Property="PRODUCT_ID" ReferencedProperty="ID"/>
+</NavigationProperty>
+<NavigationProperty Name="ItsEntity" Type="atom.srv.mdm.product.ProductService.ProductEntities">
+<ReferentialConstraint Property="PRODUCT_ID" ReferencedProperty="PRODUCT_ID"/>
+<ReferentialConstraint Property="ENTITY_ID" ReferencedProperty="ENTITY_ID"/>
+</NavigationProperty>
+</EntityType>
+<EntityType Name="ProductDefaultDealStructures">
+<Key>
+<PropertyRef Name="PRODUCT_ID"/>
+</Key>
+<Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="ACTIVE" Type="Edm.Boolean" DefaultValue="true"/>
+<Property Name="DELETED" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="PRODUCT_ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="PARTICIPATIONS" Type="Edm.String"/>
+<Property Name="SECTIONS" Type="Edm.String"/>
+<Property Name="STAMPS" Type="Edm.String"/>
+<Property Name="INTREF_FIELDS" Type="Edm.String"/>
+<Property Name="EXTREF_FIELDS" Type="Edm.String"/>
+<Property Name="EXTREF_PATTERN" Type="Edm.String"/>
+<Property Name="INTREF_PATTERN" Type="Edm.String"/>
+<NavigationProperty Name="ItsProduct" Type="atom.srv.mdm.product.ProductService.Products">
+<ReferentialConstraint Property="PRODUCT_ID" ReferencedProperty="ID"/>
+</NavigationProperty>
+</EntityType>
+<EntityType Name="ProductInternalRiskCodes">
+<Key>
+<PropertyRef Name="ID"/>
+<PropertyRef Name="PRODUCT_ID"/>
+<PropertyRef Name="INTRISK_CODE_ID"/>
+</Key>
+<Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="ACTIVE" Type="Edm.Boolean" DefaultValue="true"/>
+<Property Name="DELETED" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="ID" Type="Edm.Int32" Nullable="false" DefaultValue="0"/>
+<Property Name="PRODUCT_ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="INTRISK_CODE_ID" Type="Edm.Int32" Nullable="false"/>
+<NavigationProperty Name="ItsInternalRiskCode" Type="atom.srv.mdm.product.ProductService.InternalRiskCode">
+<ReferentialConstraint Property="INTRISK_CODE_ID" ReferencedProperty="ID"/>
+</NavigationProperty>
+</EntityType>
+<EntityType Name="ProductRiskObjectTypes">
+<Key>
+<PropertyRef Name="ID"/>
+<PropertyRef Name="PRODUCT_ID"/>
+<PropertyRef Name="RISKOBJTYPE_ID"/>
+</Key>
+<Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="ACTIVE" Type="Edm.Boolean" DefaultValue="true"/>
+<Property Name="DELETED" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="ID" Type="Edm.Int32" Nullable="false" DefaultValue="0"/>
+<Property Name="PRODUCT_ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="RISKOBJTYPE_ID" Type="Edm.Int32" Nullable="false"/>
+<NavigationProperty Name="ItsRiskObjectType" Type="atom.srv.mdm.product.ProductService.RiskObjectType">
+<ReferentialConstraint Property="RISKOBJTYPE_ID" ReferencedProperty="ID"/>
+</NavigationProperty>
+<Property Name="RISKDB_TYPE" Type="Edm.String" MaxLength="50" DefaultValue="API"/>
+<Property Name="RISKDB_DESTINATION" Type="Edm.String" MaxLength="100"/>
+<Property Name="RISKDB_RISKOBJ_ENTITY" Type="Edm.String" MaxLength="100"/>
+<Property Name="RISKDB_SECTION_RISK_ASSOCIATION" Type="Edm.String" MaxLength="100"/>
+</EntityType>
+<EntityType Name="ProductPools">
+<Key>
+<PropertyRef Name="ID"/>
+<PropertyRef Name="PRODUCT_ID"/>
+<PropertyRef Name="POOL_ID"/>
+</Key>
+<Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="ACTIVE" Type="Edm.Boolean" DefaultValue="true"/>
+<Property Name="DELETED" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="ID" Type="Edm.Int32" Nullable="false" DefaultValue="0"/>
+<Property Name="PRODUCT_ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="POOL_ID" Type="Edm.Int32" Nullable="false"/>
+<NavigationProperty Name="ItsPool" Type="atom.srv.mdm.product.ProductService.Pool">
+<ReferentialConstraint Property="POOL_ID" ReferencedProperty="ID"/>
+</NavigationProperty>
+<NavigationProperty Name="ItsProduct" Type="atom.srv.mdm.product.ProductService.Products">
+<ReferentialConstraint Property="PRODUCT_ID" ReferencedProperty="ID"/>
+</NavigationProperty>
+</EntityType>
+<EntityType Name="ProductCoverholders">
+<Key>
+<PropertyRef Name="ID"/>
+<PropertyRef Name="PRODUCT_ID"/>
+<PropertyRef Name="COVERHOLDER_ID"/>
+</Key>
+<Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="ACTIVE" Type="Edm.Boolean" DefaultValue="true"/>
+<Property Name="DELETED" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="ID" Type="Edm.Int32" Nullable="false" DefaultValue="0"/>
+<Property Name="PRODUCT_ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="COVERHOLDER_ID" Type="Edm.Int32" Nullable="false"/>
+<NavigationProperty Name="ItsCoverholder" Type="atom.srv.mdm.product.ProductService.Coverholder">
+<ReferentialConstraint Property="COVERHOLDER_ID" ReferencedProperty="ID"/>
+</NavigationProperty>
+<NavigationProperty Name="ItsProduct" Type="atom.srv.mdm.product.ProductService.Products">
+<ReferentialConstraint Property="PRODUCT_ID" ReferencedProperty="ID"/>
+</NavigationProperty>
+</EntityType>
+<EntityType Name="ProductPages">
+<Key>
+<PropertyRef Name="ID"/>
+<PropertyRef Name="PRODUCT_ID"/>
+<PropertyRef Name="PAGE_ID"/>
+</Key>
+<Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="ACTIVE" Type="Edm.Boolean" DefaultValue="true"/>
+<Property Name="DELETED" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="PRODUCT_ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="PAGE_ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="PAGE_NAME" Type="Edm.String" MaxLength="50"/>
+<Property Name="PAGE_PUBLIC_ID" Type="Edm.String" MaxLength="100"/>
+</EntityType>
+<EntityType Name="LineOfBusiness">
+<Key>
+<PropertyRef Name="ID"/>
+</Key>
+<Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="ACTIVE" Type="Edm.Boolean" DefaultValue="true"/>
+<Property Name="DELETED" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="LOB_NAME" Type="Edm.String" MaxLength="20"/>
+<Property Name="LOB_DESCRIPTION" Type="Edm.String" MaxLength="1024"/>
+<Property Name="BILLING_POLICY_TYPE" Type="Edm.String" MaxLength="2"/>
+<NavigationProperty Name="ItsConditionTypes" Type="Collection(atom.srv.mdm.product.ProductService.ConditionType)"/>
+<NavigationProperty Name="ItsPools" Type="Collection(atom.srv.mdm.product.ProductService.Pool)"/>
+<NavigationProperty Name="ItsInternalRiskCodes" Type="Collection(atom.srv.mdm.product.ProductService.InternalRiskCode)"/>
+<NavigationProperty Name="ItsLLoydsRiskCodes" Type="Collection(atom.srv.mdm.product.ProductService.LloydsRiskCode)"/>
+<NavigationProperty Name="ItsSegments" Type="Collection(atom.srv.mdm.product.ProductService.Segment)"/>
+<NavigationProperty Name="ItsPlacementTypes" Type="Collection(atom.srv.mdm.product.ProductService.PlacementType)"/>
+<NavigationProperty Name="ItsExposureTypes" Type="Collection(atom.srv.mdm.product.ProductService.ExposureType)"/>
+</EntityType>
+<EntityType Name="InternalRiskCode">
+<Key>
+<PropertyRef Name="ID"/>
+</Key>
+<Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="ACTIVE" Type="Edm.Boolean" DefaultValue="true"/>
+<Property Name="DELETED" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="LOB_ID" Type="Edm.Int32"/>
+<Property Name="SEGMENT_ID" Type="Edm.Int32"/>
+<Property Name="LLRISKCODE_ID" Type="Edm.Int32"/>
+<Property Name="INTRISK_CODE" Type="Edm.String" MaxLength="255"/>
+<Property Name="INTRISK_DESCRIPTION" Type="Edm.String" MaxLength="1024"/>
+<NavigationProperty Name="ItsLLoydsRiskCode" Type="atom.srv.mdm.product.ProductService.LloydsRiskCode">
+<ReferentialConstraint Property="LLRISKCODE_ID" ReferencedProperty="ID"/>
+</NavigationProperty>
+</EntityType>
+<EntityType Name="RiskObjectType">
+<Key>
+<PropertyRef Name="ID"/>
+</Key>
+<Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="ACTIVE" Type="Edm.Boolean" DefaultValue="true"/>
+<Property Name="DELETED" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="LOB_ID" Type="Edm.Int32"/>
+<Property Name="NAME" Type="Edm.String" MaxLength="30"/>
+<Property Name="DESCRIPTION" Type="Edm.String" MaxLength="255"/>
+</EntityType>
+<EntityType Name="Pool">
+<Key>
+<PropertyRef Name="ID"/>
+</Key>
+<Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="ACTIVE" Type="Edm.Boolean" DefaultValue="true"/>
+<Property Name="DELETED" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="LOB_ID" Type="Edm.Int32"/>
+<Property Name="POOL_NAME" Type="Edm.String" MaxLength="100"/>
+<Property Name="POOL_DESCRIPTION" Type="Edm.String" MaxLength="1024"/>
+<Property Name="POOL_CD" Type="Edm.String" MaxLength="3"/>
+<NavigationProperty Name="ItsPoolYWYears" Type="Collection(atom.srv.mdm.product.ProductService.PoolUwy)"/>
+<NavigationProperty Name="ItsLob" Type="atom.srv.mdm.product.ProductService.LineOfBusiness">
+<ReferentialConstraint Property="LOB_ID" ReferencedProperty="ID"/>
+</NavigationProperty>
+</EntityType>
+<EntityType Name="Coverholder">
+<Key>
+<PropertyRef Name="ID"/>
+<PropertyRef Name="COVERHOLDER_CODE"/>
+</Key>
+<Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="ACTIVE" Type="Edm.Boolean" DefaultValue="true"/>
+<Property Name="DELETED" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="COVERHOLDER_CODE" Type="Edm.String" MaxLength="20" Nullable="false"/>
+<Property Name="COVERHOLDER_NAME" Type="Edm.String" MaxLength="255"/>
+<Property Name="COVERHOLDER_PIN" Type="Edm.String" MaxLength="25"/>
+</EntityType>
+<EntityType Name="ConditionType">
+<Key>
+<PropertyRef Name="ID"/>
+</Key>
+<Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="ACTIVE" Type="Edm.Boolean" DefaultValue="true"/>
+<Property Name="DELETED" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="LOB_ID" Type="Edm.Int32"/>
+<Property Name="CONDITION_NAME" Type="Edm.String" MaxLength="250"/>
+<Property Name="CONDITION_DESCRIPTION" Type="Edm.String" MaxLength="1024"/>
+<Property Name="CONDITION_VALUE_TYPE" Type="Edm.String" MaxLength="50"/>
+<Property Name="DEFAULT_OP_ID" Type="Edm.Int32"/>
+<Property Name="FORMULA" Type="Edm.String" MaxLength="250"/>
+</EntityType>
+<EntityType Name="LloydsRiskCode">
+<Key>
+<PropertyRef Name="ID"/>
+</Key>
+<Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="ACTIVE" Type="Edm.Boolean" DefaultValue="true"/>
+<Property Name="DELETED" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="LOB_ID" Type="Edm.Int32"/>
+<Property Name="LLRISK_CODE" Type="Edm.String" MaxLength="20"/>
+<Property Name="LLRISK_DESCRIPTION" Type="Edm.String" MaxLength="1024"/>
+<NavigationProperty Name="ItsInternalRiskCodes" Type="Collection(atom.srv.mdm.product.ProductService.InternalRiskCode)"/>
+</EntityType>
+<EntityType Name="Segment">
+<Key>
+<PropertyRef Name="ID"/>
+</Key>
+<Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="ACTIVE" Type="Edm.Boolean" DefaultValue="true"/>
+<Property Name="DELETED" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="LOB_ID" Type="Edm.Int32"/>
+<Property Name="SEGMENT_NAME" Type="Edm.String" MaxLength="50"/>
+<Property Name="SEGMENT_DESCRIPTION" Type="Edm.String" MaxLength="1024"/>
+</EntityType>
+<EntityType Name="PlacementType">
+<Key>
+<PropertyRef Name="ID"/>
+</Key>
+<Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="ACTIVE" Type="Edm.Boolean" DefaultValue="true"/>
+<Property Name="DELETED" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="LOB_ID" Type="Edm.Int32"/>
+<Property Name="PLACEMENT_NAME" Type="Edm.String" MaxLength="20"/>
+<Property Name="PLACEMENT_DESCRIPTION" Type="Edm.String" MaxLength="1024"/>
+</EntityType>
+<EntityType Name="ExposureType">
+<Key>
+<PropertyRef Name="ID"/>
+</Key>
+<Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="ACTIVE" Type="Edm.Boolean" DefaultValue="true"/>
+<Property Name="DELETED" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="LOB_ID" Type="Edm.Int32"/>
+<Property Name="LOB_NAME" Type="Edm.String" MaxLength="20"/>
+<Property Name="EXPOSURE_TYPE" Type="Edm.String" MaxLength="250"/>
+<Property Name="INTRISK_CODE" Type="Edm.String" MaxLength="255"/>
+<Property Name="VALUE" Type="Edm.String" MaxLength="10"/>
+</EntityType>
+<EntityType Name="PoolUwy">
+<Key>
+<PropertyRef Name="ID"/>
+</Key>
+<Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="ACTIVE" Type="Edm.Boolean" DefaultValue="true"/>
+<Property Name="DELETED" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="POOL_ID" Type="Edm.Int32"/>
+<Property Name="POOLUWY_NAME" Type="Edm.String" MaxLength="100"/>
+<Property Name="UWYEAR" Type="Edm.Int32"/>
+<Property Name="INCEPTION" Type="Edm.Date"/>
+<Property Name="EXPIRYDATE" Type="Edm.Date"/>
+<Property Name="CURRENCY_ID" Type="Edm.Int32"/>
+<NavigationProperty Name="ItsPool" Type="atom.srv.mdm.product.ProductService.Pool">
+<ReferentialConstraint Property="POOL_ID" ReferencedProperty="ID"/>
+</NavigationProperty>
+<NavigationProperty Name="ItsInternalRiskCodes" Type="Collection(atom.srv.mdm.product.ProductService.InternalRiskInPool)"/>
+</EntityType>
+<EntityType Name="InternalRiskInPool">
+<Key>
+<PropertyRef Name="ID"/>
+</Key>
+<Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+<Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+<Property Name="ACTIVE" Type="Edm.Boolean" DefaultValue="true"/>
+<Property Name="DELETED" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="POOLUWYEAR_ID" Type="Edm.Int32"/>
+<Property Name="INTRISK_ID" Type="Edm.Int32"/>
+<NavigationProperty Name="ItsInternalRiskCode" Type="atom.srv.mdm.product.ProductService.InternalRiskCode">
+<ReferentialConstraint Property="INTRISK_ID" ReferencedProperty="ID"/>
+</NavigationProperty>
+</EntityType>
+<ComplexType Name="atom_srv_mdm_product_Page">
+<Property Name="pageId" Type="Edm.Int32"/>
+<Property Name="productId" Type="Edm.Int32"/>
+<Property Name="pageName" Type="Edm.String" MaxLength="255"/>
+<Property Name="numberOfBlocks" Type="Edm.Int32"/>
+<Property Name="blocks" Type="Collection(atom.srv.mdm.product.ProductService.atom_srv_mdm_product_Block)" Nullable="false"/>
+</ComplexType>
+<ComplexType Name="atom_srv_mdm_product_Block">
+<Property Name="title" Type="Edm.String" MaxLength="255"/>
+<Property Name="numberOfSubBlocks" Type="Edm.Int32"/>
+<Property Name="subBlocks" Type="Collection(atom.srv.mdm.product.ProductService.atom_srv_mdm_product_subBlock)" Nullable="false"/>
+</ComplexType>
+<ComplexType Name="atom_srv_mdm_product_subBlock">
+<Property Name="subBlockId" Type="Edm.String" MaxLength="50"/>
+<Property Name="title" Type="Edm.String" MaxLength="255"/>
+<Property Name="uiType" Type="Edm.String" MaxLength="50"/>
+<Property Name="readOnly" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="visible" Type="Edm.Boolean" DefaultValue="true"/>
+<Property Name="numberOfFields" Type="Edm.Int32"/>
+<Property Name="rowAddable" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="rowDelible" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="multiSelect" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="addButtonLabel" Type="Edm.String" MaxLength="20"/>
+<Property Name="deleteButtonLabel" Type="Edm.String" MaxLength="20"/>
+<Property Name="fields" Type="Collection(atom.srv.mdm.product.ProductService.atom_srv_mdm_product_subBlockField)" Nullable="false"/>
+<Property Name="customComponent" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="endpoints" Type="atom.srv.mdm.product.ProductService.atom_srv_mdm_product_subBlock_endpoints"/>
+</ComplexType>
+<ComplexType Name="atom_srv_mdm_product_subBlockField">
+<Property Name="sortOrder" Type="Edm.Int32"/>
+<Property Name="mandatory" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="readOnly" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="fieldName" Type="Edm.String" MaxLength="255"/>
+<Property Name="inputType" Type="Edm.String" MaxLength="50" DefaultValue="text"/>
+<Property Name="componentType" Type="Edm.String" MaxLength="50" DefaultValue="input"/>
+<Property Name="placeholderText" Type="Edm.String" MaxLength="255" DefaultValue=""/>
+<Property Name="semantics" Type="Edm.String" MaxLength="100"/>
+<Property Name="label" Type="Edm.String" MaxLength="255"/>
+<Property Name="id" Type="Edm.String" MaxLength="255"/>
+<Property Name="width" Type="Edm.Decimal" Precision="10" Scale="3"/>
+<Property Name="defaultValue" Type="Edm.String" MaxLength="255"/>
+<Property Name="checkboxOptions" Type="Collection(atom.srv.mdm.product.ProductService.atom_srv_mdm_product_checkboxOption)" Nullable="false"/>
+<Property Name="radiobuttonOptions" Type="Collection(atom.srv.mdm.product.ProductService.atom_srv_mdm_product_radiobuttonOption)" Nullable="false"/>
+<Property Name="filterable" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="filter" Type="Edm.String"/>
+<Property Name="filterType" Type="Edm.String" MaxLength="10"/>
+<Property Name="filterIdField" Type="Edm.String" MaxLength="255"/>
+<Property Name="filterTextField" Type="Edm.String" MaxLength="255"/>
+<Property Name="createable" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="updatable" Type="Edm.Boolean" DefaultValue="false"/>
+<Property Name="persistenceIdField" Type="Edm.String" MaxLength="100"/>
+</ComplexType>
+<ComplexType Name="atom_srv_mdm_product_checkboxOption">
+<Property Name="id" Type="Edm.String" MaxLength="255"/>
+<Property Name="text" Type="Edm.String" MaxLength="255"/>
+<Property Name="color" Type="Edm.String" MaxLength="10" DefaultValue="None"/>
+</ComplexType>
+<ComplexType Name="atom_srv_mdm_product_radiobuttonOption">
+<Property Name="id" Type="Edm.String" MaxLength="255"/>
+<Property Name="text" Type="Edm.String" MaxLength="255"/>
+<Property Name="color" Type="Edm.String" MaxLength="10" DefaultValue="None"/>
+</ComplexType>
+<ComplexType Name="atom_srv_mdm_product_subBlock_endpoints">
+<Property Name="read" Type="Edm.String" MaxLength="255"/>
+<Property Name="update" Type="Edm.String" MaxLength="255"/>
+<Property Name="create" Type="Edm.String" MaxLength="255"/>
+<Property Name="delete" Type="Edm.String" MaxLength="255"/>
+<Property Name="validate" Type="Edm.String" MaxLength="255"/>
+</ComplexType>
+<Function Name="getJsonSchema" IsBound="false" IsComposable="false">
+<Parameter Name="productId" Type="Edm.Int32"/>
+<Parameter Name="pageId" Type="Edm.Int32"/>
+<Parameter Name="dealId" Type="Edm.Int32"/>
+<ReturnType Type="atom.srv.mdm.product.ProductService.atom_srv_mdm_product_Page"/>
+</Function>
+<Action Name="publish" IsBound="false">
+<Parameter Name="productId" Type="Edm.Int32"/>
+<ReturnType Type="Edm.Boolean"/>
+</Action>
+<Annotations Target="atom.srv.mdm.product.ProductService.DealEntities/createdAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Created On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.DealEntities/createdBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Created By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.DealEntities/modifiedAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Changed On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.DealEntities/modifiedBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Changed By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.DealEntities/ACTIVE">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Active"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Inactive"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.DealEntities/DELETED">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Yes"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="No"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.DealEntityFields/createdAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Created On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.DealEntityFields/createdBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Created By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.DealEntityFields/modifiedAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Changed On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.DealEntityFields/modifiedBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Changed By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.DealEntityFields/ACTIVE">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Active"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Inactive"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.DealEntityFields/DELETED">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Yes"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="No"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.Products/createdAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Created On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.Products/createdBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Created By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.Products/modifiedAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Changed On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.Products/modifiedBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Changed By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.Products/ACTIVE">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Active"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Inactive"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.Products/DELETED">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Yes"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="No"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.BlocksEntity/createdAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Created On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.BlocksEntity/createdBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Created By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.BlocksEntity/modifiedAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Changed On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.BlocksEntity/modifiedBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Changed By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.BlocksEntity/ACTIVE">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Active"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Inactive"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.BlocksEntity/DELETED">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Yes"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="No"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.SubBlocksEntity/createdAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Created On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.SubBlocksEntity/createdBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Created By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.SubBlocksEntity/modifiedAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Changed On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.SubBlocksEntity/modifiedBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Changed By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.SubBlocksEntity/ACTIVE">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Active"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Inactive"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.SubBlocksEntity/DELETED">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Yes"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="No"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.SubBlockFields/createdAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Created On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.SubBlockFields/createdBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Created By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.SubBlockFields/modifiedAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Changed On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.SubBlockFields/modifiedBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Changed By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.SubBlockFields/ACTIVE">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Active"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Inactive"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.SubBlockFields/DELETED">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Yes"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="No"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductEntities/createdAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Created On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductEntities/createdBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Created By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductEntities/modifiedAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Changed On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductEntities/modifiedBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Changed By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductEntities/ACTIVE">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Active"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Inactive"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductEntities/DELETED">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Yes"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="No"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductEntityFields/createdAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Created On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductEntityFields/createdBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Created By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductEntityFields/modifiedAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Changed On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductEntityFields/modifiedBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Changed By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductEntityFields/ACTIVE">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Active"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Inactive"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductEntityFields/DELETED">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Yes"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="No"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductEntityValidations/createdAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Created On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductEntityValidations/createdBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Created By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductEntityValidations/modifiedAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Changed On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductEntityValidations/modifiedBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Changed By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductEntityValidations/ACTIVE">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Active"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Inactive"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductEntityValidations/DELETED">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Yes"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="No"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductDefaultDealStructures/createdAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Created On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductDefaultDealStructures/createdBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Created By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductDefaultDealStructures/modifiedAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Changed On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductDefaultDealStructures/modifiedBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Changed By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductDefaultDealStructures/ACTIVE">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Active"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Inactive"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductDefaultDealStructures/DELETED">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Yes"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="No"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductInternalRiskCodes/createdAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Created On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductInternalRiskCodes/createdBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Created By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductInternalRiskCodes/modifiedAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Changed On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductInternalRiskCodes/modifiedBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Changed By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductInternalRiskCodes/ACTIVE">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Active"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Inactive"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductInternalRiskCodes/DELETED">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Yes"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="No"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductRiskObjectTypes/createdAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Created On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductRiskObjectTypes/createdBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Created By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductRiskObjectTypes/modifiedAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Changed On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductRiskObjectTypes/modifiedBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Changed By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductRiskObjectTypes/ACTIVE">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Active"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Inactive"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductRiskObjectTypes/DELETED">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Yes"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="No"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductPools/createdAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Created On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductPools/createdBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Created By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductPools/modifiedAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Changed On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductPools/modifiedBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Changed By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductPools/ACTIVE">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Active"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Inactive"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductPools/DELETED">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Yes"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="No"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductCoverholders/createdAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Created On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductCoverholders/createdBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Created By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductCoverholders/modifiedAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Changed On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductCoverholders/modifiedBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Changed By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductCoverholders/ACTIVE">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Active"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Inactive"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductCoverholders/DELETED">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Yes"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="No"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductPages/createdAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Created On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductPages/createdBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Created By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductPages/modifiedAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Changed On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductPages/modifiedBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Changed By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductPages/ACTIVE">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Active"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Inactive"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ProductPages/DELETED">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Yes"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="No"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.LineOfBusiness/createdAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Created On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.LineOfBusiness/createdBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Created By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.LineOfBusiness/modifiedAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Changed On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.LineOfBusiness/modifiedBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Changed By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.LineOfBusiness/ACTIVE">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Active"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Inactive"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.LineOfBusiness/DELETED">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Yes"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="No"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.InternalRiskCode/createdAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Created On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.InternalRiskCode/createdBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Created By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.InternalRiskCode/modifiedAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Changed On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.InternalRiskCode/modifiedBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Changed By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.InternalRiskCode/ACTIVE">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Active"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Inactive"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.InternalRiskCode/DELETED">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Yes"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="No"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.RiskObjectType/createdAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Created On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.RiskObjectType/createdBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Created By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.RiskObjectType/modifiedAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Changed On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.RiskObjectType/modifiedBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Changed By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.RiskObjectType/ACTIVE">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Active"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Inactive"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.RiskObjectType/DELETED">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Yes"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="No"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.Pool/createdAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Created On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.Pool/createdBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Created By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.Pool/modifiedAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Changed On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.Pool/modifiedBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Changed By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.Pool/ACTIVE">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Active"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Inactive"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.Pool/DELETED">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Yes"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="No"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.Coverholder/createdAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Created On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.Coverholder/createdBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Created By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.Coverholder/modifiedAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Changed On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.Coverholder/modifiedBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Changed By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.Coverholder/ACTIVE">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Active"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Inactive"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.Coverholder/DELETED">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Yes"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="No"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ConditionType/createdAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Created On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ConditionType/createdBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Created By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ConditionType/modifiedAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Changed On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ConditionType/modifiedBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Changed By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ConditionType/ACTIVE">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Active"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Inactive"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ConditionType/DELETED">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Yes"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="No"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.LloydsRiskCode/createdAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Created On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.LloydsRiskCode/createdBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Created By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.LloydsRiskCode/modifiedAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Changed On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.LloydsRiskCode/modifiedBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Changed By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.LloydsRiskCode/ACTIVE">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Active"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Inactive"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.LloydsRiskCode/DELETED">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Yes"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="No"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.Segment/createdAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Created On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.Segment/createdBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Created By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.Segment/modifiedAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Changed On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.Segment/modifiedBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Changed By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.Segment/ACTIVE">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Active"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Inactive"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.Segment/DELETED">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Yes"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="No"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.PlacementType/createdAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Created On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.PlacementType/createdBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Created By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.PlacementType/modifiedAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Changed On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.PlacementType/modifiedBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Changed By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.PlacementType/ACTIVE">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Active"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Inactive"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.PlacementType/DELETED">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Yes"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="No"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ExposureType/createdAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Created On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ExposureType/createdBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Created By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ExposureType/modifiedAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Changed On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ExposureType/modifiedBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Changed By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ExposureType/ACTIVE">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Active"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Inactive"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.ExposureType/DELETED">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Yes"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="No"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.PoolUwy/createdAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Created On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.PoolUwy/createdBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Created By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.PoolUwy/modifiedAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Changed On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.PoolUwy/modifiedBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Changed By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.PoolUwy/ACTIVE">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Active"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Inactive"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.PoolUwy/DELETED">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Yes"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="No"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.InternalRiskInPool/createdAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Created On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.InternalRiskInPool/createdBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Immutable" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Created By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.InternalRiskInPool/modifiedAt">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Common.Label" String="Changed On"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.InternalRiskInPool/modifiedBy">
+<Annotation Term="UI.HiddenFilter" Bool="true"/>
+<Annotation Term="Core.Computed" Bool="true"/>
+<Annotation Term="Core.Description" String="User's unique ID"/>
+<Annotation Term="Common.Label" String="Changed By"/>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.InternalRiskInPool/ACTIVE">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Active"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Inactive"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+<Annotations Target="atom.srv.mdm.product.ProductService.InternalRiskInPool/DELETED">
+<Annotation Term="Validation.AllowedValues">
+<Collection>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="Yes"/>
+<PropertyValue Property="Value" Bool="true"/>
+</Record>
+<Record Type="Validation.AllowedValue">
+<Annotation Term="Core.SymbolicName" String="No"/>
+<PropertyValue Property="Value" Bool="false"/>
+</Record>
+</Collection>
+</Annotation>
+</Annotations>
+</Schema>
+</edmx:DataServices>
+</edmx:Edmx>

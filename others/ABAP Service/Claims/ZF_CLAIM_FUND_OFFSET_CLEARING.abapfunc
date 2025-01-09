@@ -1,0 +1,192 @@
+FUNCTION ZF_CLAIM_FUND_OFFSET_CLEARING
+  EXPORTING
+    VALUE(E_STATUS) TYPE CHAR10
+    VALUE(E_RETURN) TYPE BAPIRETURN_T
+  CHANGING
+    VALUE(CT_CLAIMFUND_INPUT) TYPE ZTTCLAIMFUNDCLEAR OPTIONAL.
+
+
+
+
+
+
+  " Here Purpose Represents which clearing to be called.
+  " CF - Claim Fund
+  " PO - Premium Offset
+  DATA: lv_error_flag      TYPE boole_d,
+        lt_claimfund_input TYPE zttclaimfundclear,
+        lt_return          TYPE bapireturn_t,
+        lv_status          TYPE char01.
+
+
+  DATA: members                        TYPE zttclaimfundclear.
+
+  " Check if the only valid Purpose is received
+  SELECT COUNT( * ) AS invalidpurpose FROM
+      @ct_claimfund_input AS ct
+      WHERE purpose NOT IN ( 'CF', 'PO' )
+      INTO @DATA(lv_invalidpurpose).
+  IF sy-subrc EQ 0 OR lv_invalidpurpose IS NOT INITIAL.
+    " Update Log with any one valid purpose
+    SELECT SINGLE purpose
+    FROM @ct_claimfund_input AS ct
+      WHERE purpose IN ( 'CF', 'PO' )
+      INTO @DATA(lv_purpose).
+    e_status = 'Failed'.
+    e_return = VALUE #( ( message = |Invalid Purpose Sent| type = zcl_clearingapp_services=>ac_message_type_error  ) ) .
+    TRY.
+        " Update Log
+        DATA(ls_fica_log) = VALUE zfica_logs(
+           guid = cl_uuid_factory=>create_system_uuid( )->create_uuid_x16( )
+           purpose = lv_purpose
+           ucr = VALUE #( ct_claimfund_input[ 1 ]-ucr OPTIONAL )
+           elsclaimnum =  VALUE #( ct_claimfund_input[ 1 ]-claim_id OPTIONAL )
+           tr_id =  VALUE #( ct_claimfund_input[ 1 ]-tr_id OPTIONAL )
+           crdat = sy-datum
+           crtime = sy-uzeit
+           message_type = e_status
+           in_payload = zcl_clearingapp_services=>conv_any_to_jsonstring( EXPORTING im_data = ct_claimfund_input )
+           out_payload = zcl_clearingapp_services=>conv_any_to_jsonstring( EXPORTING im_data = e_return )
+          ).
+        INSERT zfica_logs FROM ls_fica_log.  
+        COMMIT WORK.
+      CATCH cx_root.
+    ENDTRY.
+  ENDIF.
+
+
+
+  LOOP AT ct_claimfund_input ASSIGNING FIELD-SYMBOL(<fs_claimfund_input>)
+       GROUP BY (
+       purpose = <fs_claimfund_input>-purpose
+       collection_item_no = <fs_claimfund_input>-collection_item_no
+                                                  )
+                                                 ASSIGNING FIELD-SYMBOL(<group>).
+
+    REFRESH: members, lt_return.
+    CLEAR: lv_error_flag, lv_status.
+
+    LOOP AT GROUP <group> ASSIGNING FIELD-SYMBOL(<fs_claimfund_input_g>).
+      members = VALUE #( BASE members ( <fs_claimfund_input_g> ) ).
+    ENDLOOP.
+
+    IF <group>-purpose EQ 'CF'.
+      zcl_clearingapp_services=>perform_claimfund_clearing(
+          CHANGING
+            ct_input     = members
+            cv_error_flag = lv_error_flag
+            ct_return     = lt_return
+        ).
+
+      SORT lt_return BY type.
+
+      lv_status = COND #(  WHEN lv_error_flag IS NOT INITIAL THEN  'Failed'
+                         WHEN line_exists( lt_return[ type = 'E' ] ) THEN 'Failed'
+                              ELSE 'Success').
+    ELSEIF <group>-purpose EQ 'PO'.
+
+      zcl_clearingapp_services=>perform_premiumoffset_clearing(
+        CHANGING
+          ct_input     = ct_claimfund_input
+          cv_error_flag = lv_error_flag
+          ct_return     = lt_return
+      ).
+      SORT lt_return BY type.
+      lv_status = COND #(  WHEN lv_error_flag IS NOT INITIAL THEN  'Failed'
+                         WHEN line_exists( lt_return[ type = 'E' ] ) THEN 'Failed'
+                              ELSE 'Success').
+
+    ENDIF.
+
+    APPEND LINES OF members TO lt_claimfund_input.
+    APPEND LINES OF lt_return TO e_return.
+
+    TRY.
+        " Update Log
+        ls_fica_log = VALUE zfica_logs(
+           guid = cl_uuid_factory=>create_system_uuid( )->create_uuid_x16( )
+           purpose = COND #( WHEN <group>-purpose = 'PO' THEN 'C_COFSTCLR' WHEN <group>-purpose = 'CF' THEN 'C_CFUNDCLR' )
+           ucr = VALUE #( ct_claimfund_input[ 1 ]-ucr OPTIONAL )
+           elsclaimnum =  VALUE #( ct_claimfund_input[ 1 ]-claim_id OPTIONAL )
+           tr_id =  VALUE #( ct_claimfund_input[ 1 ]-tr_id OPTIONAL )
+           crdat = sy-datum
+           crtime = sy-uzeit
+           message_type = COND #( WHEN lv_status = 'Failed' THEN 'E' ELSE 'S' )
+           in_payload = zcl_clearingapp_services=>conv_any_to_jsonstring( EXPORTING im_data = members )
+           out_payload = zcl_clearingapp_services=>conv_any_to_jsonstring( EXPORTING im_data = lt_return )
+
+          ).
+        INSERT zfica_logs FROM ls_fica_log.
+        COMMIT WORK.
+      CATCH cx_root.
+    ENDTRY.
+
+  ENDLOOP.
+
+
+  ct_claimfund_input = lt_claimfund_input.
+
+  e_status = COND #(
+                      WHEN line_exists( lt_return[ type = 'E' ] ) THEN 'Failed'
+                          ELSE 'Success').
+
+
+
+
+
+*
+*
+*  " IF purpose EQ 'CF'.
+*  zcl_clearingapp_services=>perform_claimfund_clearing(
+*    CHANGING
+*      ct_input     = ct_claimfund_input
+*      cv_error_flag = lv_error_flag
+*      ct_return     = e_return
+*  ).
+*
+*  DATA(lt_return) = e_return.
+*  SORT lt_return BY type.
+*  e_status = COND #( WHEN lv_error_flag IS NOT INITIAL THEN  'Failed'
+*                     WHEN line_exists( lt_return[ type = 'E' ] ) THEN 'Failed'
+*                          ELSE 'Success').
+*  " ELSEIF purpose EQ 'PO'.
+*
+*  zcl_clearingapp_services=>perform_premiumoffset_clearing(
+*    CHANGING
+*      ct_input     = ct_claimfund_input
+*      cv_error_flag = lv_error_flag
+*      ct_return     = e_return
+*  ).
+*
+*  lt_return = e_return.
+*  SORT lt_return BY type.
+*  e_status = COND #( WHEN lv_error_flag IS NOT INITIAL THEN  'Failed'
+*                     WHEN line_exists( lt_return[ type = 'E' ] ) THEN 'Failed'
+*                          ELSE 'Success').
+*
+*
+*  "ENDIF.
+*
+*  TRY.
+*      " Update Log
+*      DATA(ls_fica_log) = VALUE zfica_logs(
+*         guid = cl_uuid_factory=>create_system_uuid( )->create_uuid_x16( )
+*        " purpose = COND #( WHEN purpose = 'PO' THEN 'C_COFSTCLR' WHEN purpose = 'CF' THEN 'C_CFUNDCLR' )
+*         ucr = VALUE #( ct_claimfund_input[ 1 ]-ucr OPTIONAL )
+*         elsclaimnum =  VALUE #( ct_claimfund_input[ 1 ]-claim_id OPTIONAL )
+*         tr_id =  VALUE #( ct_claimfund_input[ 1 ]-tr_id OPTIONAL )
+*         crdat = sy-datum
+*         crtime = sy-uzeit
+*         message_type = COND #( WHEN e_status = 'Failed' THEN 'E' ELSE 'S' )
+*         in_payload = zcl_clearingapp_services=>conv_any_to_jsonstring( EXPORTING im_data = ct_claimfund_input )
+*         out_payload = zcl_clearingapp_services=>conv_any_to_jsonstring( EXPORTING im_data = e_return )
+*
+*        ).
+*      INSERT zfica_logs FROM ls_fica_log.
+*    CATCH cx_root.
+*  ENDTRY.
+*
+
+
+
+ENDFUNCTION.

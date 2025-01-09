@@ -1,0 +1,63 @@
+{
+    "IM_ASYNC_MODE": "",
+    "IM_HEADER_DATA": {
+        "POSTING_DATE": "2024-06-10",
+        "COMPANY_CODE": "DX01",
+        "DIVISION": "E1",
+        "BANK_ACCOUNT_NUMBER": "4021323893163050",
+        "GL_ACCOUNT": "1140100"
+    },
+    "IT_CLEARING_DATA": [
+        {
+            "BUSINESS_PARTNER_NO": "1100000048",
+            "TRANSACTION_TYPE": "Claim receivable from Member",
+            "BIT_REFERENCE": "734165692",
+            "INTERNAL_REFERENCE_NO": "#1100018781-00000075-0003",
+            "EXTERNAL_REFERENCE_NO": "#1100018781-00000075",
+            "ORIGINAL_CURRENCY": "USD",
+            "AMOUNT_CLEARED": "30.66",
+            "EXPECTED_PAY_CURRENCY": "USD",
+            "ROE_REC_CURRENCY": "1",
+            "DUE_DATE": "2024-05-30",
+            "UMR": "B0509AVNAL2450133",
+            "UCR": "AK_TEST_CLAIM_BTP",
+            "CLAIM_REFERENCE": "#1100018781-00000075-005-",
+            "TRANSACTION_REFERENCE": "TR-01",
+            "COLLECTION_TYPE": "C",
+            "CONTRACT_ACCOUNT": "370000000044",
+            "MEMBERBPID": "1100000048",
+            "DOCUMENT_NUMBER": "800000074018",
+            "ITEM_NUMBER": "0001",
+            "REP_ITEM": "000",
+            "SUB_ITEM": "000",
+            "FIXED_ROE": "X",
+            "ALLOCAMN": "0"
+        },
+        {
+            "BUSINESS_PARTNER_NO": "1100000048",
+            "TRANSACTION_TYPE": "Payment",
+            "BIT_REFERENCE": "",
+            "INTERNAL_REFERENCE_NO": "",
+            "EXTERNAL_REFERENCE_NO": "",
+            "ORIGINAL_CURRENCY": "USD",
+            "AMOUNT_CLEARED": "-30.66",
+            "EXPECTED_PAY_CURRENCY": "USD",
+            "ROE_REC_CURRENCY": "1",
+            "UMR": "",
+            "UCR": "",
+            "CLAIM_REFERENCE": "",
+            "TRANSACTION_REFERENCE": "",
+            "COLLECTION_TYPE": "",
+            "CONTRACT_ACCOUNT": "",
+            "MEMBERBPID": "",
+            "DOCUMENT_NUMBER": "",
+            "ITEM_NUMBER": "",
+            "REP_ITEM": "",
+            "SUB_ITEM": "",
+            "FIXED_ROE": "",
+            "ALLOCAMN": "-30.66"
+        }
+    ],
+    "USER_ID": "anonymous",
+    "UNIQUE_CLEARING_IDENTIFIER": "8d6af751-4117-454d-9901-14e0c3f7b0f2"
+}

@@ -1,0 +1,824 @@
+@server = http://localhost:4004
+@auth = Authorization: Basic alice:
+
+
+### clearingapplicationService.Coverholder
+GET {{server}}/clearingapplication/Coverholder
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationService.Coverholder
+POST {{server}}/clearingapplication/Coverholder
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 62500,
+  "COVERHOLDER_CODE": "Coverholder-62500",
+  "createdAt": "2002-10-10T20:00:00.000Z",
+  "createdBy": "createdBy-62500",
+  "modifiedAt": "2001-08-09T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-62500",
+  "ACTIVE": true,
+  "DELETED": true,
+  "COVERHOLDER_NAME": "COVERHOLDER_NAME-62500",
+  "COVERHOLDER_PIN": "COVERHOLDER_PIN-62500"
+}
+
+
+### clearingapplicationService.Coverholder
+PATCH {{server}}/clearingapplication/Coverholder/62500
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 62500,
+  "COVERHOLDER_CODE": "Coverholder-62500",
+  "createdAt": "2002-10-10T20:00:00.000Z",
+  "createdBy": "createdBy-62500",
+  "modifiedAt": "2001-08-09T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-62500",
+  "ACTIVE": true,
+  "DELETED": true,
+  "COVERHOLDER_NAME": "COVERHOLDER_NAME-62500",
+  "COVERHOLDER_PIN": "COVERHOLDER_PIN-62500"
+}
+
+
+### clearingapplicationService.Coverholder
+DELETE {{server}}/clearingapplication/Coverholder/62500
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationService.BusinessPartners
+GET {{server}}/clearingapplication/BusinessPartners
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationService.BusinessPartners
+POST {{server}}/clearingapplication/BusinessPartners
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "essPartners-12942385",
+  "createdAt": "2021-12-26T20:00:00.000Z",
+  "createdBy": "createdBy-12942385",
+  "modifiedAt": "2005-05-01T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-12942385",
+  "ACTIVE": false,
+  "DELETED": false,
+  "BP_ID_EXT": "BP_ID_EXT-12942385",
+  "FIRST_NAME": "FIRST_NAME-12942385",
+  "MIDDLE_NAME": "MIDDLE_NAME-12942385",
+  "LAST_NAME": "LAST_NAME-12942385",
+  "CITY": "CITY-12942385",
+  "ADDR1": "ADDR1-12942385",
+  "ADDR2": "ADDR2-12942385",
+  "ADDR3": "ADDR3-12942385",
+  "COUNTRY_CD": "385",
+  "COMPANY_NAME": "COMPANY_NAME-12942385",
+  "ALIAS": "ALIAS-12942385",
+  "SEARCH_STRING": "SEARCH_STRING-12942385",
+  "EMAIL": "EMAIL-12942385",
+  "BUSINESS_PARTNER_TYPE_ID": 84,
+  "FULL_NAME": "FULL_NAME-12942385",
+  "FULL_ADDR": "FULL_ADDR-12942385",
+  "COPMANY_TYPE_CODE": "385",
+  "COMPNAY_TYPE_DESC": "COMPNAY_TYPE_DESC-12942385",
+  "ItsCountry": {
+    "ID": 29895966,
+    "COUNTRY_CD": "966"
+  },
+  "ItsBusinessPartnerTypes": {
+    "ID": 28996859
+  }
+}
+
+
+### clearingapplicationService.BusinessPartners
+PATCH {{server}}/clearingapplication/BusinessPartners/essPartners-12942385
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "essPartners-12942385",
+  "createdAt": "2021-12-26T20:00:00.000Z",
+  "createdBy": "createdBy-12942385",
+  "modifiedAt": "2005-05-01T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-12942385",
+  "ACTIVE": false,
+  "DELETED": false,
+  "BP_ID_EXT": "BP_ID_EXT-12942385",
+  "FIRST_NAME": "FIRST_NAME-12942385",
+  "MIDDLE_NAME": "MIDDLE_NAME-12942385",
+  "LAST_NAME": "LAST_NAME-12942385",
+  "CITY": "CITY-12942385",
+  "ADDR1": "ADDR1-12942385",
+  "ADDR2": "ADDR2-12942385",
+  "ADDR3": "ADDR3-12942385",
+  "COUNTRY_CD": "385",
+  "COMPANY_NAME": "COMPANY_NAME-12942385",
+  "ALIAS": "ALIAS-12942385",
+  "SEARCH_STRING": "SEARCH_STRING-12942385",
+  "EMAIL": "EMAIL-12942385",
+  "BUSINESS_PARTNER_TYPE_ID": 84,
+  "FULL_NAME": "FULL_NAME-12942385",
+  "FULL_ADDR": "FULL_ADDR-12942385",
+  "COPMANY_TYPE_CODE": "385",
+  "COMPNAY_TYPE_DESC": "COMPNAY_TYPE_DESC-12942385",
+  "ItsCountry": {
+    "ID": 29895966,
+    "COUNTRY_CD": "966"
+  },
+  "ItsBusinessPartnerTypes": {
+    "ID": 28996859
+  }
+}
+
+
+### clearingapplicationService.BusinessPartners
+DELETE {{server}}/clearingapplication/BusinessPartners/essPartners-12942385
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationService.InternalReferencesWithAttributes
+GET {{server}}/clearingapplication/InternalReferencesWithAttributes
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationService.Divisions
+GET {{server}}/clearingapplication/Divisions
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationService.Divisions
+POST {{server}}/clearingapplication/Divisions
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 17311319,
+  "createdAt": "2020-03-07T20:00:00.000Z",
+  "createdBy": "createdBy-17311319",
+  "modifiedAt": "2008-03-03T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-17311319",
+  "ACTIVE": false,
+  "DELETED": false,
+  "DIVISION_CODE": "19",
+  "DIVISION_NAME": "DIVISION_NAME-17311319"
+}
+
+
+### clearingapplicationService.Divisions
+PATCH {{server}}/clearingapplication/Divisions/17311319
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 17311319,
+  "createdAt": "2020-03-07T20:00:00.000Z",
+  "createdBy": "createdBy-17311319",
+  "modifiedAt": "2008-03-03T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-17311319",
+  "ACTIVE": false,
+  "DELETED": false,
+  "DIVISION_CODE": "19",
+  "DIVISION_NAME": "DIVISION_NAME-17311319"
+}
+
+
+### clearingapplicationService.Divisions
+DELETE {{server}}/clearingapplication/Divisions/17311319
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationService.BankAccount
+GET {{server}}/clearingapplication/BankAccount
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationService.PremiumReceivablesPendingTransactions
+GET {{server}}/clearingapplication/PremiumReceivablesPendingTransactions
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationService.PremiumReceivablesPendingTransactions
+POST {{server}}/clearingapplication/PremiumReceivablesPendingTransactions
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "26935759-3511-4683-9b73-b786bf07da86",
+  "ExtRef": "ExtRef-26935759",
+  "IntRef": "IntRef-26935759",
+  "TrType": "TrType-26935759",
+  "BitRef": "BitRef-26935759",
+  "EndorsementRef": "f-26935759",
+  "PremiumId": "emiumId-26935759",
+  "PolicyNo": "PolicyNo-26935759",
+  "Installment": "Installment-26935759",
+  "Status": 1,
+  "createdAt": "2021-09-16T20:00:00.000Z",
+  "createdBy": "createdBy.g1brj@example.com",
+  "modifiedAt": "2022-02-18T20:00:00.000Z",
+  "modifiedBy": "modifiedBy.g1brj@example.org"
+}
+
+
+### clearingapplicationService.PremiumReceivablesPendingTransactions
+PATCH {{server}}/clearingapplication/PremiumReceivablesPendingTransactions/26935759-3511-4683-9b73-b786bf07da86
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "26935759-3511-4683-9b73-b786bf07da86",
+  "ExtRef": "ExtRef-26935759",
+  "IntRef": "IntRef-26935759",
+  "TrType": "TrType-26935759",
+  "BitRef": "BitRef-26935759",
+  "EndorsementRef": "f-26935759",
+  "PremiumId": "emiumId-26935759",
+  "PolicyNo": "PolicyNo-26935759",
+  "Installment": "Installment-26935759",
+  "Status": 1,
+  "createdAt": "2021-09-16T20:00:00.000Z",
+  "createdBy": "createdBy.g1brj@example.com",
+  "modifiedAt": "2022-02-18T20:00:00.000Z",
+  "modifiedBy": "modifiedBy.g1brj@example.org"
+}
+
+
+### clearingapplicationService.PremiumReceivablesPendingTransactions
+DELETE {{server}}/clearingapplication/PremiumReceivablesPendingTransactions/26935759-3511-4683-9b73-b786bf07da86
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationService.ClaimReceivablesPendingTransactions
+GET {{server}}/clearingapplication/ClaimReceivablesPendingTransactions
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationService.ClaimReceivablesPendingTransactions
+POST {{server}}/clearingapplication/ClaimReceivablesPendingTransactions
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "23272674-b79e-4f1b-b60f-f667d16bc8e7",
+  "ExtRef": "ExtRef-23272674",
+  "IntRef": "IntRef-23272674",
+  "TrType": "TrType-23272674",
+  "BitRef": "BitRef-23272674",
+  "UCR": "UCR-23272674",
+  "ClaimRef": "ClaimRef-23272674",
+  "TrRef": "TrRef-23272674",
+  "MemberBPID": "MemberBPID-23272674",
+  "Status": 4,
+  "createdAt": "2004-08-02T20:00:00.000Z",
+  "createdBy": "createdBy.dutb6@example.com",
+  "modifiedAt": "2006-01-03T20:00:00.000Z",
+  "modifiedBy": "modifiedBy.dutb6@example.net"
+}
+
+
+### clearingapplicationService.ClaimReceivablesPendingTransactions
+PATCH {{server}}/clearingapplication/ClaimReceivablesPendingTransactions/23272674-b79e-4f1b-b60f-f667d16bc8e7
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "23272674-b79e-4f1b-b60f-f667d16bc8e7",
+  "ExtRef": "ExtRef-23272674",
+  "IntRef": "IntRef-23272674",
+  "TrType": "TrType-23272674",
+  "BitRef": "BitRef-23272674",
+  "UCR": "UCR-23272674",
+  "ClaimRef": "ClaimRef-23272674",
+  "TrRef": "TrRef-23272674",
+  "MemberBPID": "MemberBPID-23272674",
+  "Status": 4,
+  "createdAt": "2004-08-02T20:00:00.000Z",
+  "createdBy": "createdBy.dutb6@example.com",
+  "modifiedAt": "2006-01-03T20:00:00.000Z",
+  "modifiedBy": "modifiedBy.dutb6@example.net"
+}
+
+
+### clearingapplicationService.ClaimReceivablesPendingTransactions
+DELETE {{server}}/clearingapplication/ClaimReceivablesPendingTransactions/23272674-b79e-4f1b-b60f-f667d16bc8e7
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationService.PremiumPayablesPendingTransactions
+GET {{server}}/clearingapplication/PremiumPayablesPendingTransactions
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationService.PremiumPayablesPendingTransactions
+POST {{server}}/clearingapplication/PremiumPayablesPendingTransactions
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "2271757e-30dc-4b0b-9714-e001d30aa222",
+  "ExtRef": "ExtRef-2271757",
+  "IntRef": "IntRef-2271757",
+  "TrType": "TrType-2271757",
+  "EndorsementRef": "ef-2271757",
+  "PremiumId": "remiumId-2271757",
+  "PolicyNo": "PolicyNo-2271757",
+  "Installment": "Installment-2271757",
+  "DocumentNo": "ntNo-2271757",
+  "ItemNo": "1757",
+  "RepItem": "757",
+  "SubItem": "757",
+  "Status": 1,
+  "createdAt": "2007-09-11T20:00:00.000Z",
+  "createdBy": "createdBy.1cowd@example.com",
+  "modifiedAt": "2020-08-11T20:00:00.000Z",
+  "modifiedBy": "modifiedBy.1cowd@example.net"
+}
+
+
+### clearingapplicationService.PremiumPayablesPendingTransactions
+PATCH {{server}}/clearingapplication/PremiumPayablesPendingTransactions/2271757e-30dc-4b0b-9714-e001d30aa222
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "2271757e-30dc-4b0b-9714-e001d30aa222",
+  "ExtRef": "ExtRef-2271757",
+  "IntRef": "IntRef-2271757",
+  "TrType": "TrType-2271757",
+  "EndorsementRef": "ef-2271757",
+  "PremiumId": "remiumId-2271757",
+  "PolicyNo": "PolicyNo-2271757",
+  "Installment": "Installment-2271757",
+  "DocumentNo": "ntNo-2271757",
+  "ItemNo": "1757",
+  "RepItem": "757",
+  "SubItem": "757",
+  "Status": 1,
+  "createdAt": "2007-09-11T20:00:00.000Z",
+  "createdBy": "createdBy.1cowd@example.com",
+  "modifiedAt": "2020-08-11T20:00:00.000Z",
+  "modifiedBy": "modifiedBy.1cowd@example.net"
+}
+
+
+### clearingapplicationService.PremiumPayablesPendingTransactions
+DELETE {{server}}/clearingapplication/PremiumPayablesPendingTransactions/2271757e-30dc-4b0b-9714-e001d30aa222
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationService.UIMPendingTransactions
+GET {{server}}/clearingapplication/UIMPendingTransactions
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationService.UIMPendingTransactions
+POST {{server}}/clearingapplication/UIMPendingTransactions
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "24121977-f132-4de4-bacc-60733a8e5e4a",
+  "DocumentNo": "tNo-24121977",
+  "ItemNo": "1977",
+  "RepItem": "977",
+  "SubItem": "977",
+  "Status": 0,
+  "createdAt": "2000-03-06T20:00:00.000Z",
+  "createdBy": "createdBy.ed0mx@example.net",
+  "modifiedAt": "2015-06-17T20:00:00.000Z",
+  "modifiedBy": "modifiedBy.ed0mx@example.org"
+}
+
+
+### clearingapplicationService.UIMPendingTransactions
+PATCH {{server}}/clearingapplication/UIMPendingTransactions/24121977-f132-4de4-bacc-60733a8e5e4a
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "24121977-f132-4de4-bacc-60733a8e5e4a",
+  "DocumentNo": "tNo-24121977",
+  "ItemNo": "1977",
+  "RepItem": "977",
+  "SubItem": "977",
+  "Status": 0,
+  "createdAt": "2000-03-06T20:00:00.000Z",
+  "createdBy": "createdBy.ed0mx@example.net",
+  "modifiedAt": "2015-06-17T20:00:00.000Z",
+  "modifiedBy": "modifiedBy.ed0mx@example.org"
+}
+
+
+### clearingapplicationService.UIMPendingTransactions
+DELETE {{server}}/clearingapplication/UIMPendingTransactions/24121977-f132-4de4-bacc-60733a8e5e4a
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationService.ClearingOP
+GET {{server}}/clearingapplication/ClearingOP
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationService.CRClearingOP
+GET {{server}}/clearingapplication/CRClearingOP
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationService.ClearSOATable
+GET {{server}}/clearingapplication/ClearSOATable
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationService.UpdateSOATable
+GET {{server}}/clearingapplication/UpdateSOATable
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationService.SOAUpdateCheckResponse
+GET {{server}}/clearingapplication/SOAUpdateCheckResponse
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationService.InterfaceLog
+GET {{server}}/clearingapplication/InterfaceLog
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationService.InterfaceLog
+POST {{server}}/clearingapplication/InterfaceLog
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "18478245-b6b6-4f78-9abe-7836b4a82ccc",
+  "ExtRef": "ExtRef-18478245",
+  "TransactionType": "PremiumPayables",
+  "Date": "2017-03-03",
+  "UniqueClearingIdentifier": "18478245-83df-460f-b1d1-f32eceb8abb9",
+  "Payload": "Payload-18478245",
+  "Status": "Status-18478245",
+  "createdAt": "2002-03-15T20:00:00.000Z",
+  "createdBy": "createdBy.b01wl@example.org",
+  "modifiedAt": "2008-11-20T20:00:00.000Z",
+  "modifiedBy": "modifiedBy.b01wl@example.net"
+}
+
+
+### clearingapplicationService.InterfaceLog
+PATCH {{server}}/clearingapplication/InterfaceLog/18478245-b6b6-4f78-9abe-7836b4a82ccc
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "18478245-b6b6-4f78-9abe-7836b4a82ccc",
+  "ExtRef": "ExtRef-18478245",
+  "TransactionType": "PremiumPayables",
+  "Date": "2017-03-03",
+  "UniqueClearingIdentifier": "18478245-83df-460f-b1d1-f32eceb8abb9",
+  "Payload": "Payload-18478245",
+  "Status": "Status-18478245",
+  "createdAt": "2002-03-15T20:00:00.000Z",
+  "createdBy": "createdBy.b01wl@example.org",
+  "modifiedAt": "2008-11-20T20:00:00.000Z",
+  "modifiedBy": "modifiedBy.b01wl@example.net"
+}
+
+
+### clearingapplicationService.InterfaceLog
+DELETE {{server}}/clearingapplication/InterfaceLog/18478245-b6b6-4f78-9abe-7836b4a82ccc
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationService.ClearingStatusLog
+GET {{server}}/clearingapplication/ClearingStatusLog
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationService.ClearingStatusLog
+POST {{server}}/clearingapplication/ClearingStatusLog
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "17266280-a51c-4877-8dae-35c99d2c7542",
+  "UniqueClearingIdentifier": "17266280-50a7-46fc-ae0e-12bcf67f31a6",
+  "ClearingType": "PremiumReceivables",
+  "ExtRef": "ExtRef-17266280",
+  "IntRef": "IntRef-17266280",
+  "TrType": "TrType-17266280",
+  "BitRef": "BitRef-17266280",
+  "EndorsementRef": "f-17266280",
+  "PremiumId": "emiumId-17266280",
+  "PolicyNo": "PolicyNo-17266280",
+  "Installment": "Installment-17266280",
+  "UCR": "UCR-17266280",
+  "ClaimRef": "ClaimRef-17266280",
+  "TrRef": "TrRef-17266280",
+  "MemberBPID": "MemberBPID-17266280",
+  "Date": "2021-03-31",
+  "DocumentNo": "tNo-17266280",
+  "ItemNo": "6280",
+  "RepItem": "280",
+  "SubItem": "280",
+  "AmountCleared": 0.25,
+  "RoeRecCurr": 8.28188,
+  "DeltaDueRoe": 28.22,
+  "OriginalCurrency": "280",
+  "ExpectedPayCurrency": "280",
+  "ClearedBy": "ClearedBy.aa2qw@example.net",
+  "CreatedDocuments": "CreatedDocuments-17266280",
+  "Status": 4,
+  "createdAt": "2015-10-16T20:00:00.000Z",
+  "createdBy": "createdBy.aa2qw@example.org",
+  "modifiedAt": "2016-02-11T20:00:00.000Z",
+  "modifiedBy": "modifiedBy.aa2qw@example.com"
+}
+
+
+### clearingapplicationService.ClearingStatusLog
+PATCH {{server}}/clearingapplication/ClearingStatusLog/17266280-a51c-4877-8dae-35c99d2c7542
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "17266280-a51c-4877-8dae-35c99d2c7542",
+  "UniqueClearingIdentifier": "17266280-50a7-46fc-ae0e-12bcf67f31a6",
+  "ClearingType": "PremiumReceivables",
+  "ExtRef": "ExtRef-17266280",
+  "IntRef": "IntRef-17266280",
+  "TrType": "TrType-17266280",
+  "BitRef": "BitRef-17266280",
+  "EndorsementRef": "f-17266280",
+  "PremiumId": "emiumId-17266280",
+  "PolicyNo": "PolicyNo-17266280",
+  "Installment": "Installment-17266280",
+  "UCR": "UCR-17266280",
+  "ClaimRef": "ClaimRef-17266280",
+  "TrRef": "TrRef-17266280",
+  "MemberBPID": "MemberBPID-17266280",
+  "Date": "2021-03-31",
+  "DocumentNo": "tNo-17266280",
+  "ItemNo": "6280",
+  "RepItem": "280",
+  "SubItem": "280",
+  "AmountCleared": 0.25,
+  "RoeRecCurr": 8.28188,
+  "DeltaDueRoe": 28.22,
+  "OriginalCurrency": "280",
+  "ExpectedPayCurrency": "280",
+  "ClearedBy": "ClearedBy.aa2qw@example.net",
+  "CreatedDocuments": "CreatedDocuments-17266280",
+  "Status": 4,
+  "createdAt": "2015-10-16T20:00:00.000Z",
+  "createdBy": "createdBy.aa2qw@example.org",
+  "modifiedAt": "2016-02-11T20:00:00.000Z",
+  "modifiedBy": "modifiedBy.aa2qw@example.com"
+}
+
+
+### clearingapplicationService.ClearingStatusLog
+DELETE {{server}}/clearingapplication/ClearingStatusLog/17266280-a51c-4877-8dae-35c99d2c7542
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationService.ClearingTableUserVariants
+GET {{server}}/clearingapplication/ClearingTableUserVariants
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationService.ClearingTableUserVariants
+POST {{server}}/clearingapplication/ClearingTableUserVariants
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "14025170-0818-48d2-927b-5890ea5e4e01",
+  "VariantOf": "VariantOf.8clw2@example.net",
+  "VariantFor": "ClaimPayables",
+  "VariantName": "VariantName-14025170",
+  "VariantFieldsAsJson": "VariantFieldsAsJson-14025170",
+  "isDefault": true,
+  "isPublic": true,
+  "VariantCreatedBy": "VariantCreatedBy.8clw2@example.net"
+}
+
+
+### clearingapplicationService.ClearingTableUserVariants
+PATCH {{server}}/clearingapplication/ClearingTableUserVariants/14025170-0818-48d2-927b-5890ea5e4e01
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "14025170-0818-48d2-927b-5890ea5e4e01",
+  "VariantOf": "VariantOf.8clw2@example.net",
+  "VariantFor": "ClaimPayables",
+  "VariantName": "VariantName-14025170",
+  "VariantFieldsAsJson": "VariantFieldsAsJson-14025170",
+  "isDefault": true,
+  "isPublic": true,
+  "VariantCreatedBy": "VariantCreatedBy.8clw2@example.net"
+}
+
+
+### clearingapplicationService.ClearingTableUserVariants
+DELETE {{server}}/clearingapplication/ClearingTableUserVariants/14025170-0818-48d2-927b-5890ea5e4e01
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationService.CheckPostingPeriod
+POST {{server}}/clearingapplication/CheckPostingPeriod
+Content-Type: application/json
+{{auth}}
+
+{
+  "PostingDate": null,
+  "CompanyCode": null
+}
+
+
+### clearingapplicationService.ConvLocalCurrency
+POST {{server}}/clearingapplication/ConvLocalCurrency
+Content-Type: application/json
+{{auth}}
+
+{
+  "ForeignAmount": null,
+  "ForeignCurrency": null,
+  "LocalCurrency": null,
+  "Rate": null
+}
+
+
+### clearingapplicationService.ConvLocalCurrencyInBulk
+POST {{server}}/clearingapplication/ConvLocalCurrencyInBulk
+Content-Type: application/json
+{{auth}}
+
+{
+  "Payload": null
+}
+
+
+### clearingapplicationService.UpdateUserVariants
+POST {{server}}/clearingapplication/UpdateUserVariants
+Content-Type: application/json
+{{auth}}
+
+{
+  "UserVariants": null
+}
+
+
+### clearingapplicationService.SOAUpdatePreCheck
+POST {{server}}/clearingapplication/SOAUpdatePreCheck
+Content-Type: application/json
+{{auth}}
+
+{
+  "SOAUpdate": null
+}
+
+
+### clearingapplicationService.SOAUpdate
+POST {{server}}/clearingapplication/SOAUpdate
+Content-Type: application/json
+{{auth}}
+
+{
+  "SOAUpdate": null
+}
+
+
+### clearingapplicationService.UpdatePremiumReceivablesResponse
+POST {{server}}/clearingapplication/UpdatePremiumReceivablesResponse
+Content-Type: application/json
+{{auth}}
+
+{
+  "response": null
+}
+
+
+### clearingapplicationService.UpdateUIMResponse
+POST {{server}}/clearingapplication/UpdateUIMResponse
+Content-Type: application/json
+{{auth}}
+
+{
+  "response": null
+}
+
+
+### clearingapplicationService.GetPremiumReceivables
+POST {{server}}/clearingapplication/GetPremiumReceivables
+Content-Type: application/json
+{{auth}}
+
+{
+  "SelectionFilters": null
+}
+
+
+### clearingapplicationService.ClearPremiumReceivables
+POST {{server}}/clearingapplication/ClearPremiumReceivables
+Content-Type: application/json
+{{auth}}
+
+{
+  "clearingdata": null
+}
+
+
+### clearingapplicationService.GetPayerPayee
+POST {{server}}/clearingapplication/GetPayerPayee
+Content-Type: application/json
+{{auth}}
+
+{
+  "IsPayerRequested": null,
+  "ExtRef": null,
+  "UMR": null
+}
+
+
+### clearingapplicationService.GetClaimReceivables
+POST {{server}}/clearingapplication/GetClaimReceivables
+Content-Type: application/json
+{{auth}}
+
+{
+  "SelectionFilters": null
+}
+
+
+### clearingapplicationService.ClearClaimReceivables
+POST {{server}}/clearingapplication/ClearClaimReceivables
+Content-Type: application/json
+{{auth}}
+
+{
+  "clearingdata": null
+}
+
+
+### clearingapplicationService.UpdateClaimReceivablesResponse
+POST {{server}}/clearingapplication/UpdateClaimReceivablesResponse
+Content-Type: application/json
+{{auth}}
+
+{
+  "response": null
+}
+
+
+### clearingapplicationService.GetPremiumPayables
+POST {{server}}/clearingapplication/GetPremiumPayables
+Content-Type: application/json
+{{auth}}
+
+{
+  "SelectionFilters": null
+}
+
+
+### clearingapplicationService.ClearPremiumPayables
+POST {{server}}/clearingapplication/ClearPremiumPayables
+Content-Type: application/json
+{{auth}}
+
+{
+  "clearingdata": null
+}

@@ -1,0 +1,86 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:p13n="sap.m.p13n"
+>
+    <Dialog
+        id="idClearingTableUserVariantsDialog"
+        title="Clearing Table User Variants"
+        class="sapUiResponsivePadding--header sapUiResponsivePadding--content sapUiResponsivePadding--footer"
+        contentWidth="50%"
+    >
+        <content>
+            <VBox>
+                <Table
+                    id="idSavedVariantsUserTable"
+                    mode="SingleSelect"
+                    items="{path: '/SavedVariants'}"
+                    noDataText="No Variants Saved"
+                >
+                    <columns>
+                        <Column>
+                            <Text text="Variant Name" />
+                        </Column>
+                        <Column>
+                            <Text text="Variant Of" />
+                        </Column>
+                        <Column>
+                            <Text text="Is Default" />
+                        </Column>
+                        <Column>
+                            <Text text="Is Public" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{VariantName}" />
+                                <Text text="{VariantOf}" />
+                                <Switch
+                                    state="{isDefault}"
+                                    change="onSwitchDefaultSwitchForVariantChange"
+                                />
+                                <Switch state="{isPublic}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+            <p13n:Popup
+                id="idVariantPersonalizationPopup"
+                title="Choose Columns for Variants"
+                close="onPopupVariantPersonalizationClose"
+                warningText="Are you sure?"
+            >
+                <p13n:panels>
+                    <p13n:SelectionPanel
+                        id="idPersonalizationPopupSelectionPanel"
+                        title="Columns"
+                        enableCount="true"
+                        showHeader="true"
+                        change="onSelectionPanelPersonalizationChange"
+                    />
+                </p13n:panels>
+            </p13n:Popup>
+        </content>
+        <buttons>
+            <Button
+                text="Update Variants"
+                press="onUpdateVariantsButtonVariantDialogPress"
+            />
+            <Button
+                activeIcon=""
+                text="Apply Variant"
+                press="onApplyVariantButtonPress"
+            />
+            <Button
+                text="Add New Variant"
+                press="onAddNewVariantButtonPress"
+            />
+            <Button
+                text="Close"
+                press="onCloseButtonVariantDialogPress"
+            />
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

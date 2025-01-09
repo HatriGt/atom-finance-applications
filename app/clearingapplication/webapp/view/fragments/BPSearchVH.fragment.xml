@@ -1,0 +1,36 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Dialog
+        title="Select Business Partners"
+        contentWidth="30%"
+        contentHeight="60%">
+        <subHeader>
+            <Toolbar>
+                <SearchField
+                    liveChange="onSearchFieldBPSearchVHLiveChange"
+                    width="100%"
+                    placeholder="Search by ID or Name"/>
+            </Toolbar>
+        </subHeader>
+        <content>
+            <List
+                id="idBusinessPartnersList"
+                mode="MultiSelect"
+                includeItemInSelection="true"
+                items="{
+                    path: 'clearingApplicationModel>/BusinessPartners',
+                    length: 1000
+                }">
+                <StandardListItem
+                    title="{clearingApplicationModel>FULL_NAME}"
+                    description="{clearingApplicationModel>ID}"
+                    type="Active"/>
+            </List>
+        </content>
+        <buttons>
+            <Button text="Cancel" press="onCancelButtonBPSearchVHPress"/>
+            <Button text="Select" press="onSelectButtonBPSearchVHPress" type="Emphasized"/>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition> 

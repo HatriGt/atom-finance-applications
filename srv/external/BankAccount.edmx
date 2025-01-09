@@ -1,0 +1,32 @@
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+<edmx:Reference Uri="http://gerwdqas.elsecolimited.com:44300/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='NSPCLNT900')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+<edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+</edmx:Reference>
+<edmx:DataServices m:DataServiceVersion="2.0">
+<Schema Namespace="ZC_YEL_TB_BANK_CLEA_CDS" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+<Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+<EntityType Name="ZC_YEL_TB_BANK_CLEAType" sap:label="Bank Clearing" sap:content-version="1">
+<Key>
+<PropertyRef Name="company_code"/>
+<PropertyRef Name="division"/>
+<PropertyRef Name="currency"/>
+<PropertyRef Name="ElsecoBankAccountNumber"/>
+</Key>
+<Property Name="company_code" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Company Code"/>
+<Property Name="division" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="Division"/>
+<Property Name="currency" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Currency" sap:quickinfo="Currency Key" sap:semantics="currency-code"/>
+<Property Name="ElsecoBankAccountNumber" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Bank Ref Number" sap:quickinfo="Bank Reference Number"/>
+<Property Name="GLAccount" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="G/L Account" sap:quickinfo="General Ledger Account"/>
+<Property Name="GLAccountCharges" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="G/L Account" sap:quickinfo="General Ledger Account"/>
+<Property Name="description" Type="Edm.String" MaxLength="50" sap:display-format="UpperCase"/>
+<Property Name="subTransaction" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase"/>
+<Property Name="GLAccountForOP" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Function" sap:quickinfo="Function field in account determination"/>
+</EntityType>
+<EntityContainer Name="ZC_YEL_TB_BANK_CLEA_CDS_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+<EntitySet Name="ZC_YEL_TB_BANK_CLEA" EntityType="ZC_YEL_TB_BANK_CLEA_CDS.ZC_YEL_TB_BANK_CLEAType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+</EntityContainer>
+<atom:link rel="self" href="http://gerwdqas.elsecolimited.com:44300/sap/opu/odata/sap/ZC_YEL_TB_BANK_CLEA_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+<atom:link rel="latest-version" href="http://gerwdqas.elsecolimited.com:44300/sap/opu/odata/sap/ZC_YEL_TB_BANK_CLEA_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+</Schema>
+</edmx:DataServices>
+</edmx:Edmx>

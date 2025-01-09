@@ -1,0 +1,248 @@
+{
+ "meta": {
+  "creator": "cds-dk 7.7.1"
+ },
+ "$version": "2.0",
+ "definitions": {
+  "FicaDashboardService": {
+   "kind": "service",
+   "@cds.external": true,
+   "@m.IsDefaultEntityContainer": "true",
+   "@sap.supported.formats": "atom json xlsx"
+  },
+  "FicaDashboardService.ZC_FICADASHBOARD": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.updatable": "false",
+   "@sap.deletable": "false",
+   "@sap.searchable": "true",
+   "@sap.content.version": "1",
+   "@sap.label": "FICA Dashboard Data Service",
+   "elements": {
+    "ficaDoc": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Document Number",
+     "@sap.quickinfo": "Number of a FI-CA Document",
+     "notNull": true
+    },
+    "action": {
+     "key": true,
+     "type": "cds.String",
+     "length": 14,
+     "@sap.display.format": "UpperCase",
+     "notNull": true
+    },
+    "installment": {
+     "key": true,
+     "type": "cds.String",
+     "length": 30,
+     "@sap.label": "Installment",
+     "notNull": true
+    },
+    "externalReference": {
+     "key": true,
+     "type": "cds.String",
+     "length": 241,
+     "@sap.label": "External Reference",
+     "notNull": true
+    },
+    "premiumId": {
+     "key": true,
+     "type": "cds.String",
+     "length": 16,
+     "@sap.label": "Premium ID",
+     "notNull": true
+    },
+    "endorsementReference": {
+     "key": true,
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "EndorsementReference",
+     "@sap.quickinfo": "Endorsement Reference",
+     "notNull": true
+    },
+    "originalAmount": {
+     "key": true,
+     "type": "cds.Decimal",
+     "precision": 14,
+     "scale": 3,
+     "notNull": true
+    },
+    "businessPartner": {
+     "key": true,
+     "type": "cds.String",
+     "length": 81,
+     "@sap.display.format": "UpperCase",
+     "notNull": true
+    },
+    "ucr": {
+     "key": true,
+     "type": "cds.String",
+     "length": 241,
+     "@sap.label": "UCR",
+     "@sap.quickinfo": "Unique claim reference",
+     "notNull": true
+    },
+    "claimReference": {
+     "key": true,
+     "type": "cds.String",
+     "length": 35,
+     "@sap.label": "Elseco Claim Number",
+     "notNull": true
+    },
+    "transactionReference": {
+     "key": true,
+     "type": "cds.String",
+     "length": 35,
+     "@sap.label": "Transaction Ref Num",
+     "@sap.quickinfo": "Transaction Reference Number",
+     "notNull": true
+    },
+    "type": {
+     "key": true,
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "UpperCase",
+     "notNull": true
+    },
+    "docType": {
+     "key": true,
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Document Type",
+     "notNull": true
+    },
+    "memberID": {
+     "key": true,
+     "type": "cds.String",
+     "length": 20,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Member",
+     "notNull": true
+    },
+    "clearingDocument": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Clearing Document",
+     "@sap.quickinfo": "Clearing Document or Printed Document",
+     "notNull": true
+    },
+    "mainTransactionItem": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Main Transaction",
+     "@sap.quickinfo": "Main Transaction for Line Item",
+     "notNull": true
+    },
+    "memberName": {
+     "type": "cds.String",
+     "length": 81,
+     "@sap.display.format": "UpperCase"
+    },
+    "settlementAmount": {
+     "type": "cds.Decimal",
+     "precision": 14,
+     "scale": 3
+    },
+    "settlementCurrency": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.label": "Currency",
+     "@sap.quickinfo": "Currency Key",
+     "@sap.semantics": "currency-code"
+    },
+    "clearingAmount": {
+     "type": "cds.Decimal",
+     "precision": 14,
+     "scale": 3
+    },
+    "clearingDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Date",
+     "@sap.quickinfo": "Field of type DATS"
+    },
+    "externalROE": {
+     "type": "cds.Decimal",
+     "precision": 9,
+     "scale": 5,
+     "@sap.label": "External ROE"
+    },
+    "businessPartnerId": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Business Partner",
+     "@sap.quickinfo": "Business Partner Number"
+    },
+    "dueDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Net Due Date",
+     "@sap.quickinfo": "Due date for net payment"
+    },
+    "postingDate": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Posting Date",
+     "@sap.quickinfo": "Posting Date in the Document"
+    },
+    "originalCurrency": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.label": "Currency",
+     "@sap.quickinfo": "Transaction Currency",
+     "@sap.semantics": "currency-code"
+    },
+    "sys": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Origin",
+     "@sap.quickinfo": "Document Origin Key"
+    },
+    "enteredOn": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "Entry Date",
+     "@sap.quickinfo": "Day On Which Accounting Document Was Entered"
+    },
+    "collectionType": {
+     "type": "cds.String",
+     "length": 30,
+     "@sap.label": "Pmnt Method ID",
+     "@sap.quickinfo": "Payment Method Name"
+    },
+    "bitReference": {
+     "type": "cds.String",
+     "length": 128,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "BIT Reference"
+    },
+    "env": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase"
+    },
+    "subTransaction": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Subtransaction",
+     "@sap.quickinfo": "Subtransaction for Document Item"
+    }
+   }
+  }
+ }
+}

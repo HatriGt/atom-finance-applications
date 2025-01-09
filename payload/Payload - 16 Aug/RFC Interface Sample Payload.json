@@ -1,0 +1,193 @@
+{
+    "IT_CDC": [
+        {
+            "item": "501",
+            "fikey_prefix": "CG",
+            "is_fkkko": {
+                "fikey": "",
+                "applk": "S",
+                "blart": "YY",
+                "herkf": "01",
+                "ernam": "alice",
+                "cpudt": "2024-08-16",
+                "cputm": "09:55:25",
+                "waers": "USD",
+                "bldat": "2024-08-16",
+                "budat": "2024-08-16",
+                "YYEXTREF": "",
+                "YYUWAY": "",
+                "YYENDORSEMENTREF": "",
+                "YYINSTALLMENT": "",
+                "YYPREMIUM_ID": "",
+                "YYELSECLAIMNUM": "",
+                "YYUCR": "",
+                "YYTR_ID": "",
+                "YYINSTALLMENT_NUM": "",
+                "YYPREMIUM_TYPE": "",
+                "YYPOLICY_NUM": "",
+                "YYBANK_REF": ""
+            },
+            "add_info": [
+                {
+                    "opbel": "700000093475",
+                    "opupw": "000",
+                    "opupk": "0001",
+                    "opupz": "000",
+                    "clearing_amount": "-35.23",
+                    "exp_pay_currency": "USD",
+                    "delta_due_roe": "0",
+                    "gl_account": "0001140100",
+                    "YYINTREF": "11000069524145456-001",
+                    "trtype": "Claim Payable",
+                    "paymemtref": "A110000010000187",
+                    "ernam": "alice",
+                    "erdate": "2024-08-16",
+                    "erzet": "095525",
+                    "businesspartnerno": "1100000100",
+                    "allocamn": "-33",
+                    "original_currency": "EUR",
+                    "YYEXTREF": "11000069524145456",
+                    "blart": "CR",
+                    "bukrs": "DX01",
+                    "postingtype": "",
+                    "hvorg": "C100"
+                },
+                {
+                    "opbel": "070000008161",
+                    "opupw": "000",
+                    "opupk": "0001",
+                    "opupz": "000",
+                    "clearing_amount": "12",
+                    "exp_pay_currency": "USD",
+                    "delta_due_roe": "0",
+                    "gl_account": "0001140100",
+                    "YYINTREF": "",
+                    "trtype": "Unallocated Insurance Monies",
+                    "paymemtref": "C755031121180610",
+                    "ernam": "alice",
+                    "erdate": "2024-08-16",
+                    "erzet": "095525",
+                    "businesspartnerno": "1100000100",
+                    "allocamn": "12",
+                    "original_currency": "USD",
+                    "YYEXTREF": "",
+                    "blart": "",
+                    "bukrs": "DX01",
+                    "postingtype": "",
+                    "hvorg": "P210"
+                },
+                {
+                    "opbel": "",
+                    "opupw": "",
+                    "opupk": "",
+                    "opupz": "",
+                    "clearing_amount": "23.23",
+                    "exp_pay_currency": "USD",
+                    "delta_due_roe": "0",
+                    "gl_account": "0001140100",
+                    "YYINTREF": "",
+                    "trtype": "OVER PAYMENT",
+                    "paymemtref": "",
+                    "ernam": "alice",
+                    "erdate": "2024-08-16",
+                    "erzet": "095525",
+                    "businesspartnerno": "1100000100",
+                    "allocamn": "23.23",
+                    "original_currency": "USD",
+                    "YYEXTREF": "11000069524145456",
+                    "blart": "",
+                    "bukrs": "DX01",
+                    "postingtype": "",
+                    "hvorg": ""
+                }
+            ]
+        }
+    ],
+    "IT_FICA_CREATE": [
+        {
+            "item": "001",
+            "fikey_prefix": "OP",
+            "header": {
+                "fikey": "",
+                "appl_area": "S",
+                "doc_type": "YM",
+                "doc_source_key": "01",
+                "created_by": "alice",
+                "entry_date": "",
+                "entry_time": "",
+                "currency": "USD",
+                "doc_date": "2024-08-16",
+                "post_date": "2024-08-16"
+            },
+            "bp_items": [
+                {
+                    "item": "0001",
+                    "comp_code": "DX01",
+                    "buspartner": "1100000100",
+                    "cont_acct": "390000001792",
+                    "main_trans": "P210",
+                    "sub_trans": "2014",
+                    "division": "E1",
+                    "g_l_acct": "0002110180",
+                    "doc_date": "2024-08-16",
+                    "post_date": "2024-08-16",
+                    "net_date": "2024-08-16",
+                    "tran_rate": "0",
+                    "amount": -23.23,
+                    "pmnt_meth": "T"
+                }
+            ],
+            "gl_items": [
+                {
+                    "rep_item": "000",
+                    "item": "0001",
+                    "sub_item": "000",
+                    "comp_code": "DX01",
+                    "g_l_acct": "0001140100",
+                    "tran_rate": "0",
+                    "amount": 23.23
+                }
+            ],
+            "extension_header": {
+                "doc_no": "",
+                "YYEXTREF": "11000110984135389",
+                "YYUAY": "2023",
+                "YYENDORSEMENTREF": "11000110984135389",
+                "YYINSTALLMENT": "X",
+                "YYPREMIUM_ID": "1011021",
+                "YYELSCLAIMNUM": "1201212412451-121",
+                "YYUCR": "TEST UCR",
+                "YYTR_ID": "TR-01",
+                "YYINSTALLMENT_NUM": "01",
+                "YYPREMIUM_TYPE": "AP",
+                "YYPOLICY_NUM": "12130010",
+                "YYBANK_REF": "TEST BANkREF"
+              },
+              "extension_items": [
+                {
+                  "doc_no": "",
+                  "rep_item": "000",
+                  "item": "0001",
+                  "sub_item": "000",
+                  "YYEXTREF": "11000110984135389",
+                  "YYEXT_CURRENCY": "USD",
+                  "YYEXT_ROE": "0.13226",
+                  "YYMEMBER": "1100013853",
+                  "YYFRONTER": "1100000081",
+                  "YYCONTRACT": "390000000030",
+                  "YYINTREF": "11000110984135389-001",
+                  "YYBITREF": "20000120101100",
+                  "YYSTAMP_MEMBER_ID": "10001211",
+                  "YYELSCLAIMNUM": "1201212412451-121",
+                  "YYINSTALLMENT_NUM": "01",
+                  "YYAPPTAXCD": "USD",
+                  "YYFIXED_ER": "X",
+                  "YYAGREEMENT_ID": "1100000100",
+                  "YYFRONTING_AGREEMENT_ID": "1100000100",
+                  "YYATYPE": "1100000100"
+                }
+              ]
+        }
+    ],
+    "PURPOSE": "CP"
+}

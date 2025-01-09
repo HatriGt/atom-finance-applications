@@ -1,0 +1,1112 @@
+{
+ "meta": {
+  "creator": "cds-dk 7.7.1"
+ },
+ "$version": "2.0",
+ "definitions": {
+  "CRM": {
+   "kind": "service",
+   "@cds.external": true,
+   "@m.IsDefaultEntityContainer": "true"
+  },
+  "CRM.BusinessPartnerRolesList": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "ROLE_NAME": {
+     "key": true,
+     "type": "cds.String",
+     "length": 50,
+     "notNull": true
+    },
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean"
+    },
+    "DELETED": {
+     "type": "cds.Boolean"
+    },
+    "ROLE_DESC": {
+     "type": "cds.String",
+     "length": 255
+    }
+   }
+  },
+  "CRM.BusinessPartnerTypes": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean"
+    },
+    "DELETED": {
+     "type": "cds.Boolean"
+    }
+   }
+  },
+  "CRM.BusinessPartners": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "ID": {
+     "key": true,
+     "type": "cds.String",
+     "length": 20,
+     "notNull": true
+    },
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean"
+    },
+    "DELETED": {
+     "type": "cds.Boolean"
+    },
+    "BP_ID_EXT": {
+     "type": "cds.String",
+     "length": 20
+    },
+    "FIRST_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "MIDDLE_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "LAST_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "CITY": {
+     "type": "cds.String",
+     "length": 40
+    },
+    "ADDR1": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ADDR2": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ADDR3": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "COUNTRY_CD": {
+     "type": "cds.String",
+     "length": 3
+    },
+    "COMPANY_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ALIAS": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "SEARCH_STRING": {
+     "type": "cds.String",
+     "length": 1000
+    },
+    "EMAIL": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "BUSINESS_PARTNER_TYPE_ID": {
+     "type": "cds.Integer"
+    },
+    "FULL_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "FULL_ADDR": {
+     "type": "cds.String",
+     "length": 1000
+    },
+    "COPMANY_TYPE_CODE": {
+     "type": "cds.String",
+     "length": 3
+    },
+    "COMPNAY_TYPE_DESC": {
+     "type": "cds.String",
+     "length": 100
+    },
+    "ItsRoles": {
+     "@cds.ambiguous": "missing on condition?",
+     "type": "cds.Association",
+     "target": "CRM.BusinessPartnerRoles",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "ItsCountry": {
+     "@cds.ambiguous": "missing on condition?",
+     "type": "cds.Association",
+     "target": "CRM.Country",
+     "keys": []
+    },
+    "ItsContacts": {
+     "@cds.ambiguous": "missing on condition?",
+     "type": "cds.Association",
+     "target": "CRM.BusinessPartnerContacts",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "ItsBusinessPartnerTypes": {
+     "@cds.ambiguous": "missing on condition?",
+     "type": "cds.Association",
+     "target": "CRM.BusinessPartnerTypes",
+     "on": [
+      {
+       "ref": [
+        "ItsBusinessPartnerTypes",
+        "ID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "BUSINESS_PARTNER_TYPE_ID"
+       ]
+      }
+     ]
+    },
+    "ItsInsureds": {
+     "@cds.ambiguous": "missing on condition?",
+     "type": "cds.Association",
+     "target": "CRM.BusinessPartnerRoles",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "ItsAdditonalInsureds": {
+     "@cds.ambiguous": "missing on condition?",
+     "type": "cds.Association",
+     "target": "CRM.BusinessPartnerRoles",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "ItsBrokers": {
+     "@cds.ambiguous": "missing on condition?",
+     "type": "cds.Association",
+     "target": "CRM.BusinessPartnerRoles",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "ItsMembers": {
+     "@cds.ambiguous": "missing on condition?",
+     "type": "cds.Association",
+     "target": "CRM.BusinessPartnerRoles",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    }
+   }
+  },
+  "CRM.Insureds": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "ID": {
+     "key": true,
+     "type": "cds.String",
+     "length": 20,
+     "notNull": true
+    },
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean"
+    },
+    "DELETED": {
+     "type": "cds.Boolean"
+    },
+    "BP_ID_EXT": {
+     "type": "cds.String",
+     "length": 20
+    },
+    "FIRST_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "MIDDLE_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "LAST_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "CITY": {
+     "type": "cds.String",
+     "length": 40
+    },
+    "ADDR1": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ADDR2": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ADDR3": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "COUNTRY_CD": {
+     "type": "cds.String",
+     "length": 3
+    },
+    "COMPANY_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ALIAS": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "SEARCH_STRING": {
+     "type": "cds.String",
+     "length": 1000
+    },
+    "EMAIL": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "BUSINESS_PARTNER_TYPE_ID": {
+     "type": "cds.Integer"
+    },
+    "FULL_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "FULL_ADDR": {
+     "type": "cds.String",
+     "length": 1000
+    },
+    "COPMANY_TYPE_CODE": {
+     "type": "cds.String",
+     "length": 3
+    },
+    "COMPNAY_TYPE_DESC": {
+     "type": "cds.String",
+     "length": 100
+    },
+    "ROLE_NAME": {
+     "type": "cds.String",
+     "length": 50
+    }
+   }
+  },
+  "CRM.AdditonalInsureds": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "ID": {
+     "key": true,
+     "type": "cds.String",
+     "length": 20,
+     "notNull": true
+    },
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean"
+    },
+    "DELETED": {
+     "type": "cds.Boolean"
+    },
+    "BP_ID_EXT": {
+     "type": "cds.String",
+     "length": 20
+    },
+    "FIRST_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "MIDDLE_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "LAST_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "CITY": {
+     "type": "cds.String",
+     "length": 40
+    },
+    "ADDR1": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ADDR2": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ADDR3": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "COUNTRY_CD": {
+     "type": "cds.String",
+     "length": 3
+    },
+    "COMPANY_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ALIAS": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "SEARCH_STRING": {
+     "type": "cds.String",
+     "length": 1000
+    },
+    "EMAIL": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "BUSINESS_PARTNER_TYPE_ID": {
+     "type": "cds.Integer"
+    },
+    "FULL_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "FULL_ADDR": {
+     "type": "cds.String",
+     "length": 1000
+    },
+    "COPMANY_TYPE_CODE": {
+     "type": "cds.String",
+     "length": 3
+    },
+    "COMPNAY_TYPE_DESC": {
+     "type": "cds.String",
+     "length": 100
+    },
+    "ROLE_NAME": {
+     "type": "cds.String",
+     "length": 50
+    }
+   }
+  },
+  "CRM.Brokers": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "ID": {
+     "key": true,
+     "type": "cds.String",
+     "length": 20,
+     "notNull": true
+    },
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean"
+    },
+    "DELETED": {
+     "type": "cds.Boolean"
+    },
+    "BP_ID_EXT": {
+     "type": "cds.String",
+     "length": 20
+    },
+    "FIRST_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "MIDDLE_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "LAST_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "CITY": {
+     "type": "cds.String",
+     "length": 40
+    },
+    "ADDR1": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ADDR2": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ADDR3": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "COUNTRY_CD": {
+     "type": "cds.String",
+     "length": 3
+    },
+    "COMPANY_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ALIAS": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "SEARCH_STRING": {
+     "type": "cds.String",
+     "length": 1000
+    },
+    "EMAIL": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "BUSINESS_PARTNER_TYPE_ID": {
+     "type": "cds.Integer"
+    },
+    "FULL_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "FULL_ADDR": {
+     "type": "cds.String",
+     "length": 1000
+    },
+    "COPMANY_TYPE_CODE": {
+     "type": "cds.String",
+     "length": 3
+    },
+    "COMPNAY_TYPE_DESC": {
+     "type": "cds.String",
+     "length": 100
+    },
+    "ROLE_NAME": {
+     "type": "cds.String",
+     "length": 50
+    }
+   }
+  },
+  "CRM.Members": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "ID": {
+     "key": true,
+     "type": "cds.String",
+     "length": 20,
+     "notNull": true
+    },
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean"
+    },
+    "DELETED": {
+     "type": "cds.Boolean"
+    },
+    "BP_ID_EXT": {
+     "type": "cds.String",
+     "length": 20
+    },
+    "FIRST_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "MIDDLE_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "LAST_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "CITY": {
+     "type": "cds.String",
+     "length": 40
+    },
+    "ADDR1": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ADDR2": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ADDR3": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "COUNTRY_CD": {
+     "type": "cds.String",
+     "length": 3
+    },
+    "COMPANY_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ALIAS": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "SEARCH_STRING": {
+     "type": "cds.String",
+     "length": 1000
+    },
+    "EMAIL": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "BUSINESS_PARTNER_TYPE_ID": {
+     "type": "cds.Integer"
+    },
+    "FULL_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "FULL_ADDR": {
+     "type": "cds.String",
+     "length": 1000
+    },
+    "COPMANY_TYPE_CODE": {
+     "type": "cds.String",
+     "length": 3
+    },
+    "COMPNAY_TYPE_DESC": {
+     "type": "cds.String",
+     "length": 100
+    },
+    "ROLE_NAME": {
+     "type": "cds.String",
+     "length": 50
+    }
+   }
+  },
+  "CRM.BusinessPartnerRoles": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "ID": {
+     "key": true,
+     "type": "cds.String",
+     "length": 10,
+     "notNull": true
+    },
+    "ROLE_NAME": {
+     "key": true,
+     "type": "cds.String",
+     "length": 50,
+     "notNull": true
+    },
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean"
+    },
+    "DELETED": {
+     "type": "cds.Boolean"
+    },
+    "ItsBusinessPartner": {
+     "@cds.ambiguous": "missing on condition?",
+     "type": "cds.Association",
+     "target": "CRM.BusinessPartners",
+     "on": [
+      {
+       "ref": [
+        "ItsBusinessPartner",
+        "ID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "ID"
+       ]
+      }
+     ]
+    },
+    "ItsRole": {
+     "@cds.ambiguous": "missing on condition?",
+     "type": "cds.Association",
+     "target": "CRM.BusinessPartnerRolesList",
+     "on": [
+      {
+       "ref": [
+        "ItsRole",
+        "ROLE_NAME"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "ROLE_NAME"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "CRM.BusinessPartnerContacts": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "ID": {
+     "key": true,
+     "type": "cds.String",
+     "length": 20,
+     "notNull": true
+    },
+    "CONTACT_BP_ID": {
+     "key": true,
+     "type": "cds.String",
+     "length": 20,
+     "notNull": true
+    },
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean"
+    },
+    "DELETED": {
+     "type": "cds.Boolean"
+    },
+    "ItsBusinessPartner": {
+     "@cds.ambiguous": "missing on condition?",
+     "type": "cds.Association",
+     "target": "CRM.BusinessPartners",
+     "on": [
+      {
+       "ref": [
+        "ItsBusinessPartner",
+        "ID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "CONTACT_BP_ID"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "CRM.BusinessPartnersWithAttributes": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "ID": {
+     "key": true,
+     "type": "cds.String",
+     "length": 20,
+     "notNull": true
+    },
+    "BP_ID_EXT": {
+     "type": "cds.String",
+     "length": 20
+    },
+    "ADDR1": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ADDR2": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ADDR3": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "FULL_ADDR": {
+     "type": "cds.String",
+     "length": 1000
+    },
+    "FIRST_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "MIDDLE_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "LAST_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "FULL_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "COMPANY_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "COUNTRY_CD": {
+     "type": "cds.String",
+     "length": 3
+    },
+    "COUNTRY_NAME": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "EMAIL": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ALIAS": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "SEARCH_STRING": {
+     "type": "cds.String",
+     "length": 1000
+    },
+    "BPROLES": {
+     "type": "cds.String",
+     "length": 1000
+    }
+   }
+  },
+  "CRM.Country": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "COUNTRY_CD": {
+     "key": true,
+     "type": "cds.String",
+     "length": 3,
+     "notNull": true
+    },
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@odata.Precision": 7
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean"
+    },
+    "DELETED": {
+     "type": "cds.Boolean"
+    },
+    "COUNTRY_NAME": {
+     "type": "cds.String",
+     "length": 50
+    }
+   }
+  },
+  "CRM.BusinessPartnerDetails": {
+   "kind": "type",
+   "@cds.external": true,
+   "elements": {
+    "ID": {
+     "type": "cds.String",
+     "length": 20
+    },
+    "BP_ID_EXT": {
+     "type": "cds.String",
+     "length": 20
+    },
+    "FIRST_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "MIDDLE_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "LAST_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "CITY": {
+     "type": "cds.String",
+     "length": 40
+    },
+    "ADDR1": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ADDR2": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ADDR3": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "COUNTRY_CD": {
+     "type": "cds.String",
+     "length": 3
+    },
+    "COMPANY_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ALIAS": {
+     "type": "cds.String",
+     "length": 100
+    },
+    "EMAIL": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "BUSINESS_PARTNER_TYPE_ID": {
+     "type": "cds.Integer"
+    },
+    "COPMANY_TYPE_CODE": {
+     "type": "cds.String",
+     "length": 3
+    },
+    "COMPNAY_TYPE_DESC": {
+     "type": "cds.String",
+     "length": 100
+    },
+    "ItsRoles": {
+     "items": {
+      "type": "CRM.BusinessPartnerDetails_ItsRoles",
+      "notNull": true
+     }
+    },
+    "ItsContacts": {
+     "items": {
+      "type": "CRM.BusinessPartnerDetails_ItsContacts",
+      "notNull": true
+     }
+    }
+   }
+  },
+  "CRM.BusinessPartnerDetails_ItsRoles": {
+   "kind": "type",
+   "@cds.external": true,
+   "elements": {
+    "ID": {
+     "type": "cds.String",
+     "length": 10
+    },
+    "ROLE_NAME": {
+     "type": "cds.String",
+     "length": 50
+    }
+   }
+  },
+  "CRM.BusinessPartnerDetails_ItsContacts": {
+   "kind": "type",
+   "@cds.external": true,
+   "elements": {
+    "ID": {
+     "type": "cds.String",
+     "length": 10
+    },
+    "CONTACT_BP_ID": {
+     "type": "cds.String",
+     "length": 10
+    }
+   }
+  },
+  "CRM.syncBP": {
+   "kind": "action",
+   "@cds.external": true,
+   "params": {
+    "bp": {
+     "type": "CRM.BusinessPartnerDetails"
+    }
+   },
+   "returns": {
+    "type": "cds.Boolean"
+   }
+  }
+ }
+}

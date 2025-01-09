@@ -1,0 +1,116 @@
+{
+  "scopes": [
+
+    {
+      "name": "$XSAPPNAME.mtcallback",
+      "description": "Multi Tenancy Callback Access",
+      "grant-as-authority-to-apps": [
+        "$XSAPPNAME(application, sap-provisioning, tenant-onboarding)",
+        "$XSAPPNAME(application,sap-provisioning,tenant-onboarding)"
+      ]
+    },
+    {
+      "name": "$XSAPPNAME.cds.Subscriber",
+      "description": "Subscribe to applications"
+    },
+    {
+      "name": "$XSAPPNAME.mtdeployment",
+      "description": "Scope to trigger a re-deployment of the database artifacts"
+    },
+    {
+      "name": "$XSAPPNAME.cds.ExtensionDeveloper",
+      "description": "Extend CAP applications via extension projects"
+    },
+    {
+      "name": "$XSAPPNAME.cds.UIFlexDeveloper",
+      "description": "Extend CAP applications via UIFlex extensibility"
+    },
+    {
+      "name": "$XSAPPNAME.finance-clearing-read",
+      "description": "Finance Clearing Read"
+    },
+    {
+      "name": "$XSAPPNAME.finance-clearing-maintain",
+      "description": "Finance Clearing Maintain"
+    },
+    {
+      "name": "$XSAPPNAME.finance-ficadashboard-read",
+      "description": "Finance FICA Dashboard Read"
+    }
+  ],
+  "authorities-inheritance": false,
+  "authorities": [
+    "$XSAPPNAME.cds.Subscriber",
+    "$XSAPPNAME.cds.ExtensionDeveloper",
+    "$XSAPPNAME.cds.UIFlexDeveloper",
+    "$XSAPPNAME.mtdeployment",
+    "$ACCEPT_GRANTED_AUTHORITIES"
+  ],
+  "attributes": [],
+  "role-templates": [
+    {
+      "name": "finance-clearing-read",
+      "description": "Finance Clearing Read",
+      "scope-references": [
+        "$XSAPPNAME.finance-clearing-read"
+      ]
+    },
+    {
+      "name": "finance-clearing-maintain",
+      "description": "Finance Clearing Maintain",
+      "scope-references": [
+        "$XSAPPNAME.finance-clearing-maintain"
+      ]
+    },
+    {
+      "name": "ExtensionDeveloper",
+      "description": "Extension development including UIFlex extensibility",
+      "scope-references": [
+        "$XSAPPNAME.cds.ExtensionDeveloper",
+        "$XSAPPNAME.cds.UIFlexDeveloper"
+      ]
+    },
+    {
+      "name": "finance-ficadashboard-read",
+      "description": "Finance FICA Dashboard Read",
+      "scope-references": [
+        "$XSAPPNAME.finance-ficadashboard-read"
+      ]
+    }
+  ],
+  "role-collections": [
+    {
+      "name": "finance-clearing-read",
+      "description": "Finance Clearing Read",
+      "role-template-references": ["$XSAPPNAME.finance-clearing-read"]
+    },
+    {
+      "name": "finance-clearing-maintain",
+      "description": "Finance Clearing Maintain",
+      "role-template-references": ["$XSAPPNAME.finance-clearing-maintain"]
+    },
+    {
+      "name": "ExtensionDeveloper",
+      "description": "Extension development including UIFlex extensibility",
+      "role-template-references": [
+        "$XSAPPNAME.ExtensionDeveloper"
+      ]
+    },
+    {
+      "name": "finance-ficadashboard-read",
+      "description": "Finance FICA Dashboard Read",
+      "role-template-references": [
+        "$XSAPPNAME.finance-ficadashboard-read"
+      ]
+    }
+  ],
+  "oauth2-configuration": {
+    "token-validity": 3600,
+    "redirect-uris": [
+      "https://*.cfapps.*.hana.ondemand.com/login/callback",
+      "https://*.atom-platform.com/login/callback",
+      "https://*.atom-platform.com/**",
+      "https://**.atom-platform.com/**"
+    ]
+  }
+}

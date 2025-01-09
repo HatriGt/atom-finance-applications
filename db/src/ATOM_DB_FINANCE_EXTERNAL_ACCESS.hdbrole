@@ -1,0 +1,16 @@
+{
+  "role": {
+    "name": "atom.db.finance::EXTERNAL_ACCESS",
+    "schema_privileges": [
+      {
+        "privileges": [
+          "SELECT",
+          "INSERT",
+          "UPDATE",
+          "DELETE",
+          "EXECUTE"
+        ]
+      }
+    ]
+  }
+}

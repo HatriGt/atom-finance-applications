@@ -1,0 +1,706 @@
+@server = http://localhost:4004
+@auth = Authorization: Basic alice:
+
+
+### CRM.BusinessPartnerRolesList
+GET {{server}}/odata/v4/crm/BusinessPartnerRolesList
+Content-Type: application/json
+{{auth}}
+
+
+### CRM.BusinessPartnerTypes
+GET {{server}}/odata/v4/crm/BusinessPartnerTypes
+Content-Type: application/json
+{{auth}}
+
+
+### CRM.BusinessPartnerTypes
+POST {{server}}/odata/v4/crm/BusinessPartnerTypes
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 28996859,
+  "createdAt": "2016-10-25T20:00:00.000Z",
+  "createdBy": "createdBy-28996859",
+  "modifiedAt": "2023-07-16T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-28996859",
+  "ACTIVE": false,
+  "DELETED": false
+}
+
+
+### CRM.BusinessPartnerTypes
+PATCH {{server}}/odata/v4/crm/BusinessPartnerTypes/28996859
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 28996859,
+  "createdAt": "2016-10-25T20:00:00.000Z",
+  "createdBy": "createdBy-28996859",
+  "modifiedAt": "2023-07-16T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-28996859",
+  "ACTIVE": false,
+  "DELETED": false
+}
+
+
+### CRM.BusinessPartnerTypes
+DELETE {{server}}/odata/v4/crm/BusinessPartnerTypes/28996859
+Content-Type: application/json
+{{auth}}
+
+
+### CRM.BusinessPartners
+GET {{server}}/odata/v4/crm/BusinessPartners
+Content-Type: application/json
+{{auth}}
+
+
+### CRM.BusinessPartners
+POST {{server}}/odata/v4/crm/BusinessPartners
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "nessPartners-5342670",
+  "createdAt": "2010-02-25T20:00:00.000Z",
+  "createdBy": "createdBy-5342670",
+  "modifiedAt": "2001-05-25T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-5342670",
+  "ACTIVE": true,
+  "DELETED": true,
+  "BP_ID_EXT": "BP_ID_EXT-5342670",
+  "FIRST_NAME": "FIRST_NAME-5342670",
+  "MIDDLE_NAME": "MIDDLE_NAME-5342670",
+  "LAST_NAME": "LAST_NAME-5342670",
+  "CITY": "CITY-5342670",
+  "ADDR1": "ADDR1-5342670",
+  "ADDR2": "ADDR2-5342670",
+  "ADDR3": "ADDR3-5342670",
+  "COUNTRY_CD": "670",
+  "COMPANY_NAME": "COMPANY_NAME-5342670",
+  "ALIAS": "ALIAS-5342670",
+  "SEARCH_STRING": "SEARCH_STRING-5342670",
+  "EMAIL": "EMAIL-5342670",
+  "BUSINESS_PARTNER_TYPE_ID": 84,
+  "FULL_NAME": "FULL_NAME-5342670",
+  "FULL_ADDR": "FULL_ADDR-5342670",
+  "COPMANY_TYPE_CODE": "670",
+  "COMPNAY_TYPE_DESC": "COMPNAY_TYPE_DESC-5342670",
+  "ItsCountry": {
+    "ID": 17815879,
+    "COUNTRY_CD": "879"
+  },
+  "ItsBusinessPartnerTypes": {
+    "ID": 13276100
+  }
+}
+
+
+### CRM.BusinessPartners
+PATCH {{server}}/odata/v4/crm/BusinessPartners/nessPartners-5342670
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "nessPartners-5342670",
+  "createdAt": "2010-02-25T20:00:00.000Z",
+  "createdBy": "createdBy-5342670",
+  "modifiedAt": "2001-05-25T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-5342670",
+  "ACTIVE": true,
+  "DELETED": true,
+  "BP_ID_EXT": "BP_ID_EXT-5342670",
+  "FIRST_NAME": "FIRST_NAME-5342670",
+  "MIDDLE_NAME": "MIDDLE_NAME-5342670",
+  "LAST_NAME": "LAST_NAME-5342670",
+  "CITY": "CITY-5342670",
+  "ADDR1": "ADDR1-5342670",
+  "ADDR2": "ADDR2-5342670",
+  "ADDR3": "ADDR3-5342670",
+  "COUNTRY_CD": "670",
+  "COMPANY_NAME": "COMPANY_NAME-5342670",
+  "ALIAS": "ALIAS-5342670",
+  "SEARCH_STRING": "SEARCH_STRING-5342670",
+  "EMAIL": "EMAIL-5342670",
+  "BUSINESS_PARTNER_TYPE_ID": 84,
+  "FULL_NAME": "FULL_NAME-5342670",
+  "FULL_ADDR": "FULL_ADDR-5342670",
+  "COPMANY_TYPE_CODE": "670",
+  "COMPNAY_TYPE_DESC": "COMPNAY_TYPE_DESC-5342670",
+  "ItsCountry": {
+    "ID": 17815879,
+    "COUNTRY_CD": "879"
+  },
+  "ItsBusinessPartnerTypes": {
+    "ID": 13276100
+  }
+}
+
+
+### CRM.BusinessPartners
+DELETE {{server}}/odata/v4/crm/BusinessPartners/nessPartners-5342670
+Content-Type: application/json
+{{auth}}
+
+
+### CRM.Insureds
+GET {{server}}/odata/v4/crm/Insureds
+Content-Type: application/json
+{{auth}}
+
+
+### CRM.Insureds
+POST {{server}}/odata/v4/crm/Insureds
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "Insureds-28809873",
+  "createdAt": "2007-08-23T20:00:00.000Z",
+  "createdBy": "createdBy-28809873",
+  "modifiedAt": "2002-06-25T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-28809873",
+  "ACTIVE": false,
+  "DELETED": false,
+  "BP_ID_EXT": "BP_ID_EXT-28809873",
+  "FIRST_NAME": "FIRST_NAME-28809873",
+  "MIDDLE_NAME": "MIDDLE_NAME-28809873",
+  "LAST_NAME": "LAST_NAME-28809873",
+  "CITY": "CITY-28809873",
+  "ADDR1": "ADDR1-28809873",
+  "ADDR2": "ADDR2-28809873",
+  "ADDR3": "ADDR3-28809873",
+  "COUNTRY_CD": "873",
+  "COMPANY_NAME": "COMPANY_NAME-28809873",
+  "ALIAS": "ALIAS-28809873",
+  "SEARCH_STRING": "SEARCH_STRING-28809873",
+  "EMAIL": "EMAIL-28809873",
+  "BUSINESS_PARTNER_TYPE_ID": 21,
+  "FULL_NAME": "FULL_NAME-28809873",
+  "FULL_ADDR": "FULL_ADDR-28809873",
+  "COPMANY_TYPE_CODE": "873",
+  "COMPNAY_TYPE_DESC": "COMPNAY_TYPE_DESC-28809873",
+  "ROLE_NAME": "ROLE_NAME-28809873"
+}
+
+
+### CRM.Insureds
+PATCH {{server}}/odata/v4/crm/Insureds/Insureds-28809873
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "Insureds-28809873",
+  "createdAt": "2007-08-23T20:00:00.000Z",
+  "createdBy": "createdBy-28809873",
+  "modifiedAt": "2002-06-25T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-28809873",
+  "ACTIVE": false,
+  "DELETED": false,
+  "BP_ID_EXT": "BP_ID_EXT-28809873",
+  "FIRST_NAME": "FIRST_NAME-28809873",
+  "MIDDLE_NAME": "MIDDLE_NAME-28809873",
+  "LAST_NAME": "LAST_NAME-28809873",
+  "CITY": "CITY-28809873",
+  "ADDR1": "ADDR1-28809873",
+  "ADDR2": "ADDR2-28809873",
+  "ADDR3": "ADDR3-28809873",
+  "COUNTRY_CD": "873",
+  "COMPANY_NAME": "COMPANY_NAME-28809873",
+  "ALIAS": "ALIAS-28809873",
+  "SEARCH_STRING": "SEARCH_STRING-28809873",
+  "EMAIL": "EMAIL-28809873",
+  "BUSINESS_PARTNER_TYPE_ID": 21,
+  "FULL_NAME": "FULL_NAME-28809873",
+  "FULL_ADDR": "FULL_ADDR-28809873",
+  "COPMANY_TYPE_CODE": "873",
+  "COMPNAY_TYPE_DESC": "COMPNAY_TYPE_DESC-28809873",
+  "ROLE_NAME": "ROLE_NAME-28809873"
+}
+
+
+### CRM.Insureds
+DELETE {{server}}/odata/v4/crm/Insureds/Insureds-28809873
+Content-Type: application/json
+{{auth}}
+
+
+### CRM.AdditonalInsureds
+GET {{server}}/odata/v4/crm/AdditonalInsureds
+Content-Type: application/json
+{{auth}}
+
+
+### CRM.AdditonalInsureds
+POST {{server}}/odata/v4/crm/AdditonalInsureds
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "nalInsureds-17223686",
+  "createdAt": "2007-12-27T20:00:00.000Z",
+  "createdBy": "createdBy-17223686",
+  "modifiedAt": "2010-08-24T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-17223686",
+  "ACTIVE": true,
+  "DELETED": true,
+  "BP_ID_EXT": "BP_ID_EXT-17223686",
+  "FIRST_NAME": "FIRST_NAME-17223686",
+  "MIDDLE_NAME": "MIDDLE_NAME-17223686",
+  "LAST_NAME": "LAST_NAME-17223686",
+  "CITY": "CITY-17223686",
+  "ADDR1": "ADDR1-17223686",
+  "ADDR2": "ADDR2-17223686",
+  "ADDR3": "ADDR3-17223686",
+  "COUNTRY_CD": "686",
+  "COMPANY_NAME": "COMPANY_NAME-17223686",
+  "ALIAS": "ALIAS-17223686",
+  "SEARCH_STRING": "SEARCH_STRING-17223686",
+  "EMAIL": "EMAIL-17223686",
+  "BUSINESS_PARTNER_TYPE_ID": 92,
+  "FULL_NAME": "FULL_NAME-17223686",
+  "FULL_ADDR": "FULL_ADDR-17223686",
+  "COPMANY_TYPE_CODE": "686",
+  "COMPNAY_TYPE_DESC": "COMPNAY_TYPE_DESC-17223686",
+  "ROLE_NAME": "ROLE_NAME-17223686"
+}
+
+
+### CRM.AdditonalInsureds
+PATCH {{server}}/odata/v4/crm/AdditonalInsureds/nalInsureds-17223686
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "nalInsureds-17223686",
+  "createdAt": "2007-12-27T20:00:00.000Z",
+  "createdBy": "createdBy-17223686",
+  "modifiedAt": "2010-08-24T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-17223686",
+  "ACTIVE": true,
+  "DELETED": true,
+  "BP_ID_EXT": "BP_ID_EXT-17223686",
+  "FIRST_NAME": "FIRST_NAME-17223686",
+  "MIDDLE_NAME": "MIDDLE_NAME-17223686",
+  "LAST_NAME": "LAST_NAME-17223686",
+  "CITY": "CITY-17223686",
+  "ADDR1": "ADDR1-17223686",
+  "ADDR2": "ADDR2-17223686",
+  "ADDR3": "ADDR3-17223686",
+  "COUNTRY_CD": "686",
+  "COMPANY_NAME": "COMPANY_NAME-17223686",
+  "ALIAS": "ALIAS-17223686",
+  "SEARCH_STRING": "SEARCH_STRING-17223686",
+  "EMAIL": "EMAIL-17223686",
+  "BUSINESS_PARTNER_TYPE_ID": 92,
+  "FULL_NAME": "FULL_NAME-17223686",
+  "FULL_ADDR": "FULL_ADDR-17223686",
+  "COPMANY_TYPE_CODE": "686",
+  "COMPNAY_TYPE_DESC": "COMPNAY_TYPE_DESC-17223686",
+  "ROLE_NAME": "ROLE_NAME-17223686"
+}
+
+
+### CRM.AdditonalInsureds
+DELETE {{server}}/odata/v4/crm/AdditonalInsureds/nalInsureds-17223686
+Content-Type: application/json
+{{auth}}
+
+
+### CRM.Brokers
+GET {{server}}/odata/v4/crm/Brokers
+Content-Type: application/json
+{{auth}}
+
+
+### CRM.Brokers
+POST {{server}}/odata/v4/crm/Brokers
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "Brokers-29389737",
+  "createdAt": "2020-10-05T20:00:00.000Z",
+  "createdBy": "createdBy-29389737",
+  "modifiedAt": "2002-08-23T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-29389737",
+  "ACTIVE": false,
+  "DELETED": false,
+  "BP_ID_EXT": "BP_ID_EXT-29389737",
+  "FIRST_NAME": "FIRST_NAME-29389737",
+  "MIDDLE_NAME": "MIDDLE_NAME-29389737",
+  "LAST_NAME": "LAST_NAME-29389737",
+  "CITY": "CITY-29389737",
+  "ADDR1": "ADDR1-29389737",
+  "ADDR2": "ADDR2-29389737",
+  "ADDR3": "ADDR3-29389737",
+  "COUNTRY_CD": "737",
+  "COMPANY_NAME": "COMPANY_NAME-29389737",
+  "ALIAS": "ALIAS-29389737",
+  "SEARCH_STRING": "SEARCH_STRING-29389737",
+  "EMAIL": "EMAIL-29389737",
+  "BUSINESS_PARTNER_TYPE_ID": 81,
+  "FULL_NAME": "FULL_NAME-29389737",
+  "FULL_ADDR": "FULL_ADDR-29389737",
+  "COPMANY_TYPE_CODE": "737",
+  "COMPNAY_TYPE_DESC": "COMPNAY_TYPE_DESC-29389737",
+  "ROLE_NAME": "ROLE_NAME-29389737"
+}
+
+
+### CRM.Brokers
+PATCH {{server}}/odata/v4/crm/Brokers/Brokers-29389737
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "Brokers-29389737",
+  "createdAt": "2020-10-05T20:00:00.000Z",
+  "createdBy": "createdBy-29389737",
+  "modifiedAt": "2002-08-23T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-29389737",
+  "ACTIVE": false,
+  "DELETED": false,
+  "BP_ID_EXT": "BP_ID_EXT-29389737",
+  "FIRST_NAME": "FIRST_NAME-29389737",
+  "MIDDLE_NAME": "MIDDLE_NAME-29389737",
+  "LAST_NAME": "LAST_NAME-29389737",
+  "CITY": "CITY-29389737",
+  "ADDR1": "ADDR1-29389737",
+  "ADDR2": "ADDR2-29389737",
+  "ADDR3": "ADDR3-29389737",
+  "COUNTRY_CD": "737",
+  "COMPANY_NAME": "COMPANY_NAME-29389737",
+  "ALIAS": "ALIAS-29389737",
+  "SEARCH_STRING": "SEARCH_STRING-29389737",
+  "EMAIL": "EMAIL-29389737",
+  "BUSINESS_PARTNER_TYPE_ID": 81,
+  "FULL_NAME": "FULL_NAME-29389737",
+  "FULL_ADDR": "FULL_ADDR-29389737",
+  "COPMANY_TYPE_CODE": "737",
+  "COMPNAY_TYPE_DESC": "COMPNAY_TYPE_DESC-29389737",
+  "ROLE_NAME": "ROLE_NAME-29389737"
+}
+
+
+### CRM.Brokers
+DELETE {{server}}/odata/v4/crm/Brokers/Brokers-29389737
+Content-Type: application/json
+{{auth}}
+
+
+### CRM.Members
+GET {{server}}/odata/v4/crm/Members
+Content-Type: application/json
+{{auth}}
+
+
+### CRM.Members
+POST {{server}}/odata/v4/crm/Members
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "Members-449628",
+  "createdAt": "2000-01-20T20:00:00.000Z",
+  "createdBy": "createdBy-449628",
+  "modifiedAt": "2020-11-12T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-449628",
+  "ACTIVE": true,
+  "DELETED": true,
+  "BP_ID_EXT": "BP_ID_EXT-449628",
+  "FIRST_NAME": "FIRST_NAME-449628",
+  "MIDDLE_NAME": "MIDDLE_NAME-449628",
+  "LAST_NAME": "LAST_NAME-449628",
+  "CITY": "CITY-449628",
+  "ADDR1": "ADDR1-449628",
+  "ADDR2": "ADDR2-449628",
+  "ADDR3": "ADDR3-449628",
+  "COUNTRY_CD": "628",
+  "COMPANY_NAME": "COMPANY_NAME-449628",
+  "ALIAS": "ALIAS-449628",
+  "SEARCH_STRING": "SEARCH_STRING-449628",
+  "EMAIL": "EMAIL-449628",
+  "BUSINESS_PARTNER_TYPE_ID": 6,
+  "FULL_NAME": "FULL_NAME-449628",
+  "FULL_ADDR": "FULL_ADDR-449628",
+  "COPMANY_TYPE_CODE": "628",
+  "COMPNAY_TYPE_DESC": "COMPNAY_TYPE_DESC-449628",
+  "ROLE_NAME": "ROLE_NAME-449628"
+}
+
+
+### CRM.Members
+PATCH {{server}}/odata/v4/crm/Members/Members-449628
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "Members-449628",
+  "createdAt": "2000-01-20T20:00:00.000Z",
+  "createdBy": "createdBy-449628",
+  "modifiedAt": "2020-11-12T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-449628",
+  "ACTIVE": true,
+  "DELETED": true,
+  "BP_ID_EXT": "BP_ID_EXT-449628",
+  "FIRST_NAME": "FIRST_NAME-449628",
+  "MIDDLE_NAME": "MIDDLE_NAME-449628",
+  "LAST_NAME": "LAST_NAME-449628",
+  "CITY": "CITY-449628",
+  "ADDR1": "ADDR1-449628",
+  "ADDR2": "ADDR2-449628",
+  "ADDR3": "ADDR3-449628",
+  "COUNTRY_CD": "628",
+  "COMPANY_NAME": "COMPANY_NAME-449628",
+  "ALIAS": "ALIAS-449628",
+  "SEARCH_STRING": "SEARCH_STRING-449628",
+  "EMAIL": "EMAIL-449628",
+  "BUSINESS_PARTNER_TYPE_ID": 6,
+  "FULL_NAME": "FULL_NAME-449628",
+  "FULL_ADDR": "FULL_ADDR-449628",
+  "COPMANY_TYPE_CODE": "628",
+  "COMPNAY_TYPE_DESC": "COMPNAY_TYPE_DESC-449628",
+  "ROLE_NAME": "ROLE_NAME-449628"
+}
+
+
+### CRM.Members
+DELETE {{server}}/odata/v4/crm/Members/Members-449628
+Content-Type: application/json
+{{auth}}
+
+
+### CRM.BusinessPartnerRoles
+GET {{server}}/odata/v4/crm/BusinessPartnerRoles
+Content-Type: application/json
+{{auth}}
+
+
+### CRM.BusinessPartnerRoles
+POST {{server}}/odata/v4/crm/BusinessPartnerRoles
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "s-10301524",
+  "ROLE_NAME": "BusinessPartnerRoles-10301524",
+  "createdAt": "2009-07-17T20:00:00.000Z",
+  "createdBy": "createdBy-10301524",
+  "modifiedAt": "2002-11-15T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-10301524",
+  "ACTIVE": true,
+  "DELETED": true,
+  "ItsBusinessPartner": {
+    "ID": "essPartners-21950712"
+  },
+  "ItsRole": {
+    "ROLE_NAME": "BusinessPartnerRolesList-18025583"
+  }
+}
+
+
+### CRM.BusinessPartnerRoles
+PATCH {{server}}/odata/v4/crm/BusinessPartnerRoles/s-10301524
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "s-10301524",
+  "ROLE_NAME": "BusinessPartnerRoles-10301524",
+  "createdAt": "2009-07-17T20:00:00.000Z",
+  "createdBy": "createdBy-10301524",
+  "modifiedAt": "2002-11-15T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-10301524",
+  "ACTIVE": true,
+  "DELETED": true,
+  "ItsBusinessPartner": {
+    "ID": "essPartners-21950712"
+  },
+  "ItsRole": {
+    "ROLE_NAME": "BusinessPartnerRolesList-18025583"
+  }
+}
+
+
+### CRM.BusinessPartnerRoles
+DELETE {{server}}/odata/v4/crm/BusinessPartnerRoles/s-10301524
+Content-Type: application/json
+{{auth}}
+
+
+### CRM.BusinessPartnerContacts
+GET {{server}}/odata/v4/crm/BusinessPartnerContacts
+Content-Type: application/json
+{{auth}}
+
+
+### CRM.BusinessPartnerContacts
+POST {{server}}/odata/v4/crm/BusinessPartnerContacts
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "nerContacts-11872796",
+  "CONTACT_BP_ID": "nerContacts-11872796",
+  "createdAt": "2022-11-05T20:00:00.000Z",
+  "createdBy": "createdBy-11872796",
+  "modifiedAt": "2019-12-21T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-11872796",
+  "ACTIVE": true,
+  "DELETED": true,
+  "ItsBusinessPartner": {
+    "ID": "essPartners-19515996"
+  }
+}
+
+
+### CRM.BusinessPartnerContacts
+PATCH {{server}}/odata/v4/crm/BusinessPartnerContacts/nerContacts-11872796
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "nerContacts-11872796",
+  "CONTACT_BP_ID": "nerContacts-11872796",
+  "createdAt": "2022-11-05T20:00:00.000Z",
+  "createdBy": "createdBy-11872796",
+  "modifiedAt": "2019-12-21T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-11872796",
+  "ACTIVE": true,
+  "DELETED": true,
+  "ItsBusinessPartner": {
+    "ID": "essPartners-19515996"
+  }
+}
+
+
+### CRM.BusinessPartnerContacts
+DELETE {{server}}/odata/v4/crm/BusinessPartnerContacts/nerContacts-11872796
+Content-Type: application/json
+{{auth}}
+
+
+### CRM.BusinessPartnersWithAttributes
+GET {{server}}/odata/v4/crm/BusinessPartnersWithAttributes
+Content-Type: application/json
+{{auth}}
+
+
+### CRM.BusinessPartnersWithAttributes
+POST {{server}}/odata/v4/crm/BusinessPartnersWithAttributes
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "hAttributes-28543398",
+  "BP_ID_EXT": "BP_ID_EXT-28543398",
+  "ADDR1": "ADDR1-28543398",
+  "ADDR2": "ADDR2-28543398",
+  "ADDR3": "ADDR3-28543398",
+  "FULL_ADDR": "FULL_ADDR-28543398",
+  "FIRST_NAME": "FIRST_NAME-28543398",
+  "MIDDLE_NAME": "MIDDLE_NAME-28543398",
+  "LAST_NAME": "LAST_NAME-28543398",
+  "FULL_NAME": "FULL_NAME-28543398",
+  "COMPANY_NAME": "COMPANY_NAME-28543398",
+  "COUNTRY_CD": "398",
+  "COUNTRY_NAME": "COUNTRY_NAME-28543398",
+  "EMAIL": "EMAIL-28543398",
+  "ALIAS": "ALIAS-28543398",
+  "SEARCH_STRING": "SEARCH_STRING-28543398",
+  "BPROLES": "BPROLES-28543398"
+}
+
+
+### CRM.BusinessPartnersWithAttributes
+PATCH {{server}}/odata/v4/crm/BusinessPartnersWithAttributes/hAttributes-28543398
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "hAttributes-28543398",
+  "BP_ID_EXT": "BP_ID_EXT-28543398",
+  "ADDR1": "ADDR1-28543398",
+  "ADDR2": "ADDR2-28543398",
+  "ADDR3": "ADDR3-28543398",
+  "FULL_ADDR": "FULL_ADDR-28543398",
+  "FIRST_NAME": "FIRST_NAME-28543398",
+  "MIDDLE_NAME": "MIDDLE_NAME-28543398",
+  "LAST_NAME": "LAST_NAME-28543398",
+  "FULL_NAME": "FULL_NAME-28543398",
+  "COMPANY_NAME": "COMPANY_NAME-28543398",
+  "COUNTRY_CD": "398",
+  "COUNTRY_NAME": "COUNTRY_NAME-28543398",
+  "EMAIL": "EMAIL-28543398",
+  "ALIAS": "ALIAS-28543398",
+  "SEARCH_STRING": "SEARCH_STRING-28543398",
+  "BPROLES": "BPROLES-28543398"
+}
+
+
+### CRM.BusinessPartnersWithAttributes
+DELETE {{server}}/odata/v4/crm/BusinessPartnersWithAttributes/hAttributes-28543398
+Content-Type: application/json
+{{auth}}
+
+
+### CRM.Country
+GET {{server}}/odata/v4/crm/Country
+Content-Type: application/json
+{{auth}}
+
+
+### CRM.Country
+POST {{server}}/odata/v4/crm/Country
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 29895966,
+  "COUNTRY_CD": "966",
+  "createdAt": "2019-03-31T20:00:00.000Z",
+  "createdBy": "createdBy-29895966",
+  "modifiedAt": "2023-12-16T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-29895966",
+  "ACTIVE": true,
+  "DELETED": true,
+  "COUNTRY_NAME": "COUNTRY_NAME-29895966"
+}
+
+
+### CRM.Country
+PATCH {{server}}/odata/v4/crm/Country/29895966
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 29895966,
+  "COUNTRY_CD": "966",
+  "createdAt": "2019-03-31T20:00:00.000Z",
+  "createdBy": "createdBy-29895966",
+  "modifiedAt": "2023-12-16T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-29895966",
+  "ACTIVE": true,
+  "DELETED": true,
+  "COUNTRY_NAME": "COUNTRY_NAME-29895966"
+}
+
+
+### CRM.Country
+DELETE {{server}}/odata/v4/crm/Country/29895966
+Content-Type: application/json
+{{auth}}
+
+
+### CRM.syncBP
+POST {{server}}/odata/v4/crm/syncBP
+Content-Type: application/json
+{{auth}}
+
+{
+  "bp": null
+}

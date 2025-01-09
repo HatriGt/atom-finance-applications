@@ -1,0 +1,62 @@
+@server = http://localhost:4004
+@auth = Authorization: Basic alice:
+
+
+### clearingapplicationservices.DeepOPSet
+GET {{server}}/odata/v4/clearingapplicationservices/DeepOPSet
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationservices.SOAUpdatePrecheckResponseSet
+GET {{server}}/odata/v4/clearingapplicationservices/SOAUpdatePrecheckResponseSet
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationservices.CRClearingOPSet
+GET {{server}}/odata/v4/clearingapplicationservices/CRClearingOPSet
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationservices.ClearSOATableSet
+GET {{server}}/odata/v4/clearingapplicationservices/ClearSOATableSet
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationservices.ResponseCollection
+GET {{server}}/odata/v4/clearingapplicationservices/ResponseCollection
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationservices.ClearingOPSet
+GET {{server}}/odata/v4/clearingapplicationservices/ClearingOPSet
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationservices.ActionConfirmCollection
+GET {{server}}/odata/v4/clearingapplicationservices/ActionConfirmCollection
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationservices.ConvForeignCurrencySet
+GET {{server}}/odata/v4/clearingapplicationservices/ConvForeignCurrencySet
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationservices.BusinessPartnersSet
+GET {{server}}/odata/v4/clearingapplicationservices/BusinessPartnersSet
+Content-Type: application/json
+{{auth}}
+
+
+### clearingapplicationservices.UpdateSOATableSet
+GET {{server}}/odata/v4/clearingapplicationservices/UpdateSOATableSet
+Content-Type: application/json
+{{auth}}

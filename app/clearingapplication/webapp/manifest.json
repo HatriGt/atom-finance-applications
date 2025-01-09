@@ -1,0 +1,213 @@
+{
+    "_version": "1.59.0",
+    "sap.app": {
+        "id": "atom.ui.clearing.clearingapplication",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.12.2",
+            "toolsId": "4604e08e-d79b-4939-ab59-f52832845a10"
+        },
+        "dataSources": {
+            "clearingApplicationModel": {
+                "uri":"/v2/clearingapplication/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/clearing-/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "clearingApplicationModelV4": {
+                "uri":"/clearingapplication/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [], 
+                    "odataVersion": "4.0"
+                }
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "clearing-inbound": {
+                    "semanticObject": "clearing",
+                    "action": "display",
+                    "title": "{{flpTitle}}",
+                    "subTitle": "{{flpSubtitle}}",
+                    "icon": "",
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    }
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "resourceRoots": {
+            "atom.ui.clearing.clearingapplication.customControls": "./customControls"
+        },
+        "flexEnabled": false,
+        "config": { "fullWidth": true },
+        "dependencies": {
+            "minUI5Version": "1.120.4",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.f": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.ui.table": {},
+                "sap.ushell": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "atom.ui.clearing.clearingapplication.i18n.i18n"
+                }
+            },
+            "clearingApplicationModel": {
+                "dataSource": "clearingApplicationModel",
+                "preload": true,
+                "settings": {}
+            },
+            "clearingApplicationModelV4": {
+                "dataSource": "clearingApplicationModelV4",
+                "preload": true,
+                "settings": {}
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "atom.ui.clearing.clearingapplication.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "RouteMainView",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetMainView"
+                    ]
+                },
+                {
+                    "name": "RoutePremiumReceivablesClearingView",
+                    "pattern": "premiumreceivablesclearing",
+                    "target": [
+                        "TargetPremiumReceivablesClearingView"
+                    ]
+                },
+                {
+                    "name": "RouteClaimReceivablesClearingView",
+                    "pattern": "claimreceivablesclearing",
+                    "target": [
+                        "TargetClaimReceivablesClearingView"
+                    ]
+                },
+                {
+                    "name": "RoutePremiumPayablesClearingView",
+                    "pattern": "premiumpayablesclearing",
+                    "target": [
+                        "TargetPremiumPayablesClearingView"
+                    ]
+                },
+                {
+                    "name": "RouteClaimPayablesClearingView",
+                    "pattern": "claimpayablesclearing",
+                    "target": [
+                        "TargetClaimPayablesClearingView"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetMainView": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "MainView",
+                    "viewName": "MainView"
+                },
+                "TargetPremiumReceivablesClearingView": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "PremiumReceivablesClearing",
+                    "viewName": "PremiumReceivablesClearing"
+                },
+                "TargetClaimReceivablesClearingView": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "ClaimReceivablesClearing",
+                    "viewName": "ClaimReceivablesClearing"
+                },
+                "TargetPremiumPayablesClearingView": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "PremiumPayablesClearing",
+                    "viewName": "PremiumPayablesClearing"
+                },
+                "TargetClaimPayablesClearingView": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "ClaimPayablesClearing",
+                    "viewName": "ClaimPayablesClearing"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "atom.ui.clearing.clearingapplication.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        }
+    },
+    "sap.cloud": {
+        "public": true,
+        "service": "atomuiclearingclearingapplication"
+    }
+}

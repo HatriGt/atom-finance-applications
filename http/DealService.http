@@ -1,0 +1,2078 @@
+@server = http://localhost:4004
+@auth = Authorization: Basic alice:
+
+
+### DealService.Approaches
+GET {{server}}/odata/v4/deal/Approaches
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ApproachProducts
+GET {{server}}/odata/v4/deal/ApproachProducts
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ApproachTeams
+GET {{server}}/odata/v4/deal/ApproachTeams
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ApproachNotes
+GET {{server}}/odata/v4/deal/ApproachNotes
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ApproachMarketingBrokers
+GET {{server}}/odata/v4/deal/ApproachMarketingBrokers
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ApproachOffices
+GET {{server}}/odata/v4/deal/ApproachOffices
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ApproachPools
+GET {{server}}/odata/v4/deal/ApproachPools
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ApproachUMRs
+GET {{server}}/odata/v4/deal/ApproachUMRs
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.Deals
+GET {{server}}/odata/v4/deal/Deals
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.DealBrokers
+GET {{server}}/odata/v4/deal/DealBrokers
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.DealPaymentsInfo
+GET {{server}}/odata/v4/deal/DealPaymentsInfo
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.AdditionalInsureds
+GET {{server}}/odata/v4/deal/AdditionalInsureds
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.AdditionalInsuredsWithAttributes
+GET {{server}}/odata/v4/deal/AdditionalInsuredsWithAttributes
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ReInsureds
+GET {{server}}/odata/v4/deal/ReInsureds
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ReInsuredsWithAttributes
+GET {{server}}/odata/v4/deal/ReInsuredsWithAttributes
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.Clauses
+GET {{server}}/odata/v4/deal/Clauses
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ClauseGeographicalLimits
+GET {{server}}/odata/v4/deal/ClauseGeographicalLimits
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ClauseCountries
+GET {{server}}/odata/v4/deal/ClauseCountries
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.GeographicalCountries
+GET {{server}}/odata/v4/deal/GeographicalCountries
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.DealStrategyParticipations
+GET {{server}}/odata/v4/deal/DealStrategyParticipations
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.Participations
+GET {{server}}/odata/v4/deal/Participations
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ParticipationDeductions
+GET {{server}}/odata/v4/deal/ParticipationDeductions
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ParticipationPremiumsHeader
+GET {{server}}/odata/v4/deal/ParticipationPremiumsHeader
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ParticipationPremiumsSplit
+GET {{server}}/odata/v4/deal/ParticipationPremiumsSplit
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ParticipationPremiumsInfo
+GET {{server}}/odata/v4/deal/ParticipationPremiumsInfo
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.Sections
+GET {{server}}/odata/v4/deal/Sections
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.SectionApplicableTaxes
+GET {{server}}/odata/v4/deal/SectionApplicableTaxes
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ParticipationSections
+GET {{server}}/odata/v4/deal/ParticipationSections
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.Endorsements
+GET {{server}}/odata/v4/deal/Endorsements
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ExternalReferences
+GET {{server}}/odata/v4/deal/ExternalReferences
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.DealProducts
+GET {{server}}/odata/v4/deal/DealProducts
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.DealProductTotalExposures
+GET {{server}}/odata/v4/deal/DealProductTotalExposures
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ExtrefTaxDeductions
+GET {{server}}/odata/v4/deal/ExtrefTaxDeductions
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.InternalReferences
+GET {{server}}/odata/v4/deal/InternalReferences
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.SignaturePagePDFs
+GET {{server}}/odata/v4/deal/SignaturePagePDFs
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.InternalTaxDeductions
+GET {{server}}/odata/v4/deal/InternalTaxDeductions
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.InternalPremiums
+GET {{server}}/odata/v4/deal/InternalPremiums
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.InternalPremiumsTaxDeds
+GET {{server}}/odata/v4/deal/InternalPremiumsTaxDeds
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.InternalPaymentPlans
+GET {{server}}/odata/v4/deal/InternalPaymentPlans
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ExternalPremiums
+GET {{server}}/odata/v4/deal/ExternalPremiums
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ExternalPaymentPlans
+GET {{server}}/odata/v4/deal/ExternalPaymentPlans
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.DealsCapacityInput
+GET {{server}}/odata/v4/deal/DealsCapacityInput
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.DealstoPremiums
+GET {{server}}/odata/v4/deal/DealstoPremiums
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.DealtoEndorsements
+GET {{server}}/odata/v4/deal/DealtoEndorsements
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.LloydsRiskCodes
+GET {{server}}/odata/v4/deal/LloydsRiskCodes
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.LloydsRiskCodes
+POST {{server}}/odata/v4/deal/LloydsRiskCodes
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 13550738,
+  "createdAt": "2001-08-19T20:00:00.000Z",
+  "createdBy": "createdBy-13550738",
+  "modifiedAt": "2008-10-02T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-13550738",
+  "ACTIVE": true,
+  "DELETED": true,
+  "LOB_ID": 75,
+  "LLRISK_CODE": "LLRISK_CODE-13550738",
+  "LLRISK_DESCRIPTION": "LLRISK_DESCRIPTION-13550738"
+}
+
+
+### DealService.LloydsRiskCodes
+PATCH {{server}}/odata/v4/deal/LloydsRiskCodes/13550738
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 13550738,
+  "createdAt": "2001-08-19T20:00:00.000Z",
+  "createdBy": "createdBy-13550738",
+  "modifiedAt": "2008-10-02T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-13550738",
+  "ACTIVE": true,
+  "DELETED": true,
+  "LOB_ID": 75,
+  "LLRISK_CODE": "LLRISK_CODE-13550738",
+  "LLRISK_DESCRIPTION": "LLRISK_DESCRIPTION-13550738"
+}
+
+
+### DealService.LloydsRiskCodes
+DELETE {{server}}/odata/v4/deal/LloydsRiskCodes/13550738
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.InternalRiskCodes
+GET {{server}}/odata/v4/deal/InternalRiskCodes
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.InternalRiskCodes
+POST {{server}}/odata/v4/deal/InternalRiskCodes
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 10750532,
+  "createdAt": "2017-04-22T20:00:00.000Z",
+  "createdBy": "createdBy-10750532",
+  "modifiedAt": "2010-09-26T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-10750532",
+  "ACTIVE": true,
+  "DELETED": true,
+  "LOB_ID": 1,
+  "SEGMENT_ID": 12,
+  "LLRISKCODE_ID": 65,
+  "INTRISK_CODE": "INTRISK_CODE-10750532",
+  "INTRISK_DESCRIPTION": "INTRISK_DESCRIPTION-10750532",
+  "ItsLLoydsRiskCode": {
+    "ID": 22908922
+  }
+}
+
+
+### DealService.InternalRiskCodes
+PATCH {{server}}/odata/v4/deal/InternalRiskCodes/10750532
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 10750532,
+  "createdAt": "2017-04-22T20:00:00.000Z",
+  "createdBy": "createdBy-10750532",
+  "modifiedAt": "2010-09-26T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-10750532",
+  "ACTIVE": true,
+  "DELETED": true,
+  "LOB_ID": 1,
+  "SEGMENT_ID": 12,
+  "LLRISKCODE_ID": 65,
+  "INTRISK_CODE": "INTRISK_CODE-10750532",
+  "INTRISK_DESCRIPTION": "INTRISK_DESCRIPTION-10750532",
+  "ItsLLoydsRiskCode": {
+    "ID": 22908922
+  }
+}
+
+
+### DealService.InternalRiskCodes
+DELETE {{server}}/odata/v4/deal/InternalRiskCodes/10750532
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ExternalReferenceBookingHistories
+GET {{server}}/odata/v4/deal/ExternalReferenceBookingHistories
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.SectionSubLimits
+GET {{server}}/odata/v4/deal/SectionSubLimits
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.SectionBusinessPartners
+GET {{server}}/odata/v4/deal/SectionBusinessPartners
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.DealOffices
+GET {{server}}/odata/v4/deal/DealOffices
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.DealCoverholders
+GET {{server}}/odata/v4/deal/DealCoverholders
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.DealAttributes
+GET {{server}}/odata/v4/deal/DealAttributes
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.DealAttributes_Deals
+GET {{server}}/odata/v4/deal/DealAttributes_Deals
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.SBODealAttributes
+GET {{server}}/odata/v4/deal/SBODealAttributes
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.MBODealAttributes
+GET {{server}}/odata/v4/deal/MBODealAttributes
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.SBOApproachesWithAttributes
+GET {{server}}/odata/v4/deal/SBOApproachesWithAttributes
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.MBOApproachesWithAttributes
+GET {{server}}/odata/v4/deal/MBOApproachesWithAttributes
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ApproachesWithAttributes
+GET {{server}}/odata/v4/deal/ApproachesWithAttributes
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.InternalReferencesWithAttributes
+GET {{server}}/odata/v4/deal/InternalReferencesWithAttributes
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.DocumentSteps
+GET {{server}}/odata/v4/deal/DocumentSteps
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.LineOfBusiness
+GET {{server}}/odata/v4/deal/LineOfBusiness
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.LineOfBusiness
+POST {{server}}/odata/v4/deal/LineOfBusiness
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 27641804,
+  "createdAt": "2016-06-06T20:00:00.000Z",
+  "createdBy": "createdBy-27641804",
+  "modifiedAt": "2002-09-24T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-27641804",
+  "ACTIVE": true,
+  "DELETED": true,
+  "LOB_NAME": "LOB_NAME-27641804",
+  "LOB_DESCRIPTION": "LOB_DESCRIPTION-27641804",
+  "BILLING_POLICY_TYPE": "04"
+}
+
+
+### DealService.LineOfBusiness
+PATCH {{server}}/odata/v4/deal/LineOfBusiness/27641804
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 27641804,
+  "createdAt": "2016-06-06T20:00:00.000Z",
+  "createdBy": "createdBy-27641804",
+  "modifiedAt": "2002-09-24T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-27641804",
+  "ACTIVE": true,
+  "DELETED": true,
+  "LOB_NAME": "LOB_NAME-27641804",
+  "LOB_DESCRIPTION": "LOB_DESCRIPTION-27641804",
+  "BILLING_POLICY_TYPE": "04"
+}
+
+
+### DealService.LineOfBusiness
+DELETE {{server}}/odata/v4/deal/LineOfBusiness/27641804
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.BusinessPartner
+GET {{server}}/odata/v4/deal/BusinessPartner
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.BusinessPartner
+POST {{server}}/odata/v4/deal/BusinessPartner
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "inessPartner-6800436",
+  "createdAt": "2021-12-19T20:00:00.000Z",
+  "createdBy": "createdBy-6800436",
+  "modifiedAt": "2020-03-27T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-6800436",
+  "ACTIVE": true,
+  "DELETED": true,
+  "BP_ID_EXT": "BP_ID_EXT-6800436",
+  "FIRST_NAME": "FIRST_NAME-6800436",
+  "MIDDLE_NAME": "MIDDLE_NAME-6800436",
+  "LAST_NAME": "LAST_NAME-6800436",
+  "FULL_NAME": "FULL_NAME-6800436",
+  "CITY": "CITY-6800436",
+  "ADDR1": "ADDR1-6800436",
+  "ADDR2": "ADDR2-6800436",
+  "ADDR3": "ADDR3-6800436",
+  "FULL_ADDR": "FULL_ADDR-6800436",
+  "COUNTRY_CD": "436",
+  "COMPANY_NAME": "COMPANY_NAME-6800436",
+  "ALIAS": "ALIAS-6800436",
+  "SEARCH_STRING": "SEARCH_STRING-6800436",
+  "EMAIL": "EMAIL-6800436",
+  "BUSINESS_PARTNER_TYPE_ID": 77,
+  "COPMANY_TYPE_CODE": "436",
+  "COMPNAY_TYPE_DESC": "COMPNAY_TYPE_DESC-6800436",
+  "ItsCountry": {
+    "ID": 20935800,
+    "COUNTRY_CD": "800"
+  }
+}
+
+
+### DealService.BusinessPartner
+PATCH {{server}}/odata/v4/deal/BusinessPartner/inessPartner-6800436
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "inessPartner-6800436",
+  "createdAt": "2021-12-19T20:00:00.000Z",
+  "createdBy": "createdBy-6800436",
+  "modifiedAt": "2020-03-27T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-6800436",
+  "ACTIVE": true,
+  "DELETED": true,
+  "BP_ID_EXT": "BP_ID_EXT-6800436",
+  "FIRST_NAME": "FIRST_NAME-6800436",
+  "MIDDLE_NAME": "MIDDLE_NAME-6800436",
+  "LAST_NAME": "LAST_NAME-6800436",
+  "FULL_NAME": "FULL_NAME-6800436",
+  "CITY": "CITY-6800436",
+  "ADDR1": "ADDR1-6800436",
+  "ADDR2": "ADDR2-6800436",
+  "ADDR3": "ADDR3-6800436",
+  "FULL_ADDR": "FULL_ADDR-6800436",
+  "COUNTRY_CD": "436",
+  "COMPANY_NAME": "COMPANY_NAME-6800436",
+  "ALIAS": "ALIAS-6800436",
+  "SEARCH_STRING": "SEARCH_STRING-6800436",
+  "EMAIL": "EMAIL-6800436",
+  "BUSINESS_PARTNER_TYPE_ID": 77,
+  "COPMANY_TYPE_CODE": "436",
+  "COMPNAY_TYPE_DESC": "COMPNAY_TYPE_DESC-6800436",
+  "ItsCountry": {
+    "ID": 20935800,
+    "COUNTRY_CD": "800"
+  }
+}
+
+
+### DealService.BusinessPartner
+DELETE {{server}}/odata/v4/deal/BusinessPartner/inessPartner-6800436
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ApproachStatus
+GET {{server}}/odata/v4/deal/ApproachStatus
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ApproachNature
+GET {{server}}/odata/v4/deal/ApproachNature
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ApproachSource
+GET {{server}}/odata/v4/deal/ApproachSource
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.Office
+GET {{server}}/odata/v4/deal/Office
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.Office
+POST {{server}}/odata/v4/deal/Office
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 30342086,
+  "createdAt": "2007-02-07T20:00:00.000Z",
+  "createdBy": "createdBy-30342086",
+  "modifiedAt": "2011-11-19T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-30342086",
+  "ACTIVE": true,
+  "DELETED": true,
+  "OFFICE_KEY": "OFFICE_KEY-30342086",
+  "OFFICE_DESCRIPTION": "OFFICE_DESCRIPTION-30342086"
+}
+
+
+### DealService.Office
+PATCH {{server}}/odata/v4/deal/Office/30342086
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 30342086,
+  "createdAt": "2007-02-07T20:00:00.000Z",
+  "createdBy": "createdBy-30342086",
+  "modifiedAt": "2011-11-19T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-30342086",
+  "ACTIVE": true,
+  "DELETED": true,
+  "OFFICE_KEY": "OFFICE_KEY-30342086",
+  "OFFICE_DESCRIPTION": "OFFICE_DESCRIPTION-30342086"
+}
+
+
+### DealService.Office
+DELETE {{server}}/odata/v4/deal/Office/30342086
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.Product
+GET {{server}}/odata/v4/deal/Product
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.Product
+POST {{server}}/odata/v4/deal/Product
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 20119966,
+  "createdAt": "2015-12-08T20:00:00.000Z",
+  "createdBy": "createdBy-20119966",
+  "modifiedAt": "2016-09-10T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-20119966",
+  "ACTIVE": true,
+  "DELETED": true,
+  "NAME": "NAME-20119966",
+  "DESCRIPTION": "DESCRIPTION-20119966",
+  "BOTTOM_UP": true,
+  "LOB_ID": 18,
+  "CODE": "966",
+  "ItsLineOfBusiness": {
+    "ID": 27001024
+  }
+}
+
+
+### DealService.Product
+PATCH {{server}}/odata/v4/deal/Product/20119966
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 20119966,
+  "createdAt": "2015-12-08T20:00:00.000Z",
+  "createdBy": "createdBy-20119966",
+  "modifiedAt": "2016-09-10T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-20119966",
+  "ACTIVE": true,
+  "DELETED": true,
+  "NAME": "NAME-20119966",
+  "DESCRIPTION": "DESCRIPTION-20119966",
+  "BOTTOM_UP": true,
+  "LOB_ID": 18,
+  "CODE": "966",
+  "ItsLineOfBusiness": {
+    "ID": 27001024
+  }
+}
+
+
+### DealService.Product
+DELETE {{server}}/odata/v4/deal/Product/20119966
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.Pool
+GET {{server}}/odata/v4/deal/Pool
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.Pool
+POST {{server}}/odata/v4/deal/Pool
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 28298123,
+  "createdAt": "2004-03-11T20:00:00.000Z",
+  "createdBy": "createdBy-28298123",
+  "modifiedAt": "2023-05-14T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-28298123",
+  "ACTIVE": false,
+  "DELETED": false,
+  "LOB_ID": 37,
+  "POOL_NAME": "POOL_NAME-28298123",
+  "POOL_DESCRIPTION": "POOL_DESCRIPTION-28298123",
+  "POOL_CD": "123",
+  "ItsLob": {
+    "ID": 6560286
+  }
+}
+
+
+### DealService.Pool
+PATCH {{server}}/odata/v4/deal/Pool/28298123
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 28298123,
+  "createdAt": "2004-03-11T20:00:00.000Z",
+  "createdBy": "createdBy-28298123",
+  "modifiedAt": "2023-05-14T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-28298123",
+  "ACTIVE": false,
+  "DELETED": false,
+  "LOB_ID": 37,
+  "POOL_NAME": "POOL_NAME-28298123",
+  "POOL_DESCRIPTION": "POOL_DESCRIPTION-28298123",
+  "POOL_CD": "123",
+  "ItsLob": {
+    "ID": 6560286
+  }
+}
+
+
+### DealService.Pool
+DELETE {{server}}/odata/v4/deal/Pool/28298123
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ClaimAgreementPosition
+GET {{server}}/odata/v4/deal/ClaimAgreementPosition
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.DealType
+GET {{server}}/odata/v4/deal/DealType
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.DealStatus
+GET {{server}}/odata/v4/deal/DealStatus
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.Currency
+GET {{server}}/odata/v4/deal/Currency
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.Currency
+POST {{server}}/odata/v4/deal/Currency
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 28419551,
+  "createdAt": "2010-12-10T20:00:00.000Z",
+  "createdBy": "createdBy-28419551",
+  "modifiedAt": "2022-08-09T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-28419551",
+  "ACTIVE": false,
+  "DELETED": false,
+  "CURRENCY_CODE": "551"
+}
+
+
+### DealService.Currency
+PATCH {{server}}/odata/v4/deal/Currency/28419551
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 28419551,
+  "createdAt": "2010-12-10T20:00:00.000Z",
+  "createdBy": "createdBy-28419551",
+  "modifiedAt": "2022-08-09T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-28419551",
+  "ACTIVE": false,
+  "DELETED": false,
+  "CURRENCY_CODE": "551"
+}
+
+
+### DealService.Currency
+DELETE {{server}}/odata/v4/deal/Currency/28419551
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.USClassification
+GET {{server}}/odata/v4/deal/USClassification
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.USClassification
+POST {{server}}/odata/v4/deal/USClassification
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 4861325,
+  "createdAt": "2010-11-29T20:00:00.000Z",
+  "createdBy": "createdBy-4861325",
+  "modifiedAt": "2016-07-30T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-4861325",
+  "ACTIVE": false,
+  "DELETED": false,
+  "CLASSIFICATION_CD": "325",
+  "CLASSIFICATION_NAME": "CLASSIFICATION_NAME-4861325"
+}
+
+
+### DealService.USClassification
+PATCH {{server}}/odata/v4/deal/USClassification/4861325
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 4861325,
+  "createdAt": "2010-11-29T20:00:00.000Z",
+  "createdBy": "createdBy-4861325",
+  "modifiedAt": "2016-07-30T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-4861325",
+  "ACTIVE": false,
+  "DELETED": false,
+  "CLASSIFICATION_CD": "325",
+  "CLASSIFICATION_NAME": "CLASSIFICATION_NAME-4861325"
+}
+
+
+### DealService.USClassification
+DELETE {{server}}/odata/v4/deal/USClassification/4861325
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.Country
+GET {{server}}/odata/v4/deal/Country
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.Country
+POST {{server}}/odata/v4/deal/Country
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 20935800,
+  "COUNTRY_CD": "800",
+  "createdAt": "2013-10-31T20:00:00.000Z",
+  "createdBy": "createdBy-20935800",
+  "modifiedAt": "2000-11-24T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-20935800",
+  "ACTIVE": true,
+  "DELETED": true,
+  "COUNTRY_NAME": "COUNTRY_NAME-20935800"
+}
+
+
+### DealService.Country
+PATCH {{server}}/odata/v4/deal/Country/20935800
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 20935800,
+  "COUNTRY_CD": "800",
+  "createdAt": "2013-10-31T20:00:00.000Z",
+  "createdBy": "createdBy-20935800",
+  "modifiedAt": "2000-11-24T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-20935800",
+  "ACTIVE": true,
+  "DELETED": true,
+  "COUNTRY_NAME": "COUNTRY_NAME-20935800"
+}
+
+
+### DealService.Country
+DELETE {{server}}/odata/v4/deal/Country/20935800
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ParticipationStatus
+GET {{server}}/odata/v4/deal/ParticipationStatus
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ParticipationStatus
+POST {{server}}/odata/v4/deal/ParticipationStatus
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 23863800,
+  "createdAt": "2012-04-22T20:00:00.000Z",
+  "createdBy": "createdBy-23863800",
+  "modifiedAt": "2008-06-19T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-23863800",
+  "ACTIVE": true,
+  "DELETED": true,
+  "STATUS_NAME": "STATUS_NAME-23863800"
+}
+
+
+### DealService.ParticipationStatus
+PATCH {{server}}/odata/v4/deal/ParticipationStatus/23863800
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 23863800,
+  "createdAt": "2012-04-22T20:00:00.000Z",
+  "createdBy": "createdBy-23863800",
+  "modifiedAt": "2008-06-19T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-23863800",
+  "ACTIVE": true,
+  "DELETED": true,
+  "STATUS_NAME": "STATUS_NAME-23863800"
+}
+
+
+### DealService.ParticipationStatus
+DELETE {{server}}/odata/v4/deal/ParticipationStatus/23863800
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.Coverholder
+GET {{server}}/odata/v4/deal/Coverholder
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.Coverholder
+POST {{server}}/odata/v4/deal/Coverholder
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 15905783,
+  "createdAt": "2014-07-11T20:00:00.000Z",
+  "createdBy": "createdBy-15905783",
+  "modifiedAt": "2015-01-27T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-15905783",
+  "ACTIVE": false,
+  "DELETED": false,
+  "COVERHOLDER_CODE": "HOLDER_CODE-15905783",
+  "COVERHOLDER_NAME": "COVERHOLDER_NAME-15905783",
+  "COVERHOLDER_PIN": "COVERHOLDER_PIN-15905783"
+}
+
+
+### DealService.Coverholder
+PATCH {{server}}/odata/v4/deal/Coverholder/15905783
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 15905783,
+  "createdAt": "2014-07-11T20:00:00.000Z",
+  "createdBy": "createdBy-15905783",
+  "modifiedAt": "2015-01-27T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-15905783",
+  "ACTIVE": false,
+  "DELETED": false,
+  "COVERHOLDER_CODE": "HOLDER_CODE-15905783",
+  "COVERHOLDER_NAME": "COVERHOLDER_NAME-15905783",
+  "COVERHOLDER_PIN": "COVERHOLDER_PIN-15905783"
+}
+
+
+### DealService.Coverholder
+DELETE {{server}}/odata/v4/deal/Coverholder/15905783
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.DeductionType
+GET {{server}}/odata/v4/deal/DeductionType
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.RiskObjectType
+GET {{server}}/odata/v4/deal/RiskObjectType
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.RiskObjectType
+POST {{server}}/odata/v4/deal/RiskObjectType
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 11039426,
+  "createdAt": "2023-07-02T20:00:00.000Z",
+  "createdBy": "createdBy-11039426",
+  "modifiedAt": "2001-11-18T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-11039426",
+  "ACTIVE": true,
+  "DELETED": true,
+  "LOB_ID": 33,
+  "NAME": "NAME-11039426",
+  "DESCRIPTION": "DESCRIPTION-11039426"
+}
+
+
+### DealService.RiskObjectType
+PATCH {{server}}/odata/v4/deal/RiskObjectType/11039426
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 11039426,
+  "createdAt": "2023-07-02T20:00:00.000Z",
+  "createdBy": "createdBy-11039426",
+  "modifiedAt": "2001-11-18T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-11039426",
+  "ACTIVE": true,
+  "DELETED": true,
+  "LOB_ID": 33,
+  "NAME": "NAME-11039426",
+  "DESCRIPTION": "DESCRIPTION-11039426"
+}
+
+
+### DealService.RiskObjectType
+DELETE {{server}}/odata/v4/deal/RiskObjectType/11039426
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.Tax
+GET {{server}}/odata/v4/deal/Tax
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.Tax
+POST {{server}}/odata/v4/deal/Tax
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 12484665,
+  "createdAt": "2006-08-30T20:00:00.000Z",
+  "createdBy": "createdBy-12484665",
+  "modifiedAt": "2012-11-24T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-12484665",
+  "ACTIVE": false,
+  "DELETED": false,
+  "COUNTRY_CD": "665",
+  "TAXTYPE_CD": "84665",
+  "ADMINISTEREDBY_CD": "665",
+  "PAYABLEBY_CD": "665",
+  "DIRECT_TAX_VL": 99.236199,
+  "REINSURANCE_TAX_VL": 6.770036,
+  "VALIDFROM_DT": "2021-04-09T20:00:00.000Z",
+  "VALIDTO_DT": "2003-01-11T20:00:00.000Z",
+  "TAXBASIS_CD": "D-12484665",
+  "TAXBASIS_NAME": "TAXBASIS_NAME-12484665",
+  "LEGACY": false,
+  "LLRISKCODE_ID": 83,
+  "INTRISK_ID": 88,
+  "ItsCountry": {
+    "ID": 28910457,
+    "COUNTRY_CD": "457"
+  },
+  "ItsTaxType": {
+    "ID": 25642514,
+    "TAXTYPE_CD": "42514"
+  },
+  "ItsPayableBy": {
+    "ID": 17932524,
+    "PROCESSOR_CD": "524"
+  },
+  "ItsAdministeredBy": {
+    "ID": 30324341,
+    "PROCESSOR_CD": "341"
+  },
+  "ItsTaxBasis": {
+    "ID": 459907,
+    "TAXBASIS_CD": "sis-459907"
+  },
+  "ItsLLoydsRiskCode": {
+    "ID": 16451639
+  },
+  "ItsInternalRiskCode": {
+    "ID": 4358472
+  }
+}
+
+
+### DealService.Tax
+PATCH {{server}}/odata/v4/deal/Tax/12484665
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 12484665,
+  "createdAt": "2006-08-30T20:00:00.000Z",
+  "createdBy": "createdBy-12484665",
+  "modifiedAt": "2012-11-24T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-12484665",
+  "ACTIVE": false,
+  "DELETED": false,
+  "COUNTRY_CD": "665",
+  "TAXTYPE_CD": "84665",
+  "ADMINISTEREDBY_CD": "665",
+  "PAYABLEBY_CD": "665",
+  "DIRECT_TAX_VL": 99.236199,
+  "REINSURANCE_TAX_VL": 6.770036,
+  "VALIDFROM_DT": "2021-04-09T20:00:00.000Z",
+  "VALIDTO_DT": "2003-01-11T20:00:00.000Z",
+  "TAXBASIS_CD": "D-12484665",
+  "TAXBASIS_NAME": "TAXBASIS_NAME-12484665",
+  "LEGACY": false,
+  "LLRISKCODE_ID": 83,
+  "INTRISK_ID": 88,
+  "ItsCountry": {
+    "ID": 28910457,
+    "COUNTRY_CD": "457"
+  },
+  "ItsTaxType": {
+    "ID": 25642514,
+    "TAXTYPE_CD": "42514"
+  },
+  "ItsPayableBy": {
+    "ID": 17932524,
+    "PROCESSOR_CD": "524"
+  },
+  "ItsAdministeredBy": {
+    "ID": 30324341,
+    "PROCESSOR_CD": "341"
+  },
+  "ItsTaxBasis": {
+    "ID": 459907,
+    "TAXBASIS_CD": "sis-459907"
+  },
+  "ItsLLoydsRiskCode": {
+    "ID": 16451639
+  },
+  "ItsInternalRiskCode": {
+    "ID": 4358472
+  }
+}
+
+
+### DealService.Tax
+DELETE {{server}}/odata/v4/deal/Tax/12484665
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.TaxType
+GET {{server}}/odata/v4/deal/TaxType
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.TaxType
+POST {{server}}/odata/v4/deal/TaxType
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 25642514,
+  "TAXTYPE_CD": "42514",
+  "createdAt": "2009-05-21T20:00:00.000Z",
+  "createdBy": "createdBy-25642514",
+  "modifiedAt": "2004-11-16T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-25642514",
+  "ACTIVE": true,
+  "DELETED": true,
+  "TAXTYPE_NAME": "TAXTYPE_NAME-25642514"
+}
+
+
+### DealService.TaxType
+PATCH {{server}}/odata/v4/deal/TaxType/25642514
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 25642514,
+  "TAXTYPE_CD": "42514",
+  "createdAt": "2009-05-21T20:00:00.000Z",
+  "createdBy": "createdBy-25642514",
+  "modifiedAt": "2004-11-16T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-25642514",
+  "ACTIVE": true,
+  "DELETED": true,
+  "TAXTYPE_NAME": "TAXTYPE_NAME-25642514"
+}
+
+
+### DealService.TaxType
+DELETE {{server}}/odata/v4/deal/TaxType/25642514
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.SectionRiskName
+GET {{server}}/odata/v4/deal/SectionRiskName
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.DealMultipleAttribute_Strings
+GET {{server}}/odata/v4/deal/DealMultipleAttribute_Strings
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ConditionType
+GET {{server}}/odata/v4/deal/ConditionType
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ConditionType
+POST {{server}}/odata/v4/deal/ConditionType
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 254340,
+  "createdAt": "2001-02-24T20:00:00.000Z",
+  "createdBy": "createdBy-254340",
+  "modifiedAt": "2013-04-09T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-254340",
+  "ACTIVE": true,
+  "DELETED": true,
+  "LOB_ID": 66,
+  "CONDITION_NAME": "CONDITION_NAME-254340",
+  "CONDITION_DESCRIPTION": "CONDITION_DESCRIPTION-254340",
+  "CONDITION_VALUE_TYPE": "CONDITION_VALUE_TYPE-254340",
+  "DEFAULT_OP_ID": 61,
+  "FORMULA": "FORMULA-254340"
+}
+
+
+### DealService.ConditionType
+PATCH {{server}}/odata/v4/deal/ConditionType/254340
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 254340,
+  "createdAt": "2001-02-24T20:00:00.000Z",
+  "createdBy": "createdBy-254340",
+  "modifiedAt": "2013-04-09T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-254340",
+  "ACTIVE": true,
+  "DELETED": true,
+  "LOB_ID": 66,
+  "CONDITION_NAME": "CONDITION_NAME-254340",
+  "CONDITION_DESCRIPTION": "CONDITION_DESCRIPTION-254340",
+  "CONDITION_VALUE_TYPE": "CONDITION_VALUE_TYPE-254340",
+  "DEFAULT_OP_ID": 61,
+  "FORMULA": "FORMULA-254340"
+}
+
+
+### DealService.ConditionType
+DELETE {{server}}/odata/v4/deal/ConditionType/254340
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.Segment
+GET {{server}}/odata/v4/deal/Segment
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.Segment
+POST {{server}}/odata/v4/deal/Segment
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 2425322,
+  "createdAt": "2009-08-24T20:00:00.000Z",
+  "createdBy": "createdBy-2425322",
+  "modifiedAt": "2002-01-25T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-2425322",
+  "ACTIVE": true,
+  "DELETED": true,
+  "LOB_ID": 98,
+  "SEGMENT_NAME": "SEGMENT_NAME-2425322",
+  "SEGMENT_DESCRIPTION": "SEGMENT_DESCRIPTION-2425322"
+}
+
+
+### DealService.Segment
+PATCH {{server}}/odata/v4/deal/Segment/2425322
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 2425322,
+  "createdAt": "2009-08-24T20:00:00.000Z",
+  "createdBy": "createdBy-2425322",
+  "modifiedAt": "2002-01-25T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-2425322",
+  "ACTIVE": true,
+  "DELETED": true,
+  "LOB_ID": 98,
+  "SEGMENT_NAME": "SEGMENT_NAME-2425322",
+  "SEGMENT_DESCRIPTION": "SEGMENT_DESCRIPTION-2425322"
+}
+
+
+### DealService.Segment
+DELETE {{server}}/odata/v4/deal/Segment/2425322
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.PlacementType
+GET {{server}}/odata/v4/deal/PlacementType
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.PlacementType
+POST {{server}}/odata/v4/deal/PlacementType
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 11705077,
+  "createdAt": "2015-07-20T20:00:00.000Z",
+  "createdBy": "createdBy-11705077",
+  "modifiedAt": "2001-10-03T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-11705077",
+  "ACTIVE": false,
+  "DELETED": false,
+  "LOB_ID": 9,
+  "PLACEMENT_NAME": "CEMENT_NAME-11705077",
+  "PLACEMENT_DESCRIPTION": "PLACEMENT_DESCRIPTION-11705077"
+}
+
+
+### DealService.PlacementType
+PATCH {{server}}/odata/v4/deal/PlacementType/11705077
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 11705077,
+  "createdAt": "2015-07-20T20:00:00.000Z",
+  "createdBy": "createdBy-11705077",
+  "modifiedAt": "2001-10-03T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-11705077",
+  "ACTIVE": false,
+  "DELETED": false,
+  "LOB_ID": 9,
+  "PLACEMENT_NAME": "CEMENT_NAME-11705077",
+  "PLACEMENT_DESCRIPTION": "PLACEMENT_DESCRIPTION-11705077"
+}
+
+
+### DealService.PlacementType
+DELETE {{server}}/odata/v4/deal/PlacementType/11705077
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ExposureType
+GET {{server}}/odata/v4/deal/ExposureType
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ExposureType
+POST {{server}}/odata/v4/deal/ExposureType
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 14749307,
+  "createdAt": "2018-05-14T20:00:00.000Z",
+  "createdBy": "createdBy-14749307",
+  "modifiedAt": "2011-05-27T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-14749307",
+  "ACTIVE": false,
+  "DELETED": false,
+  "LOB_ID": 39,
+  "LOB_NAME": "LOB_NAME-14749307",
+  "EXPOSURE_TYPE": "EXPOSURE_TYPE-14749307",
+  "INTRISK_CODE": "INTRISK_CODE-14749307",
+  "VALUE": "E-14749307"
+}
+
+
+### DealService.ExposureType
+PATCH {{server}}/odata/v4/deal/ExposureType/14749307
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 14749307,
+  "createdAt": "2018-05-14T20:00:00.000Z",
+  "createdBy": "createdBy-14749307",
+  "modifiedAt": "2011-05-27T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-14749307",
+  "ACTIVE": false,
+  "DELETED": false,
+  "LOB_ID": 39,
+  "LOB_NAME": "LOB_NAME-14749307",
+  "EXPOSURE_TYPE": "EXPOSURE_TYPE-14749307",
+  "INTRISK_CODE": "INTRISK_CODE-14749307",
+  "VALUE": "E-14749307"
+}
+
+
+### DealService.ExposureType
+DELETE {{server}}/odata/v4/deal/ExposureType/14749307
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.BusinessPartnerRole
+GET {{server}}/odata/v4/deal/BusinessPartnerRole
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.BusinessPartnerRole
+POST {{server}}/odata/v4/deal/BusinessPartnerRole
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "PartnerRole-10393845",
+  "ROLE_NAME": "BusinessPartnerRole-10393845",
+  "createdAt": "2012-06-02T20:00:00.000Z",
+  "createdBy": "createdBy-10393845",
+  "modifiedAt": "2004-02-21T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-10393845",
+  "ACTIVE": false,
+  "DELETED": false
+}
+
+
+### DealService.BusinessPartnerRole
+PATCH {{server}}/odata/v4/deal/BusinessPartnerRole/PartnerRole-10393845
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": "PartnerRole-10393845",
+  "ROLE_NAME": "BusinessPartnerRole-10393845",
+  "createdAt": "2012-06-02T20:00:00.000Z",
+  "createdBy": "createdBy-10393845",
+  "modifiedAt": "2004-02-21T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-10393845",
+  "ACTIVE": false,
+  "DELETED": false
+}
+
+
+### DealService.BusinessPartnerRole
+DELETE {{server}}/odata/v4/deal/BusinessPartnerRole/PartnerRole-10393845
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ProductInternalRiskCode
+GET {{server}}/odata/v4/deal/ProductInternalRiskCode
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ProductInternalRiskCode
+POST {{server}}/odata/v4/deal/ProductInternalRiskCode
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 7949586,
+  "PRODUCT_ID": 7949586,
+  "INTRISK_CODE_ID": 7949586,
+  "createdAt": "2004-02-20T20:00:00.000Z",
+  "createdBy": "createdBy-7949586",
+  "modifiedAt": "2000-02-29T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-7949586",
+  "ACTIVE": true,
+  "DELETED": true,
+  "ItsInternalRiskCode": {
+    "ID": 20470841
+  }
+}
+
+
+### DealService.ProductInternalRiskCode
+PATCH {{server}}/odata/v4/deal/ProductInternalRiskCode/7949586
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 7949586,
+  "PRODUCT_ID": 7949586,
+  "INTRISK_CODE_ID": 7949586,
+  "createdAt": "2004-02-20T20:00:00.000Z",
+  "createdBy": "createdBy-7949586",
+  "modifiedAt": "2000-02-29T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-7949586",
+  "ACTIVE": true,
+  "DELETED": true,
+  "ItsInternalRiskCode": {
+    "ID": 20470841
+  }
+}
+
+
+### DealService.ProductInternalRiskCode
+DELETE {{server}}/odata/v4/deal/ProductInternalRiskCode/7949586
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ProductRiskObjectType
+GET {{server}}/odata/v4/deal/ProductRiskObjectType
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ProductRiskObjectType
+POST {{server}}/odata/v4/deal/ProductRiskObjectType
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 20345883,
+  "PRODUCT_ID": 20345883,
+  "RISKOBJTYPE_ID": 20345883,
+  "createdAt": "2016-12-16T20:00:00.000Z",
+  "createdBy": "createdBy-20345883",
+  "modifiedAt": "2014-10-09T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-20345883",
+  "ACTIVE": false,
+  "DELETED": false,
+  "RISKDB_TYPE": "RISKDB_TYPE-20345883",
+  "RISKDB_DESTINATION": "RISKDB_DESTINATION-20345883",
+  "RISKDB_RISKOBJ_ENTITY": "RISKDB_RISKOBJ_ENTITY-20345883",
+  "RISKDB_SECTION_RISK_ASSOCIATION": "RISKDB_SECTION_RISK_ASSOCIATION-20345883",
+  "ItsRiskObjectType": {
+    "ID": 20345065
+  }
+}
+
+
+### DealService.ProductRiskObjectType
+PATCH {{server}}/odata/v4/deal/ProductRiskObjectType/20345883
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 20345883,
+  "PRODUCT_ID": 20345883,
+  "RISKOBJTYPE_ID": 20345883,
+  "createdAt": "2016-12-16T20:00:00.000Z",
+  "createdBy": "createdBy-20345883",
+  "modifiedAt": "2014-10-09T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-20345883",
+  "ACTIVE": false,
+  "DELETED": false,
+  "RISKDB_TYPE": "RISKDB_TYPE-20345883",
+  "RISKDB_DESTINATION": "RISKDB_DESTINATION-20345883",
+  "RISKDB_RISKOBJ_ENTITY": "RISKDB_RISKOBJ_ENTITY-20345883",
+  "RISKDB_SECTION_RISK_ASSOCIATION": "RISKDB_SECTION_RISK_ASSOCIATION-20345883",
+  "ItsRiskObjectType": {
+    "ID": 20345065
+  }
+}
+
+
+### DealService.ProductRiskObjectType
+DELETE {{server}}/odata/v4/deal/ProductRiskObjectType/20345883
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ProductPool
+GET {{server}}/odata/v4/deal/ProductPool
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ProductPool
+POST {{server}}/odata/v4/deal/ProductPool
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 23633389,
+  "PRODUCT_ID": 23633389,
+  "POOL_ID": 23633389,
+  "createdAt": "2017-04-22T20:00:00.000Z",
+  "createdBy": "createdBy-23633389",
+  "modifiedAt": "2002-12-07T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-23633389",
+  "ACTIVE": false,
+  "DELETED": false,
+  "ItsPool": {
+    "ID": 436115
+  },
+  "ItsProduct": {
+    "ID": 29918724
+  }
+}
+
+
+### DealService.ProductPool
+PATCH {{server}}/odata/v4/deal/ProductPool/23633389
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 23633389,
+  "PRODUCT_ID": 23633389,
+  "POOL_ID": 23633389,
+  "createdAt": "2017-04-22T20:00:00.000Z",
+  "createdBy": "createdBy-23633389",
+  "modifiedAt": "2002-12-07T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-23633389",
+  "ACTIVE": false,
+  "DELETED": false,
+  "ItsPool": {
+    "ID": 436115
+  },
+  "ItsProduct": {
+    "ID": 29918724
+  }
+}
+
+
+### DealService.ProductPool
+DELETE {{server}}/odata/v4/deal/ProductPool/23633389
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ProductCoverholder
+GET {{server}}/odata/v4/deal/ProductCoverholder
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.ProductCoverholder
+POST {{server}}/odata/v4/deal/ProductCoverholder
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 19476311,
+  "PRODUCT_ID": 19476311,
+  "COVERHOLDER_ID": 19476311,
+  "createdAt": "2014-07-02T20:00:00.000Z",
+  "createdBy": "createdBy-19476311",
+  "modifiedAt": "2018-04-14T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-19476311",
+  "ACTIVE": false,
+  "DELETED": false,
+  "ItsCoverholder": {
+    "ID": 21239256
+  },
+  "ItsProduct": {
+    "ID": 13823169
+  }
+}
+
+
+### DealService.ProductCoverholder
+PATCH {{server}}/odata/v4/deal/ProductCoverholder/19476311
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 19476311,
+  "PRODUCT_ID": 19476311,
+  "COVERHOLDER_ID": 19476311,
+  "createdAt": "2014-07-02T20:00:00.000Z",
+  "createdBy": "createdBy-19476311",
+  "modifiedAt": "2018-04-14T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-19476311",
+  "ACTIVE": false,
+  "DELETED": false,
+  "ItsCoverholder": {
+    "ID": 21239256
+  },
+  "ItsProduct": {
+    "ID": 13823169
+  }
+}
+
+
+### DealService.ProductCoverholder
+DELETE {{server}}/odata/v4/deal/ProductCoverholder/19476311
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.PoolUwy
+GET {{server}}/odata/v4/deal/PoolUwy
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.PoolUwy
+POST {{server}}/odata/v4/deal/PoolUwy
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 22165608,
+  "createdAt": "2002-06-02T20:00:00.000Z",
+  "createdBy": "createdBy-22165608",
+  "modifiedAt": "2012-02-06T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-22165608",
+  "ACTIVE": true,
+  "DELETED": true,
+  "POOL_ID": 73,
+  "POOLUWY_NAME": "POOLUWY_NAME-22165608",
+  "UWYEAR": 90,
+  "INCEPTION": "2009-08-29",
+  "EXPIRYDATE": "2017-08-14",
+  "CURRENCY_ID": 73,
+  "ItsPool": {
+    "ID": 9283121
+  }
+}
+
+
+### DealService.PoolUwy
+PATCH {{server}}/odata/v4/deal/PoolUwy/22165608
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 22165608,
+  "createdAt": "2002-06-02T20:00:00.000Z",
+  "createdBy": "createdBy-22165608",
+  "modifiedAt": "2012-02-06T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-22165608",
+  "ACTIVE": true,
+  "DELETED": true,
+  "POOL_ID": 73,
+  "POOLUWY_NAME": "POOLUWY_NAME-22165608",
+  "UWYEAR": 90,
+  "INCEPTION": "2009-08-29",
+  "EXPIRYDATE": "2017-08-14",
+  "CURRENCY_ID": 73,
+  "ItsPool": {
+    "ID": 9283121
+  }
+}
+
+
+### DealService.PoolUwy
+DELETE {{server}}/odata/v4/deal/PoolUwy/22165608
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.TaxProcessor
+GET {{server}}/odata/v4/deal/TaxProcessor
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.TaxProcessor
+POST {{server}}/odata/v4/deal/TaxProcessor
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 17932524,
+  "PROCESSOR_CD": "524",
+  "createdAt": "2020-10-25T20:00:00.000Z",
+  "createdBy": "createdBy-17932524",
+  "modifiedAt": "2019-08-21T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-17932524",
+  "ACTIVE": true,
+  "DELETED": true,
+  "PROCESSOR_NAME": "PROCESSOR_NAME-17932524"
+}
+
+
+### DealService.TaxProcessor
+PATCH {{server}}/odata/v4/deal/TaxProcessor/17932524
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 17932524,
+  "PROCESSOR_CD": "524",
+  "createdAt": "2020-10-25T20:00:00.000Z",
+  "createdBy": "createdBy-17932524",
+  "modifiedAt": "2019-08-21T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-17932524",
+  "ACTIVE": true,
+  "DELETED": true,
+  "PROCESSOR_NAME": "PROCESSOR_NAME-17932524"
+}
+
+
+### DealService.TaxProcessor
+DELETE {{server}}/odata/v4/deal/TaxProcessor/17932524
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.TaxBasis
+GET {{server}}/odata/v4/deal/TaxBasis
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.TaxBasis
+POST {{server}}/odata/v4/deal/TaxBasis
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 459907,
+  "TAXBASIS_CD": "sis-459907",
+  "createdAt": "2000-05-08T20:00:00.000Z",
+  "createdBy": "createdBy-459907",
+  "modifiedAt": "2002-11-28T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-459907",
+  "ACTIVE": false,
+  "DELETED": false,
+  "TAXBASIS_NAME": "TAXBASIS_NAME-459907"
+}
+
+
+### DealService.TaxBasis
+PATCH {{server}}/odata/v4/deal/TaxBasis/459907
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 459907,
+  "TAXBASIS_CD": "sis-459907",
+  "createdAt": "2000-05-08T20:00:00.000Z",
+  "createdBy": "createdBy-459907",
+  "modifiedAt": "2002-11-28T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-459907",
+  "ACTIVE": false,
+  "DELETED": false,
+  "TAXBASIS_NAME": "TAXBASIS_NAME-459907"
+}
+
+
+### DealService.TaxBasis
+DELETE {{server}}/odata/v4/deal/TaxBasis/459907
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.InternalRiskInPool
+GET {{server}}/odata/v4/deal/InternalRiskInPool
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.InternalRiskInPool
+POST {{server}}/odata/v4/deal/InternalRiskInPool
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 5549693,
+  "createdAt": "2007-10-20T20:00:00.000Z",
+  "createdBy": "createdBy-5549693",
+  "modifiedAt": "2007-05-08T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-5549693",
+  "ACTIVE": false,
+  "DELETED": false,
+  "POOLUWYEAR_ID": 88,
+  "INTRISK_ID": 42,
+  "ItsInternalRiskCode": {
+    "ID": 29828076
+  }
+}
+
+
+### DealService.InternalRiskInPool
+PATCH {{server}}/odata/v4/deal/InternalRiskInPool/5549693
+Content-Type: application/json
+{{auth}}
+
+{
+  "ID": 5549693,
+  "createdAt": "2007-10-20T20:00:00.000Z",
+  "createdBy": "createdBy-5549693",
+  "modifiedAt": "2007-05-08T20:00:00.000Z",
+  "modifiedBy": "modifiedBy-5549693",
+  "ACTIVE": false,
+  "DELETED": false,
+  "POOLUWYEAR_ID": 88,
+  "INTRISK_ID": 42,
+  "ItsInternalRiskCode": {
+    "ID": 29828076
+  }
+}
+
+
+### DealService.InternalRiskInPool
+DELETE {{server}}/odata/v4/deal/InternalRiskInPool/5549693
+Content-Type: application/json
+{{auth}}
+
+
+### DealService.saveParticipationPremium
+POST {{server}}/odata/v4/deal/saveParticipationPremium
+Content-Type: application/json
+{{auth}}
+
+{
+  "inData": null
+}
+
+
+### DealService.saveParticipationPaymentPlan
+POST {{server}}/odata/v4/deal/saveParticipationPaymentPlan
+Content-Type: application/json
+{{auth}}
+
+{
+  "inData": null
+}
+
+
+### DealService.taxesUpdate
+POST {{server}}/odata/v4/deal/taxesUpdate
+Content-Type: application/json
+{{auth}}
+
+{
+  "inData": null
+}
+
+
+### DealService.saveExternalPremium
+POST {{server}}/odata/v4/deal/saveExternalPremium
+Content-Type: application/json
+{{auth}}
+
+{
+  "inData": null
+}
+
+
+### DealService.deleteExternalPremium
+POST {{server}}/odata/v4/deal/deleteExternalPremium
+Content-Type: application/json
+{{auth}}
+
+{
+  "extrefPREM_REF": null
+}
+
+
+### DealService.stampAssignment
+POST {{server}}/odata/v4/deal/stampAssignment
+Content-Type: application/json
+{{auth}}
+
+{
+  "inData": null
+}
+
+
+### DealService.saveInternalPremium
+POST {{server}}/odata/v4/deal/saveInternalPremium
+Content-Type: application/json
+{{auth}}
+
+{
+  "inData": null
+}
+
+
+### DealService.deleteInternalPremium
+POST {{server}}/odata/v4/deal/deleteInternalPremium
+Content-Type: application/json
+{{auth}}
+
+{
+  "premPK_ID": null
+}
+
+
+### DealService.validateTaxDeductions
+POST {{server}}/odata/v4/deal/validateTaxDeductions
+Content-Type: application/json
+{{auth}}
+
+{
+  "inData": null
+}
+
+
+### DealService.clearCachedInstances
+POST {{server}}/odata/v4/deal/clearCachedInstances
+Content-Type: application/json
+{{auth}}
+
+{}

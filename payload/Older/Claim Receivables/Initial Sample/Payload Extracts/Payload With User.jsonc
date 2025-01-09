@@ -1,0 +1,783 @@
+{
+    "IM_ASYNC_MODE": "",
+    "IM_HEADER_DATA": {
+        "POSTING_DATE": "2024-04-01",
+        "COMPANY_CODE": "DX01",
+        "DIVISION": "E1",
+        "BANK_ACCOUNT_NUMBER": "4021323893163050"
+    },
+    "IT_CLEARING_DATA": [
+        {
+            "BUSINESS_PARTNER_NO": "1100000100",
+            "TRANSACTION_TYPE": "DP",
+            "BIT_REFERENCE": "202403211209570177",
+            "PREMIUM_ID": "4145296",
+            "INTERNAL_REFERENCE_NO": "11000069524145279-001",
+            "EXTERNAL_REFERENCE_NO": "11000069524145279",
+            "ORIGINAL_CURRENCY": "USD",
+            "AMOUNT_CLEARED": "1260",
+            "EXPECTED_PAY_CURRENCY": "USD",
+            "ROE_REC_CURRENCY": "1",
+            "ACTUAL_CURRENCY_REC": "USD",
+            "INSTALLMENT": "2",
+            "DUE_DATE": "2024-09-21",
+            "ENDORSEMENT_REF": "",
+            "UMR": "",
+            "TAX": false,
+            "TAX_CODE": "",
+            "TAX_JURISDICTION": "",
+            "TAX_BASE": "",
+            "TAX_RATE": "0",
+            "POOL": "Pool A",
+            "LOB_NAME": "Aviation",
+            "IT_STAMP": [
+                {
+                    "ATYPE": "QS",
+                    "MEMBER_IPT": "",
+                    "CONTRACTUAL_AMT": 4500000,
+                    "ADMIN_PAYABLE": "",
+                    "FRONTER": "1100000081",
+                    "STAMP_MEMBER_ID": 677163,
+                    "CLAIMCOLLECTEDFROM_BPID": "1100000564",
+                    "CONTRACTUAL_VL": 10,
+                    "INT_REF": "11000069524145279-001",
+                    "MEMBER": "1100022303",
+                    "CLAIMCOLLECTIONTYPE": "CLAIMFUND",
+                    "OWN_VL": 10,
+                    "AGREEMENT_ID": 189173,
+                    "PERC_UNDERWRITING": "100.0000",
+                    "FRONTING_AGREEMENT_ID": 189172,
+                    "PREMIUMRECEIVER_BPID": "1100022303",
+                    "OWN_AMT": 4500000,
+                    "EXPOSED_AMT": 0,
+                    "STAMP_COMMISION": [
+                        {
+                            "PAY_TO": "1100000564",
+                            "FEE": 5,
+                            "ID": "FF",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "1100000564",
+                            "FEE": 2,
+                            "ID": "RIB",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "1100000120",
+                            "FEE": 0.5,
+                            "ID": "PB",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "",
+                            "FEE": 6,
+                            "ID": "ELSECO",
+                            "BASIS": "NP"
+                        }
+                    ],
+                    "UWAY": "PA23",
+                    "EXPOSED_VL": 0,
+                    "PERC_CLAIMS": "0.0000"
+                },
+                {
+                    "ATYPE": "UAA",
+                    "MEMBER_IPT": "",
+                    "CONTRACTUAL_AMT": 45000000,
+                    "ADMIN_PAYABLE": "",
+                    "FRONTER": null,
+                    "STAMP_MEMBER_ID": 677247,
+                    "CLAIMCOLLECTEDFROM_BPID": "1100000564",
+                    "CONTRACTUAL_VL": 100,
+                    "INT_REF": "11000069524145279-001",
+                    "MEMBER": "1100000081",
+                    "CLAIMCOLLECTIONTYPE": "CLAIMFUND",
+                    "OWN_VL": 20,
+                    "AGREEMENT_ID": 189172,
+                    "PERC_UNDERWRITING": "100.0000",
+                    "FRONTING_AGREEMENT_ID": "0",
+                    "PREMIUMRECEIVER_BPID": "1100000081",
+                    "OWN_AMT": 9000000,
+                    "EXPOSED_AMT": 45000000,
+                    "STAMP_COMMISION": [
+                        {
+                            "PAY_TO": "",
+                            "FEE": 6,
+                            "ID": "ELSECO",
+                            "BASIS": "NP"
+                        },
+                        {
+                            "PAY_TO": "1100000564",
+                            "FEE": 0.5,
+                            "ID": "PB",
+                            "BASIS": "ANP"
+                        }
+                    ],
+                    "UWAY": "PA23",
+                    "EXPOSED_VL": 100,
+                    "PERC_CLAIMS": "0.0000"
+                },
+                {
+                    "ATYPE": "QS",
+                    "MEMBER_IPT": "",
+                    "CONTRACTUAL_AMT": 2250000,
+                    "ADMIN_PAYABLE": "",
+                    "FRONTER": "1100000081",
+                    "STAMP_MEMBER_ID": 677175,
+                    "CLAIMCOLLECTEDFROM_BPID": "1100000564",
+                    "CONTRACTUAL_VL": 5,
+                    "INT_REF": "11000069524145279-001",
+                    "MEMBER": "1100002134",
+                    "CLAIMCOLLECTIONTYPE": "CLAIMFUND",
+                    "OWN_VL": 5,
+                    "AGREEMENT_ID": 189173,
+                    "PERC_UNDERWRITING": "100.0000",
+                    "FRONTING_AGREEMENT_ID": 189172,
+                    "PREMIUMRECEIVER_BPID": "1100002134",
+                    "OWN_AMT": 2250000,
+                    "EXPOSED_AMT": 0,
+                    "STAMP_COMMISION": [
+                        {
+                            "PAY_TO": "1100000564",
+                            "FEE": 5,
+                            "ID": "FF",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "1100000564",
+                            "FEE": 2,
+                            "ID": "RIB",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "1100000120",
+                            "FEE": 0.5,
+                            "ID": "PB",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "",
+                            "FEE": 6,
+                            "ID": "ELSECO",
+                            "BASIS": "NP"
+                        }
+                    ],
+                    "UWAY": "PA23",
+                    "EXPOSED_VL": 0,
+                    "PERC_CLAIMS": "0.0000"
+                },
+                {
+                    "ATYPE": "QS",
+                    "MEMBER_IPT": "",
+                    "CONTRACTUAL_AMT": 540000,
+                    "ADMIN_PAYABLE": "",
+                    "FRONTER": "1100000081",
+                    "STAMP_MEMBER_ID": 677079,
+                    "CLAIMCOLLECTEDFROM_BPID": "1100000564",
+                    "CONTRACTUAL_VL": 1.2,
+                    "INT_REF": "11000069524145279-001",
+                    "MEMBER": "1100000943",
+                    "CLAIMCOLLECTIONTYPE": "CLAIMFUND",
+                    "OWN_VL": 1.2,
+                    "AGREEMENT_ID": 189173,
+                    "PERC_UNDERWRITING": "100.0000",
+                    "FRONTING_AGREEMENT_ID": 189172,
+                    "PREMIUMRECEIVER_BPID": "1100000943",
+                    "OWN_AMT": 540000,
+                    "EXPOSED_AMT": 0,
+                    "STAMP_COMMISION": [
+                        {
+                            "PAY_TO": "1100000564",
+                            "FEE": 5,
+                            "ID": "FF",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "1100000564",
+                            "FEE": 2,
+                            "ID": "RIB",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "",
+                            "FEE": 6,
+                            "ID": "ELSECO",
+                            "BASIS": "NP"
+                        },
+                        {
+                            "PAY_TO": "1100000120",
+                            "FEE": 0.5,
+                            "ID": "PB",
+                            "BASIS": "ANP"
+                        }
+                    ],
+                    "UWAY": "PA23",
+                    "EXPOSED_VL": 0,
+                    "PERC_CLAIMS": "0.0000"
+                },
+                {
+                    "ATYPE": "QS",
+                    "MEMBER_IPT": "",
+                    "CONTRACTUAL_AMT": 675000,
+                    "ADMIN_PAYABLE": "",
+                    "FRONTER": "1100000081",
+                    "STAMP_MEMBER_ID": 677151,
+                    "CLAIMCOLLECTEDFROM_BPID": "1100000564",
+                    "CONTRACTUAL_VL": 1.5,
+                    "INT_REF": "11000069524145279-001",
+                    "MEMBER": "1100018921",
+                    "CLAIMCOLLECTIONTYPE": "CLAIMFUND",
+                    "OWN_VL": 1.5,
+                    "AGREEMENT_ID": 189173,
+                    "PERC_UNDERWRITING": "100.0000",
+                    "FRONTING_AGREEMENT_ID": 189172,
+                    "PREMIUMRECEIVER_BPID": "1100018921",
+                    "OWN_AMT": 675000,
+                    "EXPOSED_AMT": 0,
+                    "STAMP_COMMISION": [
+                        {
+                            "PAY_TO": "1100000564",
+                            "FEE": 5,
+                            "ID": "FF",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "1100000564",
+                            "FEE": 2,
+                            "ID": "RIB",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "1100000120",
+                            "FEE": 0.5,
+                            "ID": "PB",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "",
+                            "FEE": 6,
+                            "ID": "ELSECO",
+                            "BASIS": "NP"
+                        }
+                    ],
+                    "UWAY": "PA23",
+                    "EXPOSED_VL": 0,
+                    "PERC_CLAIMS": "0.0000"
+                },
+                {
+                    "ATYPE": "QS",
+                    "MEMBER_IPT": "",
+                    "CONTRACTUAL_AMT": 10665000,
+                    "ADMIN_PAYABLE": "",
+                    "FRONTER": "1100000081",
+                    "STAMP_MEMBER_ID": 677187,
+                    "CLAIMCOLLECTEDFROM_BPID": "1100000564",
+                    "CONTRACTUAL_VL": 23.7,
+                    "INT_REF": "11000069524145279-001",
+                    "MEMBER": "1100000070",
+                    "CLAIMCOLLECTIONTYPE": "CLAIMFUND",
+                    "OWN_VL": 23.7,
+                    "AGREEMENT_ID": 189173,
+                    "PERC_UNDERWRITING": "100.0000",
+                    "FRONTING_AGREEMENT_ID": 189172,
+                    "PREMIUMRECEIVER_BPID": "1100000070",
+                    "OWN_AMT": 10665000,
+                    "EXPOSED_AMT": 0,
+                    "STAMP_COMMISION": [
+                        {
+                            "PAY_TO": "1100000564",
+                            "FEE": 5,
+                            "ID": "FF",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "1100000564",
+                            "FEE": 2,
+                            "ID": "RIB",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "1100000120",
+                            "FEE": 0.5,
+                            "ID": "PB",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "",
+                            "FEE": 6,
+                            "ID": "ELSECO",
+                            "BASIS": "NP"
+                        }
+                    ],
+                    "UWAY": "PA23",
+                    "EXPOSED_VL": 0,
+                    "PERC_CLAIMS": "0.0000"
+                },
+                {
+                    "ATYPE": "QS",
+                    "MEMBER_IPT": "",
+                    "CONTRACTUAL_AMT": 3960000,
+                    "ADMIN_PAYABLE": "",
+                    "FRONTER": "1100000081",
+                    "STAMP_MEMBER_ID": 677235,
+                    "CLAIMCOLLECTEDFROM_BPID": "1100000564",
+                    "CONTRACTUAL_VL": 8.8,
+                    "INT_REF": "11000069524145279-001",
+                    "MEMBER": "1100013849",
+                    "CLAIMCOLLECTIONTYPE": "CLAIMFUND",
+                    "OWN_VL": 8.8,
+                    "AGREEMENT_ID": 189173,
+                    "PERC_UNDERWRITING": "100.0000",
+                    "FRONTING_AGREEMENT_ID": 189172,
+                    "PREMIUMRECEIVER_BPID": "1100013849",
+                    "OWN_AMT": 3960000,
+                    "EXPOSED_AMT": 0,
+                    "STAMP_COMMISION": [
+                        {
+                            "PAY_TO": "1100000564",
+                            "FEE": 5,
+                            "ID": "FF",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "1100000564",
+                            "FEE": 2,
+                            "ID": "RIB",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "1100000120",
+                            "FEE": 0.5,
+                            "ID": "PB",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "",
+                            "FEE": 6,
+                            "ID": "ELSECO",
+                            "BASIS": "NP"
+                        }
+                    ],
+                    "UWAY": "PA23",
+                    "EXPOSED_VL": 0,
+                    "PERC_CLAIMS": "0.0000"
+                },
+                {
+                    "ATYPE": "QS",
+                    "MEMBER_IPT": "",
+                    "CONTRACTUAL_AMT": 2250000,
+                    "ADMIN_PAYABLE": "",
+                    "FRONTER": "1100000081",
+                    "STAMP_MEMBER_ID": 677115,
+                    "CLAIMCOLLECTEDFROM_BPID": "1100000564",
+                    "CONTRACTUAL_VL": 5,
+                    "INT_REF": "11000069524145279-001",
+                    "MEMBER": "1100002062",
+                    "CLAIMCOLLECTIONTYPE": "CLAIMFUND",
+                    "OWN_VL": 5,
+                    "AGREEMENT_ID": 189173,
+                    "PERC_UNDERWRITING": "100.0000",
+                    "FRONTING_AGREEMENT_ID": 189172,
+                    "PREMIUMRECEIVER_BPID": "1100002062",
+                    "OWN_AMT": 2250000,
+                    "EXPOSED_AMT": 0,
+                    "STAMP_COMMISION": [
+                        {
+                            "PAY_TO": "1100000564",
+                            "FEE": 5,
+                            "ID": "FF",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "1100000564",
+                            "FEE": 2,
+                            "ID": "RIB",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "1100000120",
+                            "FEE": 0.5,
+                            "ID": "PB",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "",
+                            "FEE": 6,
+                            "ID": "ELSECO",
+                            "BASIS": "NP"
+                        }
+                    ],
+                    "UWAY": "PA23",
+                    "EXPOSED_VL": 0,
+                    "PERC_CLAIMS": "0.0000"
+                },
+                {
+                    "ATYPE": "QS",
+                    "MEMBER_IPT": "",
+                    "CONTRACTUAL_AMT": 2250000,
+                    "ADMIN_PAYABLE": "",
+                    "FRONTER": "1100000081",
+                    "STAMP_MEMBER_ID": 677139,
+                    "CLAIMCOLLECTEDFROM_BPID": "1100000564",
+                    "CONTRACTUAL_VL": 5,
+                    "INT_REF": "11000069524145279-001",
+                    "MEMBER": "1100000048",
+                    "CLAIMCOLLECTIONTYPE": "CLAIMFUND",
+                    "OWN_VL": 5,
+                    "AGREEMENT_ID": 189173,
+                    "PERC_UNDERWRITING": "100.0000",
+                    "FRONTING_AGREEMENT_ID": 189172,
+                    "PREMIUMRECEIVER_BPID": "1100000048",
+                    "OWN_AMT": 2250000,
+                    "EXPOSED_AMT": 0,
+                    "STAMP_COMMISION": [
+                        {
+                            "PAY_TO": "1100000564",
+                            "FEE": 5,
+                            "ID": "FF",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "1100000564",
+                            "FEE": 2,
+                            "ID": "RIB",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "1100000120",
+                            "FEE": 0.5,
+                            "ID": "PB",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "",
+                            "FEE": 6,
+                            "ID": "ELSECO",
+                            "BASIS": "NP"
+                        }
+                    ],
+                    "UWAY": "PA23",
+                    "EXPOSED_VL": 0,
+                    "PERC_CLAIMS": "0.0000"
+                },
+                {
+                    "ATYPE": "QS",
+                    "MEMBER_IPT": "",
+                    "CONTRACTUAL_AMT": 450000,
+                    "ADMIN_PAYABLE": "",
+                    "FRONTER": "1100000081",
+                    "STAMP_MEMBER_ID": 677199,
+                    "CLAIMCOLLECTEDFROM_BPID": "1100000564",
+                    "CONTRACTUAL_VL": 1,
+                    "INT_REF": "11000069524145279-001",
+                    "MEMBER": "1100013307",
+                    "CLAIMCOLLECTIONTYPE": "CLAIMFUND",
+                    "OWN_VL": 1,
+                    "AGREEMENT_ID": 189173,
+                    "PERC_UNDERWRITING": "100.0000",
+                    "FRONTING_AGREEMENT_ID": 189172,
+                    "PREMIUMRECEIVER_BPID": "1100013307",
+                    "OWN_AMT": 450000,
+                    "EXPOSED_AMT": 0,
+                    "STAMP_COMMISION": [
+                        {
+                            "PAY_TO": "1100000564",
+                            "FEE": 5,
+                            "ID": "FF",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "1100000564",
+                            "FEE": 2,
+                            "ID": "RIB",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "1100000120",
+                            "FEE": 0.5,
+                            "ID": "PB",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "",
+                            "FEE": 6,
+                            "ID": "ELSECO",
+                            "BASIS": "NP"
+                        }
+                    ],
+                    "UWAY": "PA23",
+                    "EXPOSED_VL": 0,
+                    "PERC_CLAIMS": "0.0000"
+                },
+                {
+                    "ATYPE": "QS",
+                    "MEMBER_IPT": "",
+                    "CONTRACTUAL_AMT": 450000,
+                    "ADMIN_PAYABLE": "",
+                    "FRONTER": "1100000081",
+                    "STAMP_MEMBER_ID": 677103,
+                    "CLAIMCOLLECTEDFROM_BPID": "1100000564",
+                    "CONTRACTUAL_VL": 1,
+                    "INT_REF": "11000069524145279-001",
+                    "MEMBER": "1100018780",
+                    "CLAIMCOLLECTIONTYPE": "CLAIMFUND",
+                    "OWN_VL": 1,
+                    "AGREEMENT_ID": 189173,
+                    "PERC_UNDERWRITING": "100.0000",
+                    "FRONTING_AGREEMENT_ID": 189172,
+                    "PREMIUMRECEIVER_BPID": "1100018780",
+                    "OWN_AMT": 450000,
+                    "EXPOSED_AMT": 0,
+                    "STAMP_COMMISION": [
+                        {
+                            "PAY_TO": "1100000564",
+                            "FEE": 5,
+                            "ID": "FF",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "1100000564",
+                            "FEE": 2,
+                            "ID": "RIB",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "1100000120",
+                            "FEE": 0.5,
+                            "ID": "PB",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "",
+                            "FEE": 6,
+                            "ID": "ELSECO",
+                            "BASIS": "NP"
+                        }
+                    ],
+                    "UWAY": "PA23",
+                    "EXPOSED_VL": 0,
+                    "PERC_CLAIMS": "0.0000"
+                },
+                {
+                    "ATYPE": "QS",
+                    "MEMBER_IPT": "",
+                    "CONTRACTUAL_AMT": 2250000,
+                    "ADMIN_PAYABLE": "",
+                    "FRONTER": "1100000081",
+                    "STAMP_MEMBER_ID": 677223,
+                    "CLAIMCOLLECTEDFROM_BPID": "1100000564",
+                    "CONTRACTUAL_VL": 5,
+                    "INT_REF": "11000069524145279-001",
+                    "MEMBER": "1100000076",
+                    "CLAIMCOLLECTIONTYPE": "CLAIMFUND",
+                    "OWN_VL": 5,
+                    "AGREEMENT_ID": 189173,
+                    "PERC_UNDERWRITING": "100.0000",
+                    "FRONTING_AGREEMENT_ID": 189172,
+                    "PREMIUMRECEIVER_BPID": "1100000076",
+                    "OWN_AMT": 2250000,
+                    "EXPOSED_AMT": 0,
+                    "STAMP_COMMISION": [
+                        {
+                            "PAY_TO": "1100000564",
+                            "FEE": 5,
+                            "ID": "FF",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "1100000564",
+                            "FEE": 2,
+                            "ID": "RIB",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "1100000120",
+                            "FEE": 0.5,
+                            "ID": "PB",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "",
+                            "FEE": 6,
+                            "ID": "ELSECO",
+                            "BASIS": "NP"
+                        }
+                    ],
+                    "UWAY": "PA23",
+                    "EXPOSED_VL": 0,
+                    "PERC_CLAIMS": "0.0000"
+                },
+                {
+                    "ATYPE": "QS",
+                    "MEMBER_IPT": "",
+                    "CONTRACTUAL_AMT": 450000,
+                    "ADMIN_PAYABLE": "",
+                    "FRONTER": "1100000081",
+                    "STAMP_MEMBER_ID": 677127,
+                    "CLAIMCOLLECTEDFROM_BPID": "1100000564",
+                    "CONTRACTUAL_VL": 1,
+                    "INT_REF": "11000069524145279-001",
+                    "MEMBER": "1100018915",
+                    "CLAIMCOLLECTIONTYPE": "CLAIMFUND",
+                    "OWN_VL": 1,
+                    "AGREEMENT_ID": 189173,
+                    "PERC_UNDERWRITING": "100.0000",
+                    "FRONTING_AGREEMENT_ID": 189172,
+                    "PREMIUMRECEIVER_BPID": "1100018915",
+                    "OWN_AMT": 450000,
+                    "EXPOSED_AMT": 0,
+                    "STAMP_COMMISION": [
+                        {
+                            "PAY_TO": "1100000564",
+                            "FEE": 5,
+                            "ID": "FF",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "1100000564",
+                            "FEE": 2,
+                            "ID": "RIB",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "1100000120",
+                            "FEE": 0.5,
+                            "ID": "PB",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "",
+                            "FEE": 6,
+                            "ID": "ELSECO",
+                            "BASIS": "NP"
+                        }
+                    ],
+                    "UWAY": "PA23",
+                    "EXPOSED_VL": 0,
+                    "PERC_CLAIMS": "0.0000"
+                },
+                {
+                    "ATYPE": "QS",
+                    "MEMBER_IPT": "",
+                    "CONTRACTUAL_AMT": 810000,
+                    "ADMIN_PAYABLE": "",
+                    "FRONTER": "1100000081",
+                    "STAMP_MEMBER_ID": 677211,
+                    "CLAIMCOLLECTEDFROM_BPID": "1100000564",
+                    "CONTRACTUAL_VL": 1.8,
+                    "INT_REF": "11000069524145279-001",
+                    "MEMBER": "1100004761",
+                    "CLAIMCOLLECTIONTYPE": "CLAIMFUND",
+                    "OWN_VL": 1.8,
+                    "AGREEMENT_ID": 189173,
+                    "PERC_UNDERWRITING": "100.0000",
+                    "FRONTING_AGREEMENT_ID": 189172,
+                    "PREMIUMRECEIVER_BPID": "1100004761",
+                    "OWN_AMT": 810000,
+                    "EXPOSED_AMT": 0,
+                    "STAMP_COMMISION": [
+                        {
+                            "PAY_TO": "1100000564",
+                            "FEE": 5,
+                            "ID": "FF",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "1100000564",
+                            "FEE": 2,
+                            "ID": "RIB",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "1100000120",
+                            "FEE": 0.5,
+                            "ID": "PB",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "",
+                            "FEE": 6,
+                            "ID": "ELSECO",
+                            "BASIS": "NP"
+                        }
+                    ],
+                    "UWAY": "PA23",
+                    "EXPOSED_VL": 0,
+                    "PERC_CLAIMS": "0.0000"
+                },
+                {
+                    "ATYPE": "QS",
+                    "MEMBER_IPT": "",
+                    "CONTRACTUAL_AMT": 4500000,
+                    "ADMIN_PAYABLE": "",
+                    "FRONTER": "1100000081",
+                    "STAMP_MEMBER_ID": 677091,
+                    "CLAIMCOLLECTEDFROM_BPID": "1100000564",
+                    "CONTRACTUAL_VL": 10,
+                    "INT_REF": "11000069524145279-001",
+                    "MEMBER": "1100013853",
+                    "CLAIMCOLLECTIONTYPE": "CLAIMFUND",
+                    "OWN_VL": 10,
+                    "AGREEMENT_ID": 189173,
+                    "PERC_UNDERWRITING": "100.0000",
+                    "FRONTING_AGREEMENT_ID": 189172,
+                    "PREMIUMRECEIVER_BPID": "1100013853",
+                    "OWN_AMT": 4500000,
+                    "EXPOSED_AMT": 0,
+                    "STAMP_COMMISION": [
+                        {
+                            "PAY_TO": "1100000564",
+                            "FEE": 5,
+                            "ID": "FF",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "1100000564",
+                            "FEE": 2,
+                            "ID": "RIB",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "1100000120",
+                            "FEE": 0.5,
+                            "ID": "PB",
+                            "BASIS": "ANP"
+                        },
+                        {
+                            "PAY_TO": "",
+                            "FEE": 6,
+                            "ID": "ELSECO",
+                            "BASIS": "NP"
+                        }
+                    ],
+                    "UWAY": "PA23",
+                    "EXPOSED_VL": 0,
+                    "PERC_CLAIMS": "0.0000"
+                }
+            ]
+        },
+        {
+            "BUSINESS_PARTNER_NO": "1100000100",
+            "TRANSACTION_TYPE": "Payment",
+            "BIT_REFERENCE": "",
+            "PREMIUM_ID": "",
+            "INTERNAL_REFERENCE_NO": "",
+            "EXTERNAL_REFERENCE_NO": "",
+            "ORIGINAL_CURRENCY": "USD",
+            "AMOUNT_CLEARED": "-1260",
+            "EXPECTED_PAY_CURRENCY": "USD",
+            "ROE_REC_CURRENCY": "1",
+            "ACTUAL_CURRENCY_REC": "",
+            "INSTALLMENT": "",
+            "ENDORSEMENT_REF": "",
+            "UMR": "",
+            "TAX": false,
+            "TAX_CODE": "",
+            "TAX_JURISDICTION": "",
+            "TAX_BASE": "",
+            "TAX_RATE": "0"
+        }
+    ],
+    "USER_ID": "AJEETHKUMARR",
+    "TENANT_ID": "5c60ae9d-8d13-4a0b-8ee3-c9da4c8e2129"
+}

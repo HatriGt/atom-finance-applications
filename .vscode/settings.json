@@ -1,0 +1,30 @@
+{
+  "abapfs.remote": {
+    "QA SYSTEM": {
+      "url": "http://gers4cisqas.elsecolimited.com:8000/",
+      "username": "AJEETHKUMARR",
+      "password": "Forget@1234",
+      "client": "900",
+      "language": "EN",
+      "allowSelfSigned": true
+    },
+    "S4_New": {
+      "name": "S4_New",
+      "url": "https://gerwdqas.elsecolimited.com:44300",
+      "username": "AJEETHKUMARR",
+      "password": "",
+      "language": "en",
+      "client": "900",
+      "allowSelfSigned": false,
+      "diff_formatter": "ADT formatter"
+    }
+  },
+  "eslint.validate": [
+    "cds",
+    "csn",
+    "csv",
+    "csv (semicolon)",
+    "tsv",
+    "tab"
+  ]
+}

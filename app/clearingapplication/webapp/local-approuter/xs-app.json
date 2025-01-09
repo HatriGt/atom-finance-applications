@@ -1,0 +1,18 @@
+{
+    "authenticationMethod": "route",
+    "routes": [
+        {
+            "source": "^/v2/(.*)$",
+            "target": "/v2/$1",
+            "destination": "destination-claimmgmt",
+            "authenticationType": "xsuaa",
+            "csrfProtection": false
+        },
+        {
+            "source": "^(.*)$",
+            "target": "$1",
+            "authenticationType": "xsuaa",
+            "localDir": "."
+        }
+    ]
+}

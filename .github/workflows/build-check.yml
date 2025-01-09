@@ -1,0 +1,33 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Build Try
+
+on:
+  push:
+    branches: [ "Development" ,"Quality" , "Production"]
+  pull_request:
+    branches: [ "Development" ,"Quality" , "Production" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Install MBT
+        run: npm install mbt
+        
+      - name: Build UI  
+        run: npm run uibuild && echo "✅ Completed UI Build"
+
+      - name: Build Backend
+        run: npm run capbuild --if-present && echo "✅ Completed Backend Build"

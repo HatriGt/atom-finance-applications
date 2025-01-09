@@ -1,0 +1,992 @@
+<!-- @ui5ignore-patterns -->
+<mvc:View
+    xmlns:rowmodes="sap.ui.table.rowmodes"
+    controllerName="atom.ui.clearing.clearingapplication.controller.PremiumReceivablesClearing"
+    xmlns="sap.m"
+    xmlns:t="sap.ui.table"
+    xmlns:sap.ui.fl="sap.ui.fl"
+    xmlns:columnmenu="sap.m.table.columnmenu"
+    xmlns:vm="sap.ui.fl.variants"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:custom="atom.ui.clearing.clearingapplication.customControls"
+>
+    <Page
+        id="idPage"
+        title="{i18n>title}"
+        showNavButton="true"
+        navButtonPress=".onPageNavButtonPress"
+        class="sapUiResponsivePadding--header sapUiResponsivePadding--footer sapUiBodyClearingBG"
+    >
+        <content>
+            <VBox
+                class="borderbox sapUiResponsivePadding sapUiMediumMarginTop sapUiLargeMarginBottom sapUiLargeMarginBeginEnd"
+                width="90%"
+                justifyContent="Center"
+            >
+                <VBox
+                    width="70%"
+                    justifyContent="Center"
+                    alignItems="Center"
+                    class="sapUiResponsivePadding sapUiSmallMarginTop sapUiSmallMarginBottom sapUiLargeMarginBegin sapUiSmallMarginEnd"
+                >
+                    <!-- <HBox class="  customFilterBar sapUiResponsivePadding sapUiMediumMarginTop sapUiLargeMarginBottom"> -->
+                    <OverflowToolbar
+                        class="sapUiResponsivePadding sapUiLargeMarginBegin sapUiSmallMarginTop customRoundedToolbar customResponsiveOverflowToolbar hoverHighlight"
+                    >
+                        <content>
+                            <ToolbarSpacer />
+                            <Button
+                                icon="sap-icon://arrow-down"
+                                text="Variants"
+                                press="onVariantsButtonPress"
+                            />
+                            <!-- <Button
+                                    icon="sap-icon://action-settings"
+                                    press="onButtonOpenPersoDialogPress"
+                                /> -->
+                            <Button
+                                icon="sap-icon://add-filter"
+                                text="Filters"
+                                press="onFiltersButtonPress"
+                            />
+                            <!-- <VariantManagement id="idVariantManagement" select="onSelectVariant" save="onSaveVariant" manage="onManageVariant" selectedKey="2" defaultKey="2" showFooter="true" popoverTitle="my Favorites" /> -->
+                            <!-- <vm:VariantManagement
+                                    id="p13nVm"
+                                    for="idClearingTable"
+                                /> -->
+                            <SearchField
+                                id="idGlobalFilterSearchField"
+                                placeholder="Search here"
+                                value="{ui>/globalFilter}"
+                                search="onGlobalFilterSearchFieldClearingTableSearch"
+                                width="auto"
+                            />
+                            <Button
+                                type="Emphasized"
+                                text="Execute Clearing"
+                                press="onExecuteClearingButtonPress"
+                            />
+                            <Button
+                                type="Transparent"
+                                icon="sap-icon://refresh"
+                                text="Refresh"
+                                press="onRefreshButtonPress"
+                            />
+                             <Button
+                                type="Transparent"
+                                icon="sap-icon://log"
+                                text="Display Logs"
+                                press="onDisplayLogsButtonPress"
+                            />
+                            <ToolbarSpacer />
+                        </content>
+                    </OverflowToolbar>
+                    <!-- </HBox> -->
+                </VBox>
+                <VBox
+                    class="customTableContainer"
+                    width="90%"
+                >
+                    <!-- @ui5ignore-patterns sort="onSort" enableColumnFreeze="true" columnResize="onColumnResize" columnMove="onColumnMove"  -->
+                    <t:Table
+                        id="idClearingTable"
+                        columnMove="onTableClearingTableColumnMove"
+                        enableColumnFreeze="true"
+                        rows="{/SelectionResult}"
+                        class="sapUiResponsiveContentPadding sapUiSmallMarginTop sapUiMediumMarginBeginEnd"
+                        alternateRowColors="true"
+                        fixedColumnCount="1"
+                        selectionMode="None"
+                        selectionBehavior="Row"
+                        sap.ui.fl:flexibility="sap/m/flexibility/EngineFlex"
+                        filter="onTableClearingTableFilter"
+                        width="100%"
+                    >
+                        <t:rowSettingsTemplate>
+                            <t:RowSettings
+                                highlight="{
+                                parts: [{
+                                    path: 'ClearingStatus'
+                                }, {
+                                    path: 'Amn'
+                                }],
+                                formatter: '.formatter.setRowHighlighter'
+                            }"
+                            />
+                        </t:rowSettingsTemplate>
+                        <t:rowMode>
+                            <rowmodes:Interactive minRowCount="7" />
+                        </t:rowMode>
+                        <t:extension>
+                            <OverflowToolbar>
+                                <content>
+                                    <Button
+                                        icon="sap-icon://multiselect-all"
+                                        ariaLabelledBy="actionButtonLabel"
+                                        type="Transparent"
+                                        press="onButtonSelectAllPress"
+                                    />
+                                    <Button
+                                        icon="sap-icon://multiselect-none"
+                                        id="idUnSelectAllButton"
+                                        type="Transparent"
+                                        press="onButtonUnSelectAllPress"
+                                    />
+                                    <Button
+                                        icon="sap-icon://drill-up"
+                                        type="Transparent"
+                                        press="onButtonSelectedRowsBringToTopPress"
+                                         tooltip="Bring Selected Rows to Top"
+                                    >
+                                    </Button>
+                                    <Button
+                                        icon="sap-icon://simple-payment"
+                                        id="idPaymentButton"
+                                        type="Transparent"
+                                        text="Payment"
+                                        press="onBankChargeButtonPaymentButtonPress($event,undefined,'AddPayment')"
+                                    />
+                                    <Button
+                                        icon="sap-icon://wallet"
+                                        id="idBankChargeButton"
+                                        type="Transparent"
+                                        text="Bank Charge"
+                                        press="onBankChargeButtonPaymentButtonPress($event,undefined,'AddBankCharge')"
+                                    />
+                                    <Button
+                                        icon="sap-icon://sales-order-item"
+                                        type="Transparent"
+                                        text="UnAllocated Amount"
+                                        press="onUnAllocatedAmountButtonPress"
+                                    />
+                                    <Button
+                                        icon="sap-icon://copy"
+                                        type="Transparent"
+                                        text="Copy SOA Ref"
+                                        press="onCopySOARefButtonPress"
+                                    />
+                                    <Button
+                                        icon="sap-icon://sys-cancel"
+                                        type="Transparent"
+                                        text="Clear SOA Ref"
+                                        press="onClearSOARefButtonPress"
+                                    />
+                                    <Button
+                                        icon="sap-icon://save"
+                                        id="idSaveSOADataButton"
+                                        type="Transparent"
+                                        text="Save SOA Data"
+                                        press="onSaveSOADataButtonPress"
+                                    />
+                                    <Button
+                                        icon="sap-icon://sum"
+                                        type="Transparent"
+                                        text="SOA Ref Subtotals"
+                                        press="onSOARefSubtotalsButtonPress"
+                                    />
+                                    <Button
+                                        icon="sap-icon://multiselect-all"
+                                        type="Transparent"
+                                        text="Clear All"
+                                        press="onClearAllButtonPress"
+                                    />
+                                    <Button
+                                        icon="sap-icon://clear-all"
+                                        type="Transparent"
+                                        text="UnClear All"
+                                        press="onUnClearAllButtonPress"
+                                    />
+                                    <Button
+                                        icon="sap-icon://measure"
+                                        type="Transparent"
+                                        text="ROE Update"
+                                        press="onROEUpdateButtonPress"
+                                    />
+                                    <Button
+                                        icon="sap-icon://hide"
+                                        type="Transparent"
+                                        text="Hide Zero/Cleared Rows"
+                                        press="onHideZeroClearedRowsButtonPress"
+                                    />
+                                </content>
+                            </OverflowToolbar>
+                        </t:extension>
+                        <t:dependents>
+                            <columnmenu:Menu>
+                                <columnmenu:items>
+                                    <columnmenu:ActionItem
+                                        icon="sap-icon://sort"
+                                        label="Sort"
+                                        press="onColumnHeaderItemPress"
+                                    />
+                                    <columnmenu:ActionItem
+                                        icon="sap-icon://table-column"
+                                        label="Columns"
+                                        press="onColumnHeaderItemPress"
+                                    />
+                                </columnmenu:items>
+                            </columnmenu:Menu>
+                        </t:dependents>
+                        <t:noData>
+                            <IllustratedMessage
+                                enableVerticalResponsiveness="true"
+                            />
+                        </t:noData>
+                        <t:columns>
+                            <t:Column
+                                id="isSelectedID"
+                                autoResizable="true"
+                                width="4rem"
+                            >
+                                <Label text="" />
+                                <t:template>
+                                    <!-- <CheckBox selected="{isSelected}" select="onCheckBoxTransactionItemSelect" enabled="{parts:[{ path: 'IsClearingInProcess' }], formatter: '.formatter.setRowEditable'}" /> -->
+                                    <CheckBox
+                                        selected="{isSelected}"
+                                        select="onCheckBoxTransactionItemSelect"
+                                        enabled="{= (${ClearingStatus} === 4) || (${ClearingStatus} === 2) }"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="bitRefID"
+                                autoResizable="true"
+                                width="12rem"
+                            >
+                                <Label text="BIT Reference" />
+                                <t:template>
+                                    <Text text="{BitRef}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="amountToBeCleared"
+                                width="7rem"
+                            >
+                                <Label text="Amount To Be Cleared" />
+                                <t:template>
+                                    <Text text="{Amn}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="originalCurrency"
+                                width="7rem"
+                            >
+                                <Label text="Original Currency" />
+                                <t:template>
+                                    <Text text="{OrigCurr}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="allocAmnSettCurr"
+                                width="7rem"
+                            >
+                                <Label text="Alloc Amn Sett Curr" />
+                                <t:template>
+                                    <Text text="{AllocAmnSettCurr}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="installment"
+                                width="7rem"
+                            >
+                                <Label text="installment" />
+                                <t:template>
+                                    <Text text="{Installment}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idBookedAmountColumn"
+                                width="11rem"
+                            >
+                                <Label text="Orig. Booked Amount" />
+                                <t:template>
+                                    <Text
+                                        text="{BookedAmount}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idPreviouslyClearedAmountColumn"
+                                width="7rem"
+                            >
+                                <Label text="Previously Cleared Amount" />
+                                <t:template>
+                                    <Text
+                                        text="{ClearedAmount}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idRoeTrColumn"
+                                width="7rem"
+                            >
+                                <Label text="Roe in the Transaction" />
+                                <t:template>
+                                    <Text
+                                        text="{RoeTr}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idSettAmnRoeTrColumn"
+                                width="7rem"
+                            >
+                                <Label text="Sett. am. ROE trans." />
+                                <t:template>
+                                    <Text text="{SettAmnRoeTr}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="allocatedAmn"
+                                width="10rem"
+                            >
+                                <Label text="Allocated Amount" />
+                                <t:template>
+                                    <Input
+                                        id="AllocAmn"
+                                        textAlign="Right"
+                                        value="{
+                                            path: 'AllocAmn',
+                                            type: 'sap.ui.model.type.Float',
+                                            formatOptions: {
+                                                minFractionDigits: 2,
+                                                maxFractionDigits: 2,
+                                                minIntegerDigits: 1,
+                                                maxIntegerDigits: 15,
+                                                groupingEnabled: true,
+                                                groupingSeparator: ',',
+                                                decimalSeparator: '.'
+                                            }
+                                        }"
+                                        editable="{
+                                            parts: [{
+                                                path: 'ClearingStatus'
+                                            }, {
+                                                path: 'isAllocAmnEditable'
+                                            }],
+                                            formatter: '.formatter.setRowEditable'
+                                        }"
+                                        change="onAllocAmnChange"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="roeOfRecCurr"
+                                width="7rem"
+                            >
+                                <Label text="Roe of Rec Curr" />
+                                <t:template>
+                                    <Input
+                                        id="RoeRecCurr"
+                                        editable="{
+                                            parts: [{
+                                                path: 'ClearingStatus'
+                                            }, {
+                                                path: 'isRoeRecCurrEditable'
+                                            }],
+                                            formatter: '.formatter.setRowEditable'
+                                        }"
+                                        value="{
+                                            path: 'RoeRecCurr',
+                                            type: 'sap.ui.model.type.Float',
+                                            formatOptions: {
+                                                minFractionDigits: 5,
+                                                maxFractionDigits: 5,
+                                                minIntegerDigits: 1,
+                                                maxIntegerDigits: 4,
+                                                groupingEnabled: true,
+                                                groupingSeparator: ',',
+                                                decimalSeparator: '.'
+                                            }
+                                        }"
+                                        change="onRoeRecCurrInputChange"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="deltaDueROE"
+                                width="7rem"
+                            >
+                                <Label text="Delta Due ROE" />
+                                <t:template>
+                                    <Text text="{DeltaDueRoe}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="dueDate"
+                                width="7rem"
+                            >
+                                <Label text="Due Date" />
+                                <t:template>
+                                    <Text
+                                        text="{
+                                        path: 'DueDate',
+                                        formatter: '.formatter.formatDate'
+                                    }"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="extRef"
+                                width="7rem"
+                            >
+                                <Label text="Ext Ref" />
+                                <t:template>
+                                    <Text text="{ExtRef}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="insuredName"
+                                width="7rem"
+                            >
+                                <Label text="Insured Name" />
+                                <t:template>
+                                    <Text text="{InsuredName}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="internalReference"
+                                width="7rem"
+                            >
+                                <Label text="Internal Reference" />
+                                <t:template>
+                                    <Text text="{IntRef}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="sectionName"
+                                width="7rem"
+                            >
+                                <Label text="Section Name" />
+                                <t:template>
+                                    <Text text="{SectionName}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="transactionType"
+                                width="7rem"
+                            >
+                                <Label text="Transaction Type" />
+                                <t:template>
+                                    <Text text="{TrType}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="endorsementRef"
+                                width="7rem"
+                            >
+                                <Label text="Endorsement Ref" />
+                                <t:template>
+                                    <Text text="{EndorsementRef}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="umr"
+                                width="7rem"
+                            >
+                                <Label text="UMR" />
+                                <t:template>
+                                    <Text text="{Umr}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="bpName"
+                                width="7rem"
+                            >
+                                <Label text="BP Name" />
+                                <t:template>
+                                    <Text text="{BpName}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="policyNum"
+                                width="7rem"
+                            >
+                                <Label text="Policy Number" />
+                                <t:template>
+                                    <Text text="{PolicyNum}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="soaID"
+                                autoResizable="true"
+                                width="13rem"
+                            >
+                                <Label text="SOA Unique ID" />
+                                <t:template>
+                                    <Text text="{SoaId}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="soaReferenceID"
+                                width="7rem"
+                            >
+                                <Label text="SOA Reference ID" />
+                                <t:template>
+                                    <Input
+                                        value="{SoaReference}"
+                                        editable="{= (${ClearingStatus} === 4) || (${ClearingStatus} === 2) }"
+                                        width="15rem"
+                                        liveChange="onSoaFieldsInputLiveChange"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="soaLineID"
+                                width="7rem"
+                            >
+                                <Label text="SOA Line ID" />
+                                <t:template>
+                                    <Input
+                                        value="{SoaLineId}"
+                                        editable="{= (${ClearingStatus} === 4) || (${ClearingStatus} === 2) }"
+                                        liveChange="onSoaFieldsInputLiveChange"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="clearableCheckboxId"
+                                width="5rem"
+                            >
+                                <Label text="Clearable" />
+                                <t:template>
+                                    <CheckBox
+                                        selected="{Clearable}"
+                                        enabled="{= (${ClearingStatus} === 4) || (${ClearingStatus} === 2) }"
+                                        select="onClearableChecked"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="clearableAmountID"
+                                width="12rem"
+                            >
+                                <Label text="Clearable Amount" />
+                                <t:template>
+                                    <Input
+                                        id="clearableAmountInput"
+                                        textAlign="Right"
+                                        value="{
+                                            path: 'ClearableAmount',
+                                            type: 'sap.ui.model.type.Float',
+                                            formatOptions: {
+                                                minFractionDigits: 2,
+                                                maxFractionDigits: 2,
+                                                minIntegerDigits: 1,
+                                                maxIntegerDigits: 15,
+                                                groupingEnabled: true,
+                                                groupingSeparator: ',',
+                                                decimalSeparator: '.'
+                                            }
+                                        }"
+                                        editable="{= (${ClearingStatus} === 4) || (${ClearingStatus} === 2) }"
+                                        liveChange=".onLiveChangeCurrency($event,undefined,'clearableAmountInput')"
+                                        change="onCurrencyFieldSumbit"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="soaCommentsID"
+                                width="7rem"
+                            >
+                                <Label text="SOA Comments" />
+                                <t:template>
+                                    <Input
+                                        value="{SoaComments}"
+                                        editable="{= (${ClearingStatus} === 4) || (${ClearingStatus} === 2) }"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="financeClearedId"
+                                width="7rem"
+                            >
+                                <Label text="Finance Cleared" />
+                                <t:template>
+                                    <Text text="{FinanceCleared}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="postingComments"
+                                width="7rem"
+                            >
+                                <Label text="Posting Comments" />
+                                <t:template>
+                                    <Text text="{Comments}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="postingType"
+                                width="7rem"
+                            >
+                                <Label text="Posting Type" />
+                                <t:template>
+                                    <Text text="{PostingType}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="paymentRef"
+                                width="7rem"
+                            >
+                                <Label text="Payment Ref" />
+                                <t:template>
+                                    <Text text="{Xblnr}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="tax"
+                                width="7rem"
+                            >
+                                <Label text="Tax" />
+                                <t:template>
+                                    <Text text="{Tax}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="taxCode"
+                                width="7rem"
+                            >
+                                <Label text="Tax Code" />
+                                <t:template>
+                                    <Text text="{TaxCode}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="taxJurisdiction"
+                                width="7rem"
+                            >
+                                <Label text="Tax Jurisdiction" />
+                                <t:template>
+                                    <Text text="{TaxJurisdiction}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="taxBase"
+                                width="7rem"
+                            >
+                                <Label text="Tax Base" />
+                                <t:template>
+                                    <Text text="{TaxBase}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="taxRate"
+                                width="7rem"
+                            >
+                                <Label text="Tax Rate" />
+                                <t:template>
+                                    <Text text="{TaxRate}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="inceptionDate"
+                                width="7rem"
+                            >
+                                <Label text="Inception Date" />
+                                <t:template>
+                                    <Text
+                                        text="{
+                                        path: 'InceptionDate',
+                                        formatter: '.formatter.formatDate'
+                                    }"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="expiryDate"
+                                width="7rem"
+                            >
+                                <Label text="Expiry Date" />
+                                <t:template>
+                                    <Text
+                                        text="{
+                                        path: 'ExpiryDate',
+                                        formatter: '.formatter.formatDate'
+                                    }"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="elsecoLineSize"
+                                width="7rem"
+                            >
+                                <Label text="Elseco Line Size" />
+                                <t:template>
+                                    <Text text="{LineSize}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="expPayCurr"
+                                width="7rem"
+                            >
+                                <Label text="Expected Pay Currency" />
+                                <t:template>
+                                    <Text text="{ExpPayCurr}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="claimRef"
+                                width="7rem"
+                            >
+                                <Label text="Claim Reference" />
+                                <t:template>
+                                    <Text text="{ClaimRef}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="claimTransRef"
+                                width="7rem"
+                            >
+                                <Label text="Claim Transaction Ref" />
+                                <t:template>
+                                    <Text text="{ClaimTrRef}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="expPayAmn"
+                                width="7rem"
+                            >
+                                <Label text="Expected Pay Amount" />
+                                <t:template>
+                                    <Text text="{ExpPayAmn}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="actCurrRec"
+                                width="7rem"
+                            >
+                                <Label text="Actual Curr Rec" />
+                                <t:template>
+                                    <Text text="{ActCurrRec}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="processID"
+                                width="7rem"
+                            >
+                                <Label text="Process ID" />
+                                <t:template>
+                                    <Text text="{ProcessId}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="premiumID"
+                                width="7rem"
+                            >
+                                <Label text="Premium ID" />
+                                <t:template>
+                                    <Text text="{PremiumId}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="businessPartnerID"
+                                width="11rem"
+                            >
+                                <Label text="Business Partner" />
+                                <t:template>
+                                    <Text
+                                        text="{Gpart}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <!-- new columns -->
+                            <t:Column
+                                id="idFICADocumentColumn"
+                                width="11rem"
+                            >
+                                <Label text="FICA Document" />
+                                <t:template>
+                                    <Text
+                                        text="{Opbel}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idContractAccountColumn"
+                                width="11rem"
+                            >
+                                <Label text="Contract Account" />
+                                <t:template>
+                                    <Text
+                                        text="{Vkont}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idContractColumn"
+                                width="11rem"
+                            >
+                                <Label text="Contract" />
+                                <t:template>
+                                    <Text
+                                        text="{Vtref}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idFixedRoeColumn"
+                                width="11rem"
+                            >
+                                <Label text="Fixed Roe" />
+                                <t:template>
+                                    <Text
+                                        text="{FixedRoe}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idRepItemColumn"
+                                width="11rem"
+                            >
+                                <Label text="Rep. Item" />
+                                <t:template>
+                                    <Text
+                                        text="{RepItem}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idItemColumn"
+                                width="11rem"
+                            >
+                                <Label text="Item" />
+                                <t:template>
+                                    <Text
+                                        text="{Item}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idSubItemColumn"
+                                width="11rem"
+                            >
+                                <Label text="SubItem" />
+                                <t:template>
+                                    <Text
+                                        text="{SubItem}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idDivisionColumn"
+                                width="11rem"
+                            >
+                                <Label text="Division" />
+                                <t:template>
+                                    <Text
+                                        text="{Spart}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idUWAYColumn"
+                                width="11rem"
+                            >
+                                <Label text="UW Year" />
+                                <t:template>
+                                    <Text
+                                        text="{Uway}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                        </t:columns>
+                    </t:Table>
+                </VBox>
+                <!-- <Table id="idTotalValuesTable"
+                        width="25%"
+                        items="{
+                            path: '/totalValues',
+                            sorter: {
+                                path: 'Gpart'
+                            }
+                        }"
+                        class=" sapUiLargeMargin sapUiLargeMarginRight customRoundedTablea"
+                    /> -->
+                <HBox
+                    class=" sapUiLargeMarginRight"
+                    width="60%"
+                >
+                    <Table
+                        width="auto"
+                        items="{
+                            path: '/ProcessingStatus',
+                            sorter: {
+                                path: 'Gpart'
+                            }
+                        }"
+                        class=" sapUiMediumMargin sapUiLargeMarginBegin sapUiLargeMarginRight customHBoxForProcessingLayoutAndTotalValueTable"
+                    >
+                        <columns>
+                            <Column>
+                                <Text text="Status" />
+                            </Column>
+                            <Column>
+                                <Text text="BP ID" />
+                            </Column>
+                            <Column>
+                                <Text text="BP Name" />
+                            </Column>
+                            <Column>
+                                <Text text="Difference" />
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem vAlign="Middle">
+                                <cells>
+                                    <core:Icon
+                                        src="{StatusIcon}"
+                                        class="size2 sapUiSmallMarginBegin"
+                                        color="{StatusColor}"
+                                    >
+                                        <core:layoutData>
+                                            <FlexItemData growFactor="1" />
+                                        </core:layoutData>
+                                    </core:Icon>
+                                    <Text text="{Gpart}" />
+                                    <Text text="{BpName}" />
+                                    <ObjectNumber
+                                        number="{
+                                            parts: [{
+                                                path: 'DifferenceAmn'
+                                            }, {
+                                                path: 'CurrencyCode'
+                                            }],
+                                            type: 'sap.ui.model.type.Currency',
+                                            formatOptions: {
+                                                showMeasure: false
+                                            }
+                                        }"
+                                        unit="{CurrencyCode}"
+                                    />
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+
+                    <HBox
+                        id="idTotalValuesDisplayAreaHBox"
+                        class=""
+                    />
+                </HBox>
+            </VBox>
+        </content>
+    </Page>
+    <custom:CustomFilterDialog
+        id="idCustomFilterDialog"
+        filterChange="onCustomFilterDialogFilterChange"
+    />
+</mvc:View>

@@ -1,0 +1,90 @@
+{
+ "meta": {
+  "creator": "cds-dk 7.7.1"
+ },
+ "$version": "2.0",
+ "definitions": {
+  "BankAccount": {
+   "kind": "service",
+   "@cds.external": true,
+   "@m.IsDefaultEntityContainer": "true",
+   "@sap.supported.formats": "atom json xlsx"
+  },
+  "BankAccount.ZC_YEL_TB_BANK_CLEA": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.updatable": "false",
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Bank Clearing",
+   "elements": {
+    "company_code": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Company Code",
+     "notNull": true
+    },
+    "division": {
+     "key": true,
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Division",
+     "notNull": true
+    },
+    "currency": {
+     "key": true,
+     "type": "cds.String",
+     "length": 5,
+     "@sap.label": "Currency",
+     "@sap.quickinfo": "Currency Key",
+     "@sap.semantics": "currency-code",
+     "notNull": true
+    },
+    "ElsecoBankAccountNumber": {
+     "key": true,
+     "type": "cds.String",
+     "length": 30,
+     "@sap.label": "Bank Ref Number",
+     "@sap.quickinfo": "Bank Reference Number",
+     "notNull": true
+    },
+    "GLAccount": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "G/L Account",
+     "@sap.quickinfo": "General Ledger Account"
+    },
+    "GLAccountCharges": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "G/L Account",
+     "@sap.quickinfo": "General Ledger Account"
+    },
+    "description": {
+     "type": "cds.String",
+     "length": 50,
+     "@sap.display.format": "UpperCase"
+    },
+    "subTransaction": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase"
+    },
+    "GLAccountForOP": {
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "Function",
+     "@sap.quickinfo": "Function field in account determination"
+    }
+   }
+  }
+ }
+}

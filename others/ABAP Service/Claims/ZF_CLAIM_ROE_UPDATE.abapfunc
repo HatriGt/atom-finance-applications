@@ -1,0 +1,168 @@
+FUNCTION ZF_CLAIM_ROE_UPDATE
+  IMPORTING
+    VALUE(INITSTEP) TYPE INTEGER DEFAULT 1
+    VALUE(IV_UUID) TYPE UUID
+    VALUE(IV_UCR) TYPE DFKKKO-YYUCR
+    VALUE(IV_ELSCLAIMNUM) TYPE DFKKOP-YYELSCLAIMNUM
+    VALUE(IV_TR_ID) TYPE DFKKKO-YYTR_ID
+    VALUE(IV_NEW_ROE) TYPE DFKKOP-YYEXT_ROE
+    VALUE(IT_FICA_CREATE) TYPE ZTFICAMANY OPTIONAL
+    VALUE(IT_CLAIMFUNDOFFSET_INPUT) TYPE ZTTCLAIMFUNDCLEAR OPTIONAL
+  EXPORTING
+    VALUE(EV_CURRENTSTEP) TYPE INTEGER
+    VALUE(EV_STATUS) TYPE CHAR10
+    VALUE(ET_RETURN) TYPE BAPIRETURN_T.
+
+
+
+************************************************************************
+* Description: Handles Rate of Exchange (ROE) updates for Claims transactions
+*
+* Processing Steps:
+* The function executes in a sequential 4-step process determined by INITSTEP:
+* 1. Reversal Check
+*    - Validates if ROE update is possible for the transaction
+*
+* 2. Document Creation with New ROE
+*    - Creates new documents with updated ROE
+*    - Applicable for document types: DM, SC, RC, CR, SM, RM
+*    - For CL documents: Frontend provides initial payload, missing details filled here
+*
+* 3. Document Reversal
+*    - Reverses original documents with old ROE
+*
+* 4. Clearing Process
+*    - Performs clearing based on transaction type
+*
+* Error Handling:
+* - If any step fails, process stops and returns error
+* - Next call can resume from failed step by passing appropriate INITSTEP
+************************************************************************
+
+  CONSTANTS:
+     lc_max_steps TYPE i VALUE 4.  " Maximum number of steps in ROE update process
+
+  TYPES: BEGIN OF ty_roe_update_params,
+           initstep                 TYPE integer,
+           iv_uuid                  TYPE uuid,
+           iv_ucr                   TYPE dfkkko-yyucr,
+           iv_elsclaimnum           TYPE dfkkop-yyelsclaimnum,
+           iv_tr_id                 TYPE dfkkko-yytr_id,
+           iv_new_roe               TYPE dfkkop-yyext_roe,
+           it_fica_create           TYPE ztficamany,
+           it_claimfundoffset_input TYPE zttclaimfundclear,
+         END OF ty_roe_update_params,
+         BEGIN OF ty_roe_update_return,
+           ev_currentstep TYPE integer,
+           ev_status      TYPE char10,
+           et_return      TYPE bapireturn_t,
+         END OF ty_roe_update_return.
+
+  DATA: ls_fica_log TYPE zfica_logs,
+        lv_status   TYPE char10.
+
+  " Initialize step counter
+  ev_currentstep = initstep.
+
+  " Create log entry with UUID
+  TRY.
+      " Generate UUID for logging
+      DATA(lv_log_guid) = cl_uuid_factory=>create_system_uuid( )->create_uuid_x16( ).
+
+      " Prepare input log
+      ls_fica_log = VALUE #(
+        guid = lv_log_guid
+        purpose = zcl_claim_utils=>ac_fica_logger_purpose_croeupd
+        ucr = iv_ucr
+        elsclaimnum = iv_elsclaimnum
+        tr_id = iv_tr_id
+        crdat = sy-datum
+        crtime = sy-uzeit
+        in_payload = zcl_clearingapp_services=>conv_any_to_jsonstring(
+          im_data = VALUE ty_roe_update_params(
+            initstep = initstep
+            iv_uuid = iv_uuid
+            iv_elsclaimnum = iv_elsclaimnum
+            iv_ucr = iv_ucr
+            iv_new_roe = iv_new_roe
+            iv_tr_id = iv_tr_id
+            it_fica_create = it_fica_create
+            it_claimfundoffset_input = it_claimfundoffset_input
+          )
+        )
+      ).
+
+      " Save initial log entry
+      INSERT zfica_logs FROM ls_fica_log.
+      COMMIT WORK.
+
+    CATCH cx_root.
+      " Continue even if logging fails
+  ENDTRY.
+
+  " Process steps sequentially
+  WHILE ev_currentstep <= lc_max_steps.
+    " Execute current step
+    zcl_claim_utils=>process_roe_update_step(
+      EXPORTING
+        iv_step             = ev_currentstep
+        iv_uuid            = iv_uuid
+        iv_ucr             = iv_ucr
+        iv_elsclaimnum     = iv_elsclaimnum
+        iv_tr_id           = iv_tr_id
+        iv_new_roe         = iv_new_roe
+        it_fica_create     = it_fica_create
+        it_claimfund_input = it_claimfundoffset_input
+      IMPORTING
+        ev_next_step       = ev_currentstep
+        ev_status         = lv_status
+        et_return         = DATA(lt_return) ).
+
+    " Collect return messages
+    APPEND LINES OF lt_return TO et_return.
+
+    IF lv_status = zcl_clearingapp_services=>ac_char_failed.
+      " Step failed - update log and exit
+      ev_status = lv_status.
+      ls_fica_log-out_payload = zcl_clearingapp_services=>conv_any_to_jsonstring(
+        im_data = VALUE ty_roe_update_return(
+          ev_currentstep = ev_currentstep
+          ev_status = ev_status
+          et_return = et_return
+        )
+      ).
+      ls_fica_log-message_type = zcl_clearingapp_services=>ac_message_type_error.
+      MODIFY zfica_logs FROM ls_fica_log.
+      COMMIT WORK.
+      RETURN.
+    ELSE.
+      " Step successful - log progress
+      ls_fica_log-out_payload = zcl_clearingapp_services=>conv_any_to_jsonstring(
+        im_data = VALUE ty_roe_update_return(
+          ev_currentstep = ev_currentstep
+          et_return = et_return
+        )
+      ).
+      ls_fica_log-message_type = zcl_clearingapp_services=>ac_message_type_success.
+      MODIFY zfica_logs FROM ls_fica_log.
+      COMMIT WORK.
+    ENDIF.
+  ENDWHILE.
+
+  " All steps completed successfully
+  ev_status = zcl_clearingapp_services=>ac_char_success.
+
+  " Final log update
+  ls_fica_log-out_payload = zcl_clearingapp_services=>conv_any_to_jsonstring(
+    im_data = VALUE ty_roe_update_return(
+      ev_currentstep = ev_currentstep
+      ev_status = ev_status
+      et_return = et_return
+    )
+  ).
+  ls_fica_log-message_type = zcl_clearingapp_services=>ac_message_type_success.
+  MODIFY zfica_logs FROM ls_fica_log.
+  COMMIT WORK.
+
+
+ENDFUNCTION.

@@ -1,0 +1,41 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form">
+    <Dialog title="Add Unallocated Amn" contentHeight="auto" contentWidth="auto">
+        <content>
+            <f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" columnsXL="1" columnsL="1" singleContainerFullSize="false">
+                <f:content>
+                    
+                    <Label text="External Reference"/>
+                    <ComboBox id="idExtRefsFragComboBox" placeholder="Select External Reference" showSecondaryValues="true" items="{/ExtRefs}">
+                        <core:ListItem key="{ExtRef}" text="{ExtRef}" />
+                    </ComboBox>
+                    <Label text="Amount"/>
+                    <Input id="idAmountFragInput" textAlign="Right" value="{ 
+                        path: '/Amount',
+                        type: 'sap.ui.model.type.Float',
+                        formatOptions: {
+                            minFractionDigits: 2,
+                            maxFractionDigits: 2,
+                            minIntegerDigits: 1,
+                            maxIntegerDigits: 15,
+                            groupingEnabled: true,
+                            groupingSeparator: ',',
+                            decimalSeparator: '.'
+                        }
+                    }" liveChange=".onLiveChangeCurrency($event,undefined,'addUnAllocatedAmnInput')"  change="onCurrencyFieldSumbit"/>
+                    <Label text="Business Partner" required="true" />
+                    <ComboBox id="idBusinessPartnersUnAllocatedAmnFragComboBox" placeholder="Select Business Partner" showSecondaryValues="true" items="{/BusinessPartners}">
+                        <core:ListItem key="{Gpart}" text="{BpName}" additionalText="{Gpart}" />
+                    </ComboBox>
+                </f:content>
+            </f:SimpleForm>
+        </content>
+        <beginButton>
+            <Button id="idAddUnAllocatedAmountButton" text="Add UnAllocated Amount" press="onAddUnAllocatedAmountButtonPress"/>
+        </beginButton>
+        <endButton>
+            <Button text="Cancel" press="onCancelButtonPress"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

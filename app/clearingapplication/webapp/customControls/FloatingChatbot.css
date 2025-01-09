@@ -1,0 +1,180 @@
+.floating-chatbot {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 1000;
+}
+
+.floating-chatbot .sapMBtn {
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    box-shadow: 0 6px 20px rgba(111, 111, 111, 0.4);
+    background-color: #6f0c8e;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.floating-chatbot .sapMBtn.animated {
+    animation: float 3s ease-in-out infinite;
+}
+
+.floating-chatbot .sapMBtn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    animation: float 3s ease-in-out infinite;
+}
+
+.floating-chatbot .sapMBtn.custom-icon {
+    background-color: transparent;
+}
+
+.floating-chatbot .sapMBtn.custom-icon .sapMBtnInner {
+    background-color: transparent;
+    border: none;
+}
+
+.floating-chatbot .sapMBtn.custom-icon .sapMBtnIcon {
+    display: none;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.floating-chatbot .sapMBtnInner {
+    border-radius: 50%;
+    border: none;
+    background-color: transparent;
+}
+
+.floating-chatbot .sapMBtnIcon {
+    font-size: 40px; /* Increased from 32px */
+    color: white;
+    width: 100%;
+    height: 100%;
+    line-height: 100px; /* Increased from 80px */
+    text-align: center;
+}
+
+.floating-chatbot .sapMPopover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    position: fixed !important;
+    bottom: 100px !important; /* Adjust as needed */
+    right: 40px !important; /* Adjust as needed */
+    transform: none !important;
+    animation: none !important;
+}
+
+.floating-chatbot .sapMPopover .sapMPopoverCont {
+    padding: 0;
+}
+
+.floating-chatbot #chatbotFrame {
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+/* Chatbot specific styles */
+.floating-chatbot #banner {
+    align-items: center;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    display: flex;
+    height: 40px;
+    padding: 0 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.floating-chatbot #banner h1 {
+    color: white;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 40px;
+    margin: 0;
+}
+
+.floating-chatbot #webchat {
+    height: 100%;
+    width: 100%;
+}
+
+.floating-chatbot .webchat__basic-transcript {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.floating-chatbot .webchat__send-box {
+    border-top: 1px solid #E0E0E0;
+    padding: 10px;
+    background-color: #F8F8F8;
+}
+
+.floating-chatbot .webchat__send-box-text-box__input {
+    border: 1px solid #D0D0D0;
+    border-radius: 18px;
+}
+
+.floating-chatbot .webchat__bubble {
+    border-radius: 18px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.floating-chatbot .webchat__bubble--from-user {
+    background-color: #E6F2FF;
+}
+
+.floating-chatbot .webchat__bubble--from-bot {
+    background-color: #F0F0F0;
+}
+
+.floating-chatbot .webchat__send-box {
+    border-top: 1px solid #E0E0E0;
+}
+
+.floating-chatbot .webchat__send-box-text-box__input {
+    border: 1px solid #D0D0D0;
+    border-radius: 18px;
+}
+
+.floating-chatbot .sapMBtn.custom-icon {
+    background-color: transparent;
+    box-shadow: none;
+    border: 3px solid #ffffff; /* Add border here as well */
+}
+
+.floating-chatbot .sapMBtn.custom-icon .sapMBtnInner {
+    background-color: transparent;
+    border: none;
+}
+
+.floating-chatbot .sapMBtn.custom-icon .sapMBtnIcon {
+    width: 100%;
+    height: 100%;
+    line-height: normal;
+    font-size: inherit;
+    color: inherit;
+}
+
+.floating-chatbot .sapMBtn.custom-icon .sapMBtnIcon::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: var(--custom-icon-url);
+    background-size: contain; /* Changed to contain */
+    background-repeat: no-repeat;
+    background-position: center;
+}

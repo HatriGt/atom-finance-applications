@@ -1,0 +1,56 @@
+{
+    "IM_ASYNC_MODE": "",
+    "IM_HEADER_DATA": {
+        "POSTING_DATE": "2024-05-30",
+        "COMPANY_CODE": "DX01",
+        "DIVISION": "E1",
+        "BANK_ACCOUNT_NUMBER": "4021323893163050"
+    },
+    "IT_CLEARING_DATA": [
+        {
+            "BUSINESS_PARTNER_NO": "1100000048",
+            "TRANSACTION_TYPE": "Claim receivable from Member",
+            "BIT_REFERENCE": "734165692",
+            "INTERNAL_REFERENCE_NO": "#1100018781-00000075-0003",
+            "EXTERNAL_REFERENCE_NO": "#1100018781-00000075",
+            "ORIGINAL_CURRENCY": "USD",
+            "AMOUNT_CLEARED": "30.66",
+            "EXPECTED_PAY_CURRENCY": "USD",
+            "ROE_REC_CURRENCY": "1",
+            "DUE_DATE": "2024-05-30",
+            "UMR": "B0509AVNAL2450133",
+            "UCR": "AK_TEST_CLAIM_BTP",
+            "CLAIM_REFERENCE": "#1100018781-00000075-005-",
+            "TRANSACTION_REFERENCE": "TR-01",
+            "UWAY": "",
+            "COLLECTION_TYPE": "C",
+            "CONTRACT_ACCOUNT": "370000000044",
+            "MEMBERBPID": "1100000048",
+            "POOL": "Pool A",
+            "LOB_NAME": "Aviation",
+            // To be added
+            "PAYEE": ""  // to whom to pay
+            
+        },
+        {
+            "BUSINESS_PARTNER_NO": "1100000048",
+            "TRANSACTION_TYPE": "Payment",
+            "BIT_REFERENCE": "",
+            "INTERNAL_REFERENCE_NO": "",
+            "EXTERNAL_REFERENCE_NO": "",
+            "ORIGINAL_CURRENCY": "USD",
+            "AMOUNT_CLEARED": "-30.66",
+            "EXPECTED_PAY_CURRENCY": "USD",
+            "ROE_REC_CURRENCY": "1",
+            "UMR": "",
+            "UCR": "",
+            "CLAIM_REFERENCE": "",
+            "TRANSACTION_REFERENCE": "",
+            "UWAY": "",
+            "COLLECTION_TYPE": "",
+            "CONTRACT_ACCOUNT": "",
+            "MEMBERBPID": ""
+        }
+    ],
+    "USER_ID": "anonymous"
+}

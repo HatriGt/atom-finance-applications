@@ -1,0 +1,33 @@
+<mvc:View controllerName="atom.ui.clearing.clearingapplication.controller.MainView"
+    xmlns:custom="atom.ui.clearing.clearingapplication.customControls"
+        xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+    <Page id="idMainViewPage" class="sapUiResponsivePadding--header sapUiResponsivePadding--footer sapUiBody">
+        <content>
+            <FlexBox id="idFlexBox" height="100%" alignItems="Start" justifyContent="Center">
+                <VBox id="idVBox" class="sapUiResponsiveContentPadding sapUiLargeMargin" width="60%">
+                    <IconTabBar id="idIconTabBar" headerBackgroundDesign="Translucent" select="onIconTabBarSelect" backgroundDesign="Transparent" selectedKey="PremiumReceivables" class="sapUiResponsiveContentPadding customIconTabBar">
+                        <items>
+                            <IconTabFilter id="idPremiumReceivablesIconTabFilter" text="Premium Receivables" key="PremiumReceivables" class="customIconTabBar">
+                               
+                            </IconTabFilter>
+                             <IconTabFilter id="idPremiumPayablesIconTabFilter" text="Premium Payables" key="PremiumPayables" class="customIconTabBar">
+                               
+                            </IconTabFilter>
+                            <IconTabFilter id="idClaimReceivablesIconTabFilter" text="Claim Receivables" key="ClaimReceivables" class="customIconTabBar">
+                               
+                            </IconTabFilter>
+                             <IconTabFilter id="idClaimPayablesIconTabFilter" text="Claim Payables" key="ClaimPayables" class="customIconTabBar">
+                               
+                            </IconTabFilter>
+                        </items>
+                    </IconTabBar>
+
+                </VBox>
+            </FlexBox>
+              <custom:FloatingChatbot id="idFloatingChatbot"
+              customIconUrl="https://i.postimg.cc/FF3dgczG/chat-flat.png"
+              tokenEndpointURL="https://defaulta65e147ff40b4f1c9778201320e9f5.08.environment.api.powerplatform.com/powervirtualagents/botsbyschema/cre6c_clearingApplicationBot/directline/token?api-version=2022-03-01-preview" />
+           </content>
+    </Page>
+</mvc:View>

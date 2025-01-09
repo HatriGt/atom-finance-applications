@@ -1,0 +1,824 @@
+<!-- @ui5ignore-patterns -->
+<mvc:View
+    xmlns:rowmodes="sap.ui.table.rowmodes"
+    controllerName="atom.ui.clearing.clearingapplication.controller.ClaimReceivablesClearing"
+    xmlns="sap.m"
+    xmlns:t="sap.ui.table"
+    xmlns:sap.ui.fl="sap.ui.fl"
+    xmlns:columnmenu="sap.m.table.columnmenu"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:custom="atom.ui.clearing.clearingapplication.customControls"
+>
+    <Page
+        id="idPage"
+        title="{i18n>title}"
+        showNavButton="true"
+        navButtonPress=".onPageNavButtonPress"
+        class="sapUiResponsivePadding--header sapUiResponsivePadding--footer sapUiBodyClearingBG"
+    >
+        <content>
+            <VBox
+                class="borderbox sapUiResponsivePadding sapUiMediumMarginTop sapUiLargeMarginBottom sapUiLargeMarginBeginEnd"
+                width="90%"
+                justifyContent="Center"
+            >
+                <VBox
+                    width="70%"
+                    justifyContent="Center"
+                    alignItems="Center"
+                    class="sapUiResponsivePadding sapUiSmallMarginTop sapUiSmallMarginBottom sapUiLargeMarginBegin sapUiSmallMarginEnd"
+                >
+                    <!-- <HBox
+                        class="  customFilterBar sapUiResponsivePadding sapUiMediumMarginTop sapUiLargeMarginBottom"
+                    > -->
+                         <OverflowToolbar class="sapUiResponsivePadding sapUiLargeMarginBegin sapUiSmallMarginTop customRoundedToolbar customResponsiveOverflowToolbar hoverHighlight">
+                            <content>
+                                <ToolbarSpacer/>
+                                <Button
+                                    icon="sap-icon://arrow-down"
+                                    text="Variants"
+                                    press="onVariantsButtonPress"
+                                />
+                                <!-- <Button
+                                    icon="sap-icon://action-settings"
+                                    press="onButtonOpenPersoDialogPress"
+                                /> -->
+                                <Button
+                                    icon="sap-icon://add-filter"
+                                    text="Filters"
+                                    press="onFiltersButtonPress"
+                                />
+
+                                <!-- <VariantManagement id="vm" select="onSelect" save="onSave" manage="onManage" selectedKey="2" defaultKey="2" showFooter="true" popoverTitle="my Favorites"/> -->
+                                <SearchField
+                                    id="idGlobalFilterSearchField"
+                                    placeholder="Search here"
+                                    value="{ui>/globalFilter}"
+                                    search="onGlobalFilterSearchFieldClearingTableSearch"
+                                    width="auto"
+                                />
+                                <ToolbarSpacer />
+                                <Button
+                                    type="Emphasized"
+                                    text="Execute Clearing"
+                                    press="onExecuteClearingButtonPress"
+                                />
+                                <Button
+                                    type="Transparent"
+                                    icon="sap-icon://refresh"
+                                    text="Refresh"
+                                    press="onRefreshButtonPress"
+                                />
+                                <Button
+                                        icon="sap-icon://hide"
+                                        type="Transparent"
+                                        text="Hide Zero/Cleared Rows"
+                                        press="onHideZeroClearedRowsButtonPress"
+                                    />
+                                <Button
+                                    type="Transparent"
+                                    icon="sap-icon://log"
+                                    text="Display Logs"
+                                    press="onDisplayLogsButtonPress"
+                                />
+                                <ToolbarSpacer/>
+                            </content>
+                        </OverflowToolbar>
+                    <!-- </HBox> -->
+                </VBox>
+                <VBox class="customTableContainer" width="90%">
+                    <!-- @ui5ignore-patterns sort="onSort" enableColumnFreeze="true" columnResize="onColumnResize" columnMove="onColumnMove"  -->
+                    <t:Table
+                        id="idClearingTable"
+                        columnMove="onTableClearingTableColumnMove"
+                        enableColumnFreeze="true"
+                        rows="{/SelectionResult}"
+                        class="sapUiResponsiveContentPadding sapUiSmallMarginTop sapUiMediumMarginBeginEnd"
+                        alternateRowColors="true"
+                        fixedColumnCount="1"
+                        selectionMode="None"
+                        selectionBehavior="Row"
+                        sap.ui.fl:flexibility="sap/m/flexibility/EngineFlex"
+                        filter="onTableClearingTableFilter"
+                        width="100%"
+                    >
+                        <t:rowSettingsTemplate>
+                            <t:RowSettings
+                                highlight="{
+                                parts: [{
+                                    path: 'ClearingStatus'
+                                }, {
+                                    path: 'Amn'
+                                }],
+                                formatter: '.formatter.setRowHighlighter'
+                            }"
+                            />
+                        </t:rowSettingsTemplate>
+                        <t:rowMode>
+                            <rowmodes:Interactive minRowCount="7" />
+                        </t:rowMode>
+                        <t:extension>
+                            <OverflowToolbar>
+                                <content>
+                                    <Button
+                                        icon="sap-icon://multiselect-all"
+                                        ariaLabelledBy="actionButtonLabel"
+                                        type="Transparent"
+                                        press="onButtonSelectAllPress"
+                                    />
+                                    <Button
+                                        icon="sap-icon://multiselect-none"
+                                        id="idUnSelectAllButton"
+                                        type="Transparent"
+                                        press="onButtonUnSelectAllPress"
+                                    />
+                                    <Button
+                                        icon="sap-icon://drill-up"
+                                        type="Transparent"
+                                        press="onButtonSelectedRowsBringToTopPress"
+                                         tooltip="Bring Selected Rows to Top"
+                                    />
+                                    <Button
+                                        icon="sap-icon://simple-payment"
+                                        id="idPaymentButton"
+                                        type="Transparent"
+                                        text="Payment"
+                                        press="onBankChargeButtonPaymentButtonPress($event,undefined,'AddPayment')"
+                                    />
+                                    <Button
+                                        icon="sap-icon://wallet"
+                                        id="idBankChargeButton"
+                                        type="Transparent"
+                                        text="Bank Charge"
+                                        press="onBankChargeButtonPaymentButtonPress($event,undefined,'AddBankCharge')"
+                                    />
+                                </content>
+                            </OverflowToolbar>
+                        </t:extension>
+                        <t:dependents>
+                            <columnmenu:Menu>
+                                <columnmenu:items>
+                                    <columnmenu:ActionItem
+                                        icon="sap-icon://sort"
+                                        label="Sort"
+                                        press="onColumnHeaderItemPress"
+                                    />
+                                    <columnmenu:ActionItem
+                                        icon="sap-icon://table-column"
+                                        label="Columns"
+                                        press="onColumnHeaderItemPress"
+                                    />
+                                </columnmenu:items>
+                            </columnmenu:Menu>
+                        </t:dependents>
+                        <t:noData>
+                            <IllustratedMessage
+                                enableVerticalResponsiveness="true"
+                            />
+                        </t:noData>
+                        <t:columns>
+                            <t:Column
+                                id="isSelectedID"
+                                autoResizable="true"
+                                width="4rem"
+                            >
+                                <Label text="" />
+                                <t:template>
+                                    <!-- <CheckBox selected="{isSelected}" select="onCheckBoxTransactionItemSelect" enabled="{parts:[{ path: 'IsClearingInProcess' }], formatter: '.formatter.setRowEditable'}" /> -->
+                                    <CheckBox
+                                        selected="{isSelected}"
+                                        select="onCheckBoxTransactionItemSelect"
+                                        enabled="{= (${ClearingStatus} === 4) || (${ClearingStatus} === 2) }"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idBitRefIDColumn"
+                                autoResizable="true"
+                                width="12rem"
+                            >
+                                <Label text="BIT Reference" />
+                                <t:template>
+                                    <Text text="{BitRef}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idUcrIDColumn"
+                                autoResizable="true"
+                                width="12rem"
+                            >
+                                <Label text="UCR" />
+                                <t:template>
+                                    <Text text="{Ucr}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idExtRefColumn"
+                                width="7rem"
+                            >
+                                <Label text="Ext Ref" />
+                                <t:template>
+                                    <Text text="{ExtRef}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idTransactionTypeColumn"
+                                width="7rem"
+                            >
+                                <Label text="Transaction Type" />
+                                <t:template>
+                                    <Text text="{TrType}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idclaimIdColumn"
+                                width="7rem"
+                            >
+                                <Label text="Claim ID" />
+                                <t:template>
+                                    <Text text="{ClaimId}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idTrRefIdColumn"
+                                width="7rem"
+                            >
+                                <Label text="Transaction Reference ID" />
+                                <t:template>
+                                    <Text text="{TrRefNum}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idSpartColumn"
+                                width="7rem"
+                            >
+                                <Label text="Division" />
+                                <t:template>
+                                    <Text text="{Spart}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idUWAYColumn"
+                                width="11rem"
+                            >
+                                <Label text="UW Year" />
+                                <t:template>
+                                    <Text
+                                        text="{Uway}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idPostDateColumn"
+                                width="11rem"
+                            >
+                                <Label text="Post Date" />
+                                <t:template>
+                                    <Text
+                                        text="{
+                                            path: 'PostDate',
+                                            formatter: '.formatter.formatDate'
+                                        }"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idDueDateColumn"
+                                width="7rem"
+                            >
+                                <Label text="Due Date" />
+                                <t:template>
+                                    <Text
+                                        text="{
+                                        path: 'DueDate',
+                                        formatter: '.formatter.formatDate'
+                                    }"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idCollTypeColumn"
+                                width="7rem"
+                            >
+                                <Label text="Collection Type" />
+                                <t:template>
+                                    <Text
+                                        text="{
+                                        path: 'CollType'
+                                    }"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idAmountToBeClearedColumn"
+                                width="7rem"
+                            >
+                                <Label text="Amount" />
+                                <t:template>
+                                    <Text text="{Amn}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idOriginalCurrencyColumn"
+                                width="7rem"
+                            >
+                                <Label text="Original Currency" />
+                                <t:template>
+                                    <Text text="{OrigCurr}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idRoeTrColumn"
+                                width="7rem"
+                            >
+                                <Label text="Roe in the Transaction" />
+                                <t:template>
+                                    <Text
+                                        text="{RoeTr}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idSettAmnRoeTrColumn"
+                                width="7rem"
+                            >
+                                <Label text="Sett. am. ROE trans." />
+                                <t:template>
+                                    <Text text="{SettAmnRoeTr}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idExpPayCurrColumn"
+                                width="7rem"
+                            >
+                                <Label text="Expected Pay Currency" />
+                                <t:template>
+                                    <Text text="{ExpPayCurr}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idAllocatedAmnColumn"
+                                width="10rem"
+                            >
+                                <Label text="Allocated Amount" />
+                                <t:template>
+                                    <Input
+                                        id="AllocAmn"
+                                        textAlign="Right"
+                                        value="{
+                                            path: 'AllocAmn',
+                                            type: 'sap.ui.model.type.Float',
+                                            formatOptions: {
+                                                minFractionDigits: 2,
+                                                maxFractionDigits: 2,
+                                                minIntegerDigits: 1,
+                                                maxIntegerDigits: 15,
+                                                groupingEnabled: true,
+                                                groupingSeparator: ',',
+                                                decimalSeparator: '.'
+                                            }
+                                        }"
+                                        editable="{
+                                            parts: [{
+                                                path: 'ClearingStatus'
+                                            }, {
+                                                path: 'isAllocAmnEditable'
+                                            }],
+                                            formatter: '.formatter.setRowEditable'
+                                        }"
+                                        change="onAllocAmnChange"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idRoeOfRecCurrColumn"
+                                width="7rem"
+                            >
+                                <Label text="Roe of Rec Curr" />
+                                <t:template>
+                                    <Input
+                                        id="RoeRecCurr"
+                                        editable="{
+                                            parts: [{
+                                                path: 'ClearingStatus'
+                                            }, {
+                                                path: 'isRoeRecCurrEditable'
+                                            }],
+                                            formatter: '.formatter.setRowEditable'
+                                        }"
+                                        value="{
+                                            path: 'RoeRecCurr',
+                                            type: 'sap.ui.model.type.Float',
+                                            formatOptions: {
+                                                minFractionDigits: 5,
+                                                maxFractionDigits: 5,
+                                                minIntegerDigits: 1,
+                                                maxIntegerDigits: 4,
+                                                groupingEnabled: true,
+                                                groupingSeparator: ',',
+                                                decimalSeparator: '.'
+                                            }
+                                        }"
+                                        change="onRoeRecCurrInputChange"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idAllocAmnSettCurrColumn"
+                                width="7rem"
+                            >
+                                <Label text="Alloc Amn Sett Curr" />
+                                <t:template>
+                                    <Text text="{AllocAmnSettCurr}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idExpPayAmnColumn"
+                                width="7rem"
+                            >
+                                <Label text="Expected Pay Amount" />
+                                <t:template>
+                                    <Text text="{ExpPayAmn}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idDeltaDueROEColumn"
+                                width="7rem"
+                            >
+                                <Label text="Delta Due ROE" />
+                                <t:template>
+                                    <Text text="{DeltaDueRoe}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idActCurrRecColumn"
+                                width="7rem"
+                            >
+                                <Label text="Actual Curr Rec" />
+                                <t:template>
+                                    <Text text="{ActCurrRec}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idFixedRoeColumn"
+                                width="11rem"
+                            >
+                                <Label text="Fixed Roe" />
+                                <t:template>
+                                    <Text
+                                        text="{FixedRoe}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idInternalReferenceColumn"
+                                width="7rem"
+                            >
+                                <Label text="Internal Reference" />
+                                <t:template>
+                                    <Text text="{IntRef}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idBPIdColumn"
+                                width="7rem"
+                            >
+                                <Label text="Business Partner ID" />
+                                <t:template>
+                                    <Text text="{BpId}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idBPNameColumn"
+                                width="7rem"
+                            >
+                                <Label text="BP Name" />
+                                <t:template>
+                                    <Text text="{BpName}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idContractAccountColumn"
+                                width="11rem"
+                            >
+                                <Label text="Contract Account" />
+                                <t:template>
+                                    <Text
+                                        text="{Vkont}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idContractColumn"
+                                width="11rem"
+                            >
+                                <Label text="Contract" />
+                                <t:template>
+                                    <Text
+                                        text="{Vtref}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idContractRefColumn"
+                                width="11rem"
+                            >
+                                <Label text="Contract Ref" />
+                                <t:template>
+                                    <Text
+                                        text="{ContractRef}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idProcessIDColumn"
+                                width="7rem"
+                            >
+                                <Label text="Process ID" />
+                                <t:template>
+                                    <Text text="{ProcessId}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idFICADocumentColumn"
+                                width="11rem"
+                            >
+                                <Label text="FICA Document" />
+                                <t:template>
+                                    <Text
+                                        text="{Opbel}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idRepItemColumn"
+                                width="11rem"
+                            >
+                                <Label text="Rep. Item" />
+                                <t:template>
+                                    <Text
+                                        text="{RepItem}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idItemColumn"
+                                width="11rem"
+                            >
+                                <Label text="Item" />
+                                <t:template>
+                                    <Text
+                                        text="{Item}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idSubItemColumn"
+                                width="11rem"
+                            >
+                                <Label text="SubItem" />
+                                <t:template>
+                                    <Text
+                                        text="{SubItem}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idBitTypeColumn"
+                                width="11rem"
+                            >
+                                <Label text="Bit Type" />
+                                <t:template>
+                                    <Text
+                                        text="{BitType}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idTaxDetTypeColumn"
+                                width="11rem"
+                            >
+                                <Label text="Tax Calc. Type" />
+                                <t:template>
+                                    <Text
+                                        text="{TaxDetType}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idTaxDateTypeColumn"
+                                width="11rem"
+                            >
+                                <Label text="Tax Date Type" />
+                                <t:template>
+                                    <Text
+                                        text="{TaxDateType}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idUMRColumn"
+                                width="7rem"
+                            >
+                                <Label text="UMR" />
+                                <t:template>
+                                    <Text text="{Umr}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idProfitCentreColumn"
+                                width="11rem"
+                            >
+                                <Label text="Profit Centre" />
+                                <t:template>
+                                    <Text
+                                        text="{ProfitCenter}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idSegmentColumn"
+                                width="11rem"
+                            >
+                                <Label text="Segment" />
+                                <t:template>
+                                    <Text
+                                        text="{Segment}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idGpartPrimaryColumn"
+                                width="11rem"
+                            >
+                                <Label text="BP of Prim. Item" />
+                                <t:template>
+                                    <Text
+                                        text="{GpartPrimary}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idVtrefPrimaryColumn"
+                                width="11rem"
+                            >
+                                <Label text="Cont. of Prim. Item" />
+                                <t:template>
+                                    <Text
+                                        text="{VtrefPrimary}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idDetailsColumn"
+                                width="11rem"
+                            >
+                                <Label text="Details" />
+                                <t:template>
+                                    <Text
+                                        text="{Details}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idPaymentRefColumn"
+                                width="11rem"
+                            >
+                                <Label text="Payment Ref" />
+                                <t:template>
+                                    <Text
+                                        text="{PaymentRef}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idPostingTypeColumn"
+                                width="11rem"
+                            >
+                                <Label text="Posting Type" />
+                                <t:template>
+                                    <Text
+                                        text="{PostingType}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idPostingCommentsColumn"
+                                width="7rem"
+                                filterProperty="Comments"
+                            >
+                                <Label text="Comments" />
+                                <t:template>
+                                    <Text text="{Comments}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idMemberIdColumn"
+                                width="11rem"
+                            >
+                                <Label text="Member BP ID" />
+                                <t:template>
+                                    <Text
+                                        text="{MemberId}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                            <t:Column
+                                id="idMemberNameColumn"
+                                width="11rem"
+                            >
+                                <Label text="Member Name" />
+                                <t:template>
+                                    <Text
+                                        text="{MemberName}"
+                                        wrapping="false"
+                                    />
+                                </t:template>
+                            </t:Column>
+                        </t:columns>
+                    </t:Table>
+                </VBox>
+                <HBox
+                    class="sapUiLargeMarginRight"
+                    width="60%"
+                >
+                    <Table
+                        width="auto"
+                        items="{
+                            path: '/ProcessingStatus',
+                            sorter: {
+                                path: 'Gpart'
+                            }
+                        }"
+                        class=" sapUiMediumMargin sapUiLargeMarginBegin sapUiLargeMarginRight customHBoxForProcessingLayoutAndTotalValueTable"
+                    >
+                        <columns>
+                            <Column>
+                                <Text text="Status" />
+                            </Column>
+                            <Column>
+                                <Text text="Difference" />
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem vAlign="Middle">
+                                <cells>
+                                    <core:Icon
+                                        src="{StatusIcon}"
+                                        class="size2 sapUiSmallMarginBegin"
+                                        color="{StatusColor}"
+                                    />
+                                    <ObjectNumber
+                                        number="{
+                                            parts: [{
+                                                path: 'DifferenceAmn'
+                                            }, {
+                                                path: 'CurrencyCode'
+                                            }],
+                                            type: 'sap.ui.model.type.Currency',
+                                            formatOptions: {
+                                                showMeasure: false
+                                            }
+                                        }"
+                                        unit="{CurrencyCode}"
+                                    />
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                    <HBox
+                        id="idTotalValuesDisplayAreaHBox"
+                        class=""
+                    />
+                </HBox>
+            </VBox>
+        </content>
+    </Page>
+    <custom:CustomFilterDialog
+        id="idCustomFilterDialog"
+        filterChange="onCustomFilterDialogFilterChange"
+    />
+</mvc:View>

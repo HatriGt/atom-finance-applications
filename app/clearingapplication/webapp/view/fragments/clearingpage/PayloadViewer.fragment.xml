@@ -1,0 +1,20 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:codeeditor="sap.ui.codeeditor">
+    <Popover
+        id="idPayloadPopover"
+        title="Clearing Interface Payload"
+        placement="Auto"
+        contentWidth="600px"
+        contentHeight="400px">
+        <content>
+            <codeeditor:CodeEditor
+                id="idPayloadCodeEditor"
+                type="json"
+                editable="false"
+                value=''
+                height="400px"/>
+        </content>
+    </Popover>
+</core:FragmentDefinition>

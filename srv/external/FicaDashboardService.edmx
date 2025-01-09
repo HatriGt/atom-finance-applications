@@ -1,0 +1,67 @@
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+<edmx:Reference Uri="http://gerwdqas.elsecolimited.com:44300/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='FIORI_S4HANA')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+<edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+</edmx:Reference>
+<edmx:DataServices m:DataServiceVersion="2.0">
+<Schema Namespace="ZC_FICADASHBOARD_CDS" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+<Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+<EntityType Name="ZC_FICADASHBOARDType" sap:label="FICA Dashboard Data Service" sap:content-version="1">
+<Key>
+<PropertyRef Name="ficaDoc"/>
+<PropertyRef Name="action"/>
+<PropertyRef Name="installment"/>
+<PropertyRef Name="externalReference"/>
+<PropertyRef Name="premiumId"/>
+<PropertyRef Name="endorsementReference"/>
+<PropertyRef Name="originalAmount"/>
+<PropertyRef Name="businessPartner"/>
+<PropertyRef Name="ucr"/>
+<PropertyRef Name="claimReference"/>
+<PropertyRef Name="transactionReference"/>
+<PropertyRef Name="type"/>
+<PropertyRef Name="docType"/>
+<PropertyRef Name="memberID"/>
+<PropertyRef Name="clearingDocument"/>
+<PropertyRef Name="mainTransactionItem"/>
+</Key>
+<Property Name="ficaDoc" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="Document Number" sap:quickinfo="Number of a FI-CA Document"/>
+<Property Name="action" Type="Edm.String" Nullable="false" MaxLength="14" sap:display-format="UpperCase"/>
+<Property Name="installment" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Installment"/>
+<Property Name="externalReference" Type="Edm.String" Nullable="false" MaxLength="241" sap:label="External Reference"/>
+<Property Name="premiumId" Type="Edm.String" Nullable="false" MaxLength="16" sap:label="Premium ID"/>
+<Property Name="endorsementReference" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="EndorsementReference" sap:quickinfo="Endorsement Reference"/>
+<Property Name="originalAmount" Type="Edm.Decimal" Nullable="false" Precision="14" Scale="3"/>
+<Property Name="businessPartner" Type="Edm.String" Nullable="false" MaxLength="81" sap:display-format="UpperCase"/>
+<Property Name="ucr" Type="Edm.String" Nullable="false" MaxLength="241" sap:label="UCR" sap:quickinfo="Unique claim reference"/>
+<Property Name="claimReference" Type="Edm.String" Nullable="false" MaxLength="35" sap:label="Elseco Claim Number"/>
+<Property Name="transactionReference" Type="Edm.String" Nullable="false" MaxLength="35" sap:label="Transaction Ref Num" sap:quickinfo="Transaction Reference Number"/>
+<Property Name="type" Type="Edm.String" Nullable="false" MaxLength="6" sap:display-format="UpperCase"/>
+<Property Name="docType" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="Document Type"/>
+<Property Name="memberID" Type="Edm.String" Nullable="false" MaxLength="20" sap:display-format="UpperCase" sap:label="Member"/>
+<Property Name="clearingDocument" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="Clearing Document" sap:quickinfo="Clearing Document or Printed Document"/>
+<Property Name="mainTransactionItem" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Main Transaction" sap:quickinfo="Main Transaction for Line Item"/>
+<Property Name="memberName" Type="Edm.String" MaxLength="81" sap:display-format="UpperCase"/>
+<Property Name="settlementAmount" Type="Edm.Decimal" Precision="14" Scale="3"/>
+<Property Name="settlementCurrency" Type="Edm.String" MaxLength="5" sap:label="Currency" sap:quickinfo="Currency Key" sap:semantics="currency-code"/>
+<Property Name="clearingAmount" Type="Edm.Decimal" Precision="14" Scale="3"/>
+<Property Name="clearingDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date" sap:quickinfo="Field of type DATS"/>
+<Property Name="externalROE" Type="Edm.Decimal" Precision="9" Scale="5" sap:label="External ROE"/>
+<Property Name="businessPartnerId" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Business Partner" sap:quickinfo="Business Partner Number"/>
+<Property Name="dueDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Net Due Date" sap:quickinfo="Due date for net payment"/>
+<Property Name="postingDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Posting Date" sap:quickinfo="Posting Date in the Document"/>
+<Property Name="originalCurrency" Type="Edm.String" MaxLength="5" sap:label="Currency" sap:quickinfo="Transaction Currency" sap:semantics="currency-code"/>
+<Property Name="sys" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Origin" sap:quickinfo="Document Origin Key"/>
+<Property Name="enteredOn" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Entry Date" sap:quickinfo="Day On Which Accounting Document Was Entered"/>
+<Property Name="collectionType" Type="Edm.String" MaxLength="30" sap:label="Pmnt Method ID" sap:quickinfo="Payment Method Name"/>
+<Property Name="bitReference" Type="Edm.String" MaxLength="128" sap:display-format="UpperCase" sap:label="BIT Reference"/>
+<Property Name="env" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase"/>
+<Property Name="subTransaction" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Subtransaction" sap:quickinfo="Subtransaction for Document Item"/>
+</EntityType>
+<EntityContainer Name="ZC_FICADASHBOARD_CDS_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+<EntitySet Name="ZC_FICADASHBOARD" EntityType="ZC_FICADASHBOARD_CDS.ZC_FICADASHBOARDType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+</EntityContainer>
+<atom:link rel="self" href="http://gerwdqas.elsecolimited.com:44300/sap/opu/odata/sap/ZC_FICADASHBOARD_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+<atom:link rel="latest-version" href="http://gerwdqas.elsecolimited.com:44300/sap/opu/odata/sap/ZC_FICADASHBOARD_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+</Schema>
+</edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,26 @@
+_schema-version: '3.1'
+ID: AtomFinanceApplications.qa-ext
+extends: AtomFinanceApplications 
+
+resources:
+  # ------------------- Registry service for subscription ----------
+  - name: registry-AtomFinanceApplications
+    type: org.cloudfoundry.managed-service
+    requires:
+      - name: mtx-api
+    parameters:
+      service: saas-registry
+      service-plan: application
+      config:
+        xsappname: AtomFinanceApplications-${org}-${space}
+        appName: atom-apps-finance-qa
+        displayName: ATOM(QA) Platform 3.0 Finance Applications
+        description: ATOM(QA) The Insurance Operating System
+        category: ATOM-QA
+        appUrls:
+          getDependencies: ~{mtx-api/mtx-url}/getDependencies
+          onSubscription: ~{mtx-api/mtx-url}/-/cds/saas-provisioning/tenant/{tenantId}
+          onSubscriptionAsync: false
+          onUnSubscriptionAsync: false
+          callbackTimeoutMillis: 300000 # Increase if your deployments are taking longer than that
+          onUpdateDependenciesAsync: true

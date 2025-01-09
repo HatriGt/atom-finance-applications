@@ -1,0 +1,4052 @@
+{
+ "meta": {
+  "creator": "cds-dk 7.7.1"
+ },
+ "$version": "2.0",
+ "definitions": {
+  "Product.getJsonSchema": {
+   "kind": "function",
+   "@cds.external": true,
+   "params": {
+    "productId": {
+     "type": "cds.Integer"
+    },
+    "pageId": {
+     "type": "cds.Integer"
+    },
+    "dealId": {
+     "type": "cds.Integer"
+    }
+   },
+   "returns": {
+    "type": "Product.atom_srv_mdm_product_Page"
+   }
+  },
+  "Product.publish": {
+   "kind": "action",
+   "@cds.external": true,
+   "params": {
+    "productId": {
+     "type": "cds.Integer"
+    }
+   },
+   "returns": {
+    "type": "cds.Boolean"
+   }
+  },
+  "Product.DealEntities": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Created On"
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Created By"
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Changed On"
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Changed By"
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": true
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Active",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Inactive",
+       "Value": false
+      }
+     ]
+    },
+    "DELETED": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Yes",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "No",
+       "Value": false
+      }
+     ]
+    },
+    "ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "PARENT_ID": {
+     "type": "cds.Integer"
+    },
+    "NAME": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "NAME_PLURAL": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "DEFAULT_CARDINALITY": {
+     "type": "cds.String",
+     "length": 1,
+     "default": {
+      "val": "n"
+     }
+    },
+    "FRIENDLY_NAME": {
+     "type": "cds.String",
+     "length": 100
+    },
+    "DATAPOINT": {
+     "type": "cds.String",
+     "length": 100
+    },
+    "ItsParent": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.DealEntities",
+     "cardinality": {
+      "max": 1
+     },
+     "on": [
+      {
+       "ref": [
+        "ItsParent",
+        "ID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "PARENT_ID"
+       ]
+      }
+     ]
+    },
+    "ItsFields": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.DealEntityFields",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    }
+   }
+  },
+  "Product.DealEntityFields": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Created On"
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Created By"
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Changed On"
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Changed By"
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": true
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Active",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Inactive",
+       "Value": false
+      }
+     ]
+    },
+    "DELETED": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Yes",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "No",
+       "Value": false
+      }
+     ]
+    },
+    "ENTITY_ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "FIELD_ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "FIELD_NAME": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "DEFAULT_FIELD_LABEL": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "DATATYPE": {
+     "type": "cds.String",
+     "length": 20
+    },
+    "TECHFIELD": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     }
+    },
+    "LENGTH": {
+     "type": "cds.Integer"
+    },
+    "SCALE": {
+     "type": "cds.Integer"
+    },
+    "SEMANTICS": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "UNIT_REFERENCE_ENTITY": {
+     "type": "cds.Integer"
+    },
+    "UNIT_REFERENCE_FIELD": {
+     "type": "cds.Integer"
+    },
+    "COMMON": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     }
+    },
+    "CREATE_MANDATORY": {
+     "type": "cds.Boolean"
+    },
+    "BOOKING_MANDATORY": {
+     "type": "cds.Boolean"
+    },
+    "ItsEntity": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.DealEntities",
+     "cardinality": {
+      "max": 1
+     },
+     "on": [
+      {
+       "ref": [
+        "ItsEntity",
+        "ID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "ENTITY_ID"
+       ]
+      }
+     ]
+    },
+    "ItsUnitReference": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.DealEntityFields",
+     "cardinality": {
+      "max": 1
+     },
+     "on": [
+      {
+       "ref": [
+        "ItsUnitReference",
+        "FIELD_ID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "UNIT_REFERENCE_FIELD"
+       ]
+      }
+     ]
+    },
+    "WIDTH": {
+     "type": "cds.Decimal",
+     "precision": 5,
+     "scale": 1
+    },
+    "PLACE_HOLDER": {
+     "type": "cds.String",
+     "length": 100
+    },
+    "DEFAULT_VALUE": {
+     "type": "cds.String",
+     "length": 100
+    },
+    "COMPONENT_TYPE": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "FILTERABLE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     }
+    },
+    "FILTER_ID_FIELD": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "FILTER_TEXT_FIELD": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "READ_ONLY": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     }
+    },
+    "OPTIONS": {
+     "type": "cds.LargeString"
+    },
+    "OPTIONS_IDENTIFIER": {
+     "type": "cds.String",
+     "length": 50
+    }
+   }
+  },
+  "Product.Products": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Created On"
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Created By"
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Changed On"
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Changed By"
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": true
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Active",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Inactive",
+       "Value": false
+      }
+     ]
+    },
+    "DELETED": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Yes",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "No",
+       "Value": false
+      }
+     ]
+    },
+    "ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "NAME": {
+     "type": "cds.String",
+     "length": 30
+    },
+    "DESCRIPTION": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "BOTTOM_UP": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": true
+     }
+    },
+    "CODE": {
+     "type": "cds.String",
+     "length": 3,
+     "default": {
+      "val": ""
+     }
+    },
+    "LOB_ID": {
+     "type": "cds.Integer"
+    },
+    "ItsInternalRiskCodes": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.ProductInternalRiskCodes",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "ItsProductRiskObjectTypes": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.ProductRiskObjectTypes",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "ItsProductEntities": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.ProductEntities",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "ItsPools": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.ProductPools",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "ItsCoverholders": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.ProductCoverholders",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "ItsProductDefaultDealStructures": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.ProductDefaultDealStructures",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "ItsLineofBusiness": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.LineOfBusiness",
+     "cardinality": {
+      "max": 1
+     },
+     "on": [
+      {
+       "ref": [
+        "ItsLineofBusiness",
+        "ID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "LOB_ID"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "Product.BlocksEntity": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Created On"
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Created By"
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Changed On"
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Changed By"
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": true
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Active",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Inactive",
+       "Value": false
+      }
+     ]
+    },
+    "DELETED": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Yes",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "No",
+       "Value": false
+      }
+     ]
+    },
+    "ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "PRODUCT_ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "PAGE_ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "PAGE_NAME": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "BLOCK_NAME": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "BLOCK_LABEL": {
+     "type": "cds.String",
+     "length": 100
+    },
+    "ItsSubBlocks": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.SubBlocksEntity",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "ItsPage": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.ProductPages",
+     "cardinality": {
+      "max": 1
+     },
+     "on": [
+      {
+       "ref": [
+        "ItsPage",
+        "PRODUCT_ID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "PRODUCT_ID"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "Product.SubBlocksEntity": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Created On"
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Created By"
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Changed On"
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Changed By"
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": true
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Active",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Inactive",
+       "Value": false
+      }
+     ]
+    },
+    "DELETED": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Yes",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "No",
+       "Value": false
+      }
+     ]
+    },
+    "ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "PRODUCT_ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "ENTITY_ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "BLOCK_ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "SUBBLOCK_NAME": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "SUBBLOCK_LABEL": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "SORTER": {
+     "type": "cds.Integer"
+    },
+    "MULTILINE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     }
+    },
+    "DISPLAY_ONLY": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     }
+    },
+    "GET_URL": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "POST_URL": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "PUT_URL": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "VALIDATION_URL": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "PROPERTY": {
+     "type": "cds.String",
+     "length": 100
+    },
+    "ItsBlock": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.BlocksEntity",
+     "cardinality": {
+      "max": 1
+     },
+     "on": [
+      {
+       "ref": [
+        "ItsBlock",
+        "ID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "BLOCK_ID"
+       ]
+      }
+     ]
+    },
+    "ItsSubBlockFields": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.SubBlockFields",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    }
+   }
+  },
+  "Product.SubBlockFields": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Created On"
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Created By"
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Changed On"
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Changed By"
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": true
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Active",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Inactive",
+       "Value": false
+      }
+     ]
+    },
+    "DELETED": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Yes",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "No",
+       "Value": false
+      }
+     ]
+    },
+    "ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true,
+     "default": {
+      "val": 0
+     }
+    },
+    "PRODUCT_ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "SUBBLOCK_ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "ENTITY_ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "FIELD_ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "FIELD_LABEL": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "SEMANTICS": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "ItsDealEntityField": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.DealEntityFields",
+     "cardinality": {
+      "max": 1
+     },
+     "on": [
+      {
+       "ref": [
+        "ItsDealEntityField",
+        "FIELD_ID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "FIELD_ID"
+       ]
+      }
+     ]
+    },
+    "ItsProductEntityField": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.ProductEntityFields",
+     "cardinality": {
+      "max": 1
+     },
+     "on": [
+      {
+       "ref": [
+        "ItsProductEntityField",
+        "PRODUCT_ID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "PRODUCT_ID"
+       ]
+      }
+     ]
+    },
+    "ItsDealEntity": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.DealEntities",
+     "cardinality": {
+      "max": 1
+     },
+     "on": [
+      {
+       "ref": [
+        "ItsDealEntity",
+        "ID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "ENTITY_ID"
+       ]
+      }
+     ]
+    },
+    "CREATE_MANDATORY": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     }
+    },
+    "BOOKING_MANDATORY": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     }
+    },
+    "WIDTH": {
+     "type": "cds.Decimal",
+     "precision": 5,
+     "scale": 1
+    },
+    "PLACE_HOLDER": {
+     "type": "cds.String",
+     "length": 100
+    },
+    "DEFAULT_VALUE": {
+     "type": "cds.String",
+     "length": 100
+    },
+    "COMPONENT_TYPE": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "FILTERABLE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     }
+    },
+    "FILTER_ID_FIELD": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "FILTER_TEXT_FIELD": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "READ_ONLY": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     }
+    },
+    "OPTIONS": {
+     "type": "cds.LargeString"
+    },
+    "OPTIONS_IDENTIFIER": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "SORTER": {
+     "type": "cds.Integer"
+    },
+    "PERSISTENCE_FIELD": {
+     "type": "cds.String",
+     "length": 100
+    },
+    "ItsSubBlock": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.SubBlocksEntity",
+     "cardinality": {
+      "max": 1
+     },
+     "on": [
+      {
+       "ref": [
+        "ItsSubBlock",
+        "ENTITY_ID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "ENTITY_ID"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "Product.ProductEntities": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Created On"
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Created By"
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Changed On"
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Changed By"
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": true
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Active",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Inactive",
+       "Value": false
+      }
+     ]
+    },
+    "DELETED": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Yes",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "No",
+       "Value": false
+      }
+     ]
+    },
+    "ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true,
+     "default": {
+      "val": 0
+     }
+    },
+    "PRODUCT_ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "ENTITY_ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "CARDINALITY": {
+     "type": "cds.String",
+     "length": 1
+    },
+    "ItsDealEntity": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.DealEntities",
+     "cardinality": {
+      "max": 1
+     },
+     "on": [
+      {
+       "ref": [
+        "ItsDealEntity",
+        "ID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "ENTITY_ID"
+       ]
+      }
+     ]
+    },
+    "NAME": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "NAME_PLURAL": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "ItsValidations": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.ProductEntityValidations",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "ItsEntityFields": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.ProductEntityFields",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    }
+   }
+  },
+  "Product.ProductEntityFields": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Created On"
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Created By"
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Changed On"
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Changed By"
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": true
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Active",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Inactive",
+       "Value": false
+      }
+     ]
+    },
+    "DELETED": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Yes",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "No",
+       "Value": false
+      }
+     ]
+    },
+    "ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true,
+     "default": {
+      "val": 0
+     }
+    },
+    "PRODUCT_ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "ENTITY_ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "FIELD_ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "FIELD_LABEL": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "SEMANTICS": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "TECHFIELD": {
+     "type": "cds.Boolean"
+    },
+    "ItsDealEntityField": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.DealEntityFields",
+     "cardinality": {
+      "max": 1
+     },
+     "on": [
+      {
+       "ref": [
+        "ItsDealEntityField",
+        "FIELD_ID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "FIELD_ID"
+       ]
+      }
+     ]
+    },
+    "ItsDealEntity": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.DealEntities",
+     "cardinality": {
+      "max": 1
+     },
+     "on": [
+      {
+       "ref": [
+        "ItsDealEntity",
+        "ID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "ENTITY_ID"
+       ]
+      }
+     ]
+    },
+    "CREATE_MANDATORY": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     }
+    },
+    "BOOKING_MANDATORY": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     }
+    },
+    "WIDTH": {
+     "type": "cds.Decimal",
+     "precision": 5,
+     "scale": 1
+    },
+    "PLACE_HOLDER": {
+     "type": "cds.String",
+     "length": 100
+    },
+    "DEFAULT_VALUE": {
+     "type": "cds.String",
+     "length": 100
+    },
+    "COMPONENT_TYPE": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "FILTERABLE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     }
+    },
+    "FILTER_ID_FIELD": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "FILTER_TEXT_FIELD": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "READ_ONLY": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     }
+    },
+    "OPTIONS": {
+     "type": "cds.LargeString"
+    },
+    "OPTIONS_IDENTIFIER": {
+     "type": "cds.String",
+     "length": 50
+    }
+   }
+  },
+  "Product.ProductEntityValidations": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Created On"
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Created By"
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Changed On"
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Changed By"
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": true
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Active",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Inactive",
+       "Value": false
+      }
+     ]
+    },
+    "DELETED": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Yes",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "No",
+       "Value": false
+      }
+     ]
+    },
+    "PRODUCT_ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "ENTITY_ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "VALIDATION_TYPE": {
+     "type": "cds.String",
+     "length": 30
+    },
+    "RULE": {
+     "type": "cds.String",
+     "length": 2000
+    },
+    "ACTION": {
+     "type": "cds.String",
+     "length": 20
+    },
+    "MESSAGE_TEMPLATE": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "ItsProduct": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.Products",
+     "cardinality": {
+      "max": 1
+     },
+     "on": [
+      {
+       "ref": [
+        "ItsProduct",
+        "ID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "PRODUCT_ID"
+       ]
+      }
+     ]
+    },
+    "ItsEntity": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.ProductEntities",
+     "cardinality": {
+      "max": 1
+     },
+     "on": [
+      {
+       "ref": [
+        "ItsEntity",
+        "ENTITY_ID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "ENTITY_ID"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "Product.ProductDefaultDealStructures": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Created On"
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Created By"
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Changed On"
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Changed By"
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": true
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Active",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Inactive",
+       "Value": false
+      }
+     ]
+    },
+    "DELETED": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Yes",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "No",
+       "Value": false
+      }
+     ]
+    },
+    "PRODUCT_ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "PARTICIPATIONS": {
+     "type": "cds.LargeString"
+    },
+    "SECTIONS": {
+     "type": "cds.LargeString"
+    },
+    "STAMPS": {
+     "type": "cds.LargeString"
+    },
+    "INTREF_FIELDS": {
+     "type": "cds.LargeString"
+    },
+    "EXTREF_FIELDS": {
+     "type": "cds.LargeString"
+    },
+    "EXTREF_PATTERN": {
+     "type": "cds.LargeString"
+    },
+    "INTREF_PATTERN": {
+     "type": "cds.LargeString"
+    },
+    "ItsProduct": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.Products",
+     "cardinality": {
+      "max": 1
+     },
+     "on": [
+      {
+       "ref": [
+        "ItsProduct",
+        "ID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "PRODUCT_ID"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "Product.ProductInternalRiskCodes": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Created On"
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Created By"
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Changed On"
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Changed By"
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": true
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Active",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Inactive",
+       "Value": false
+      }
+     ]
+    },
+    "DELETED": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Yes",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "No",
+       "Value": false
+      }
+     ]
+    },
+    "ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true,
+     "default": {
+      "val": 0
+     }
+    },
+    "PRODUCT_ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "INTRISK_CODE_ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "ItsInternalRiskCode": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.InternalRiskCode",
+     "cardinality": {
+      "max": 1
+     },
+     "on": [
+      {
+       "ref": [
+        "ItsInternalRiskCode",
+        "ID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "INTRISK_CODE_ID"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "Product.ProductRiskObjectTypes": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Created On"
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Created By"
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Changed On"
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Changed By"
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": true
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Active",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Inactive",
+       "Value": false
+      }
+     ]
+    },
+    "DELETED": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Yes",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "No",
+       "Value": false
+      }
+     ]
+    },
+    "ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true,
+     "default": {
+      "val": 0
+     }
+    },
+    "PRODUCT_ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "RISKOBJTYPE_ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "ItsRiskObjectType": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.RiskObjectType",
+     "cardinality": {
+      "max": 1
+     },
+     "on": [
+      {
+       "ref": [
+        "ItsRiskObjectType",
+        "ID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "RISKOBJTYPE_ID"
+       ]
+      }
+     ]
+    },
+    "RISKDB_TYPE": {
+     "type": "cds.String",
+     "length": 50,
+     "default": {
+      "val": "API"
+     }
+    },
+    "RISKDB_DESTINATION": {
+     "type": "cds.String",
+     "length": 100
+    },
+    "RISKDB_RISKOBJ_ENTITY": {
+     "type": "cds.String",
+     "length": 100
+    },
+    "RISKDB_SECTION_RISK_ASSOCIATION": {
+     "type": "cds.String",
+     "length": 100
+    }
+   }
+  },
+  "Product.ProductPools": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Created On"
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Created By"
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Changed On"
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Changed By"
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": true
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Active",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Inactive",
+       "Value": false
+      }
+     ]
+    },
+    "DELETED": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Yes",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "No",
+       "Value": false
+      }
+     ]
+    },
+    "ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true,
+     "default": {
+      "val": 0
+     }
+    },
+    "PRODUCT_ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "POOL_ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "ItsPool": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.Pool",
+     "cardinality": {
+      "max": 1
+     },
+     "on": [
+      {
+       "ref": [
+        "ItsPool",
+        "ID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "POOL_ID"
+       ]
+      }
+     ]
+    },
+    "ItsProduct": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.Products",
+     "cardinality": {
+      "max": 1
+     },
+     "on": [
+      {
+       "ref": [
+        "ItsProduct",
+        "ID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "PRODUCT_ID"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "Product.ProductCoverholders": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Created On"
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Created By"
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Changed On"
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Changed By"
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": true
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Active",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Inactive",
+       "Value": false
+      }
+     ]
+    },
+    "DELETED": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Yes",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "No",
+       "Value": false
+      }
+     ]
+    },
+    "ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true,
+     "default": {
+      "val": 0
+     }
+    },
+    "PRODUCT_ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "COVERHOLDER_ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "ItsCoverholder": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.Coverholder",
+     "cardinality": {
+      "max": 1
+     },
+     "on": [
+      {
+       "ref": [
+        "ItsCoverholder",
+        "ID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "COVERHOLDER_ID"
+       ]
+      }
+     ]
+    },
+    "ItsProduct": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.Products",
+     "cardinality": {
+      "max": 1
+     },
+     "on": [
+      {
+       "ref": [
+        "ItsProduct",
+        "ID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "PRODUCT_ID"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "Product.ProductPages": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Created On"
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Created By"
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Changed On"
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Changed By"
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": true
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Active",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Inactive",
+       "Value": false
+      }
+     ]
+    },
+    "DELETED": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Yes",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "No",
+       "Value": false
+      }
+     ]
+    },
+    "ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "PRODUCT_ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "PAGE_ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "PAGE_NAME": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "PAGE_PUBLIC_ID": {
+     "type": "cds.String",
+     "length": 100
+    }
+   }
+  },
+  "Product.LineOfBusiness": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Created On"
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Created By"
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Changed On"
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Changed By"
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": true
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Active",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Inactive",
+       "Value": false
+      }
+     ]
+    },
+    "DELETED": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Yes",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "No",
+       "Value": false
+      }
+     ]
+    },
+    "ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "LOB_NAME": {
+     "type": "cds.String",
+     "length": 20
+    },
+    "LOB_DESCRIPTION": {
+     "type": "cds.String",
+     "length": 1024
+    },
+    "BILLING_POLICY_TYPE": {
+     "type": "cds.String",
+     "length": 2
+    },
+    "ItsConditionTypes": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.ConditionType",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "ItsPools": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.Pool",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "ItsInternalRiskCodes": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.InternalRiskCode",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "ItsLLoydsRiskCodes": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.LloydsRiskCode",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "ItsSegments": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.Segment",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "ItsPlacementTypes": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.PlacementType",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "ItsExposureTypes": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.ExposureType",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    }
+   }
+  },
+  "Product.InternalRiskCode": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Created On"
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Created By"
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Changed On"
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Changed By"
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": true
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Active",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Inactive",
+       "Value": false
+      }
+     ]
+    },
+    "DELETED": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Yes",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "No",
+       "Value": false
+      }
+     ]
+    },
+    "ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "LOB_ID": {
+     "type": "cds.Integer"
+    },
+    "SEGMENT_ID": {
+     "type": "cds.Integer"
+    },
+    "LLRISKCODE_ID": {
+     "type": "cds.Integer"
+    },
+    "INTRISK_CODE": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "INTRISK_DESCRIPTION": {
+     "type": "cds.String",
+     "length": 1024
+    },
+    "ItsLLoydsRiskCode": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.LloydsRiskCode",
+     "cardinality": {
+      "max": 1
+     },
+     "on": [
+      {
+       "ref": [
+        "ItsLLoydsRiskCode",
+        "ID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "LLRISKCODE_ID"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "Product.RiskObjectType": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Created On"
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Created By"
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Changed On"
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Changed By"
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": true
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Active",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Inactive",
+       "Value": false
+      }
+     ]
+    },
+    "DELETED": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Yes",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "No",
+       "Value": false
+      }
+     ]
+    },
+    "ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "LOB_ID": {
+     "type": "cds.Integer"
+    },
+    "NAME": {
+     "type": "cds.String",
+     "length": 30
+    },
+    "DESCRIPTION": {
+     "type": "cds.String",
+     "length": 255
+    }
+   }
+  },
+  "Product.Pool": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Created On"
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Created By"
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Changed On"
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Changed By"
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": true
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Active",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Inactive",
+       "Value": false
+      }
+     ]
+    },
+    "DELETED": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Yes",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "No",
+       "Value": false
+      }
+     ]
+    },
+    "ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "LOB_ID": {
+     "type": "cds.Integer"
+    },
+    "POOL_NAME": {
+     "type": "cds.String",
+     "length": 100
+    },
+    "POOL_DESCRIPTION": {
+     "type": "cds.String",
+     "length": 1024
+    },
+    "POOL_CD": {
+     "type": "cds.String",
+     "length": 3
+    },
+    "ItsPoolYWYears": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.PoolUwy",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "ItsLob": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.LineOfBusiness",
+     "cardinality": {
+      "max": 1
+     },
+     "on": [
+      {
+       "ref": [
+        "ItsLob",
+        "ID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "LOB_ID"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "Product.Coverholder": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Created On"
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Created By"
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Changed On"
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Changed By"
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": true
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Active",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Inactive",
+       "Value": false
+      }
+     ]
+    },
+    "DELETED": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Yes",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "No",
+       "Value": false
+      }
+     ]
+    },
+    "ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "COVERHOLDER_CODE": {
+     "key": true,
+     "type": "cds.String",
+     "length": 20,
+     "notNull": true
+    },
+    "COVERHOLDER_NAME": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "COVERHOLDER_PIN": {
+     "type": "cds.String",
+     "length": 25
+    }
+   }
+  },
+  "Product.ConditionType": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Created On"
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Created By"
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Changed On"
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Changed By"
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": true
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Active",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Inactive",
+       "Value": false
+      }
+     ]
+    },
+    "DELETED": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Yes",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "No",
+       "Value": false
+      }
+     ]
+    },
+    "ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "LOB_ID": {
+     "type": "cds.Integer"
+    },
+    "CONDITION_NAME": {
+     "type": "cds.String",
+     "length": 250
+    },
+    "CONDITION_DESCRIPTION": {
+     "type": "cds.String",
+     "length": 1024
+    },
+    "CONDITION_VALUE_TYPE": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "DEFAULT_OP_ID": {
+     "type": "cds.Integer"
+    },
+    "FORMULA": {
+     "type": "cds.String",
+     "length": 250
+    }
+   }
+  },
+  "Product.LloydsRiskCode": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Created On"
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Created By"
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Changed On"
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Changed By"
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": true
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Active",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Inactive",
+       "Value": false
+      }
+     ]
+    },
+    "DELETED": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Yes",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "No",
+       "Value": false
+      }
+     ]
+    },
+    "ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "LOB_ID": {
+     "type": "cds.Integer"
+    },
+    "LLRISK_CODE": {
+     "type": "cds.String",
+     "length": 20
+    },
+    "LLRISK_DESCRIPTION": {
+     "type": "cds.String",
+     "length": 1024
+    },
+    "ItsInternalRiskCodes": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.InternalRiskCode",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    }
+   }
+  },
+  "Product.Segment": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Created On"
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Created By"
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Changed On"
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Changed By"
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": true
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Active",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Inactive",
+       "Value": false
+      }
+     ]
+    },
+    "DELETED": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Yes",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "No",
+       "Value": false
+      }
+     ]
+    },
+    "ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "LOB_ID": {
+     "type": "cds.Integer"
+    },
+    "SEGMENT_NAME": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "SEGMENT_DESCRIPTION": {
+     "type": "cds.String",
+     "length": 1024
+    }
+   }
+  },
+  "Product.PlacementType": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Created On"
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Created By"
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Changed On"
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Changed By"
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": true
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Active",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Inactive",
+       "Value": false
+      }
+     ]
+    },
+    "DELETED": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Yes",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "No",
+       "Value": false
+      }
+     ]
+    },
+    "ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "LOB_ID": {
+     "type": "cds.Integer"
+    },
+    "PLACEMENT_NAME": {
+     "type": "cds.String",
+     "length": 20
+    },
+    "PLACEMENT_DESCRIPTION": {
+     "type": "cds.String",
+     "length": 1024
+    }
+   }
+  },
+  "Product.ExposureType": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Created On"
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Created By"
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Changed On"
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Changed By"
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": true
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Active",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Inactive",
+       "Value": false
+      }
+     ]
+    },
+    "DELETED": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Yes",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "No",
+       "Value": false
+      }
+     ]
+    },
+    "ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "LOB_ID": {
+     "type": "cds.Integer"
+    },
+    "LOB_NAME": {
+     "type": "cds.String",
+     "length": 20
+    },
+    "EXPOSURE_TYPE": {
+     "type": "cds.String",
+     "length": 250
+    },
+    "INTRISK_CODE": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "VALUE": {
+     "type": "cds.String",
+     "length": 10
+    }
+   }
+  },
+  "Product.PoolUwy": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Created On"
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Created By"
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Changed On"
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Changed By"
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": true
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Active",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Inactive",
+       "Value": false
+      }
+     ]
+    },
+    "DELETED": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Yes",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "No",
+       "Value": false
+      }
+     ]
+    },
+    "ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "POOL_ID": {
+     "type": "cds.Integer"
+    },
+    "POOLUWY_NAME": {
+     "type": "cds.String",
+     "length": 100
+    },
+    "UWYEAR": {
+     "type": "cds.Integer"
+    },
+    "INCEPTION": {
+     "type": "cds.Date"
+    },
+    "EXPIRYDATE": {
+     "type": "cds.Date"
+    },
+    "CURRENCY_ID": {
+     "type": "cds.Integer"
+    },
+    "ItsPool": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.Pool",
+     "cardinality": {
+      "max": 1
+     },
+     "on": [
+      {
+       "ref": [
+        "ItsPool",
+        "ID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "POOL_ID"
+       ]
+      }
+     ]
+    },
+    "ItsInternalRiskCodes": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.InternalRiskInPool",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    }
+   }
+  },
+  "Product.InternalRiskInPool": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "createdAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Created On"
+    },
+    "createdBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Immutable": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Created By"
+    },
+    "modifiedAt": {
+     "type": "cds.Timestamp",
+     "@odata.Precision": 7,
+     "@odata.Type": "Edm.DateTimeOffset",
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "@Common.Label": "Changed On"
+    },
+    "modifiedBy": {
+     "type": "cds.String",
+     "length": 255,
+     "@UI.HiddenFilter": true,
+     "@Core.Computed": true,
+     "doc": "User's unique ID",
+     "@Common.Label": "Changed By"
+    },
+    "ACTIVE": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": true
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Active",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Inactive",
+       "Value": false
+      }
+     ]
+    },
+    "DELETED": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     },
+     "@Validation.AllowedValues": [
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "Yes",
+       "Value": true
+      },
+      {
+       "$Type": "Validation.AllowedValue",
+       "@Core.SymbolicName": "No",
+       "Value": false
+      }
+     ]
+    },
+    "ID": {
+     "key": true,
+     "type": "cds.Integer",
+     "notNull": true
+    },
+    "POOLUWYEAR_ID": {
+     "type": "cds.Integer"
+    },
+    "INTRISK_ID": {
+     "type": "cds.Integer"
+    },
+    "ItsInternalRiskCode": {
+     "type": "cds.Association",
+     "@cds.ambiguous": "missing on condition?",
+     "target": "Product.InternalRiskCode",
+     "cardinality": {
+      "max": 1
+     },
+     "on": [
+      {
+       "ref": [
+        "ItsInternalRiskCode",
+        "ID"
+       ]
+      },
+      "=",
+      {
+       "ref": [
+        "INTRISK_ID"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "Product.atom_srv_mdm_product_Page": {
+   "kind": "type",
+   "@cds.external": true,
+   "elements": {
+    "pageId": {
+     "type": "cds.Integer"
+    },
+    "productId": {
+     "type": "cds.Integer"
+    },
+    "pageName": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "numberOfBlocks": {
+     "type": "cds.Integer"
+    },
+    "blocks": {
+     "items": {
+      "type": "Product.atom_srv_mdm_product_Block",
+      "notNull": true
+     }
+    }
+   }
+  },
+  "Product.atom_srv_mdm_product_Block": {
+   "kind": "type",
+   "@cds.external": true,
+   "elements": {
+    "title": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "numberOfSubBlocks": {
+     "type": "cds.Integer"
+    },
+    "subBlocks": {
+     "items": {
+      "type": "Product.atom_srv_mdm_product_subBlock",
+      "notNull": true
+     }
+    }
+   }
+  },
+  "Product.atom_srv_mdm_product_subBlock": {
+   "kind": "type",
+   "@cds.external": true,
+   "elements": {
+    "subBlockId": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "title": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "uiType": {
+     "type": "cds.String",
+     "length": 50
+    },
+    "readOnly": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     }
+    },
+    "visible": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": true
+     }
+    },
+    "numberOfFields": {
+     "type": "cds.Integer"
+    },
+    "rowAddable": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     }
+    },
+    "rowDelible": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     }
+    },
+    "multiSelect": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     }
+    },
+    "addButtonLabel": {
+     "type": "cds.String",
+     "length": 20
+    },
+    "deleteButtonLabel": {
+     "type": "cds.String",
+     "length": 20
+    },
+    "fields": {
+     "items": {
+      "type": "Product.atom_srv_mdm_product_subBlockField",
+      "notNull": true
+     }
+    },
+    "customComponent": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     }
+    },
+    "endpoints": {
+     "type": "Product.atom_srv_mdm_product_subBlock_endpoints"
+    }
+   }
+  },
+  "Product.atom_srv_mdm_product_subBlockField": {
+   "kind": "type",
+   "@cds.external": true,
+   "elements": {
+    "sortOrder": {
+     "type": "cds.Integer"
+    },
+    "mandatory": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     }
+    },
+    "readOnly": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     }
+    },
+    "fieldName": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "inputType": {
+     "type": "cds.String",
+     "length": 50,
+     "default": {
+      "val": "text"
+     }
+    },
+    "componentType": {
+     "type": "cds.String",
+     "length": 50,
+     "default": {
+      "val": "input"
+     }
+    },
+    "placeholderText": {
+     "type": "cds.String",
+     "length": 255,
+     "default": {
+      "val": ""
+     }
+    },
+    "semantics": {
+     "type": "cds.String",
+     "length": 100
+    },
+    "label": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "id": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "width": {
+     "type": "cds.Decimal",
+     "precision": 10,
+     "scale": 3
+    },
+    "defaultValue": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "checkboxOptions": {
+     "items": {
+      "type": "Product.atom_srv_mdm_product_checkboxOption",
+      "notNull": true
+     }
+    },
+    "radiobuttonOptions": {
+     "items": {
+      "type": "Product.atom_srv_mdm_product_radiobuttonOption",
+      "notNull": true
+     }
+    },
+    "filterable": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     }
+    },
+    "filter": {
+     "type": "cds.LargeString"
+    },
+    "filterType": {
+     "type": "cds.String",
+     "length": 10
+    },
+    "filterIdField": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "filterTextField": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "createable": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     }
+    },
+    "updatable": {
+     "type": "cds.Boolean",
+     "default": {
+      "val": false
+     }
+    },
+    "persistenceIdField": {
+     "type": "cds.String",
+     "length": 100
+    }
+   }
+  },
+  "Product.atom_srv_mdm_product_checkboxOption": {
+   "kind": "type",
+   "@cds.external": true,
+   "elements": {
+    "id": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "text": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "color": {
+     "type": "cds.String",
+     "length": 10,
+     "default": {
+      "val": "None"
+     }
+    }
+   }
+  },
+  "Product.atom_srv_mdm_product_radiobuttonOption": {
+   "kind": "type",
+   "@cds.external": true,
+   "elements": {
+    "id": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "text": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "color": {
+     "type": "cds.String",
+     "length": 10,
+     "default": {
+      "val": "None"
+     }
+    }
+   }
+  },
+  "Product.atom_srv_mdm_product_subBlock_endpoints": {
+   "kind": "type",
+   "@cds.external": true,
+   "elements": {
+    "read": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "update": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "create": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "delete": {
+     "type": "cds.String",
+     "length": 255
+    },
+    "validate": {
+     "type": "cds.String",
+     "length": 255
+    }
+   }
+  },
+  "Product": {
+   "kind": "service",
+   "@cds.external": true
+  }
+ }
+}

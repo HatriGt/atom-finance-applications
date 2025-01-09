@@ -1,0 +1,420 @@
+{
+  "name": "AtomFinanceApplications",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@cap-js-community/odata-v2-adapter": "^1.13.8",
+    "@cap-js/telemetry": "^0.2.2",
+    "@sap-cloud-sdk/http-client": "^3.12.1",
+    "@sap-cloud-sdk/resilience": "^3.12.1",
+    "@sap/cds": "^7",
+    "@sap/cds-hana": "^2",
+    "@sap/cds-mtxs": "^1.9",
+    "@sap/cds-odata-v2-adapter-proxy": "1.9.21",
+    "@sap/xb-msg-amqp-v100": "^0.9.58",
+    "@sap/xsenv": "^5.2.0",
+    "@sap/xssec": "^3.6.0",
+    "@ui5/cli": "^3.11.1",
+    "express": "^4",
+    "express-mock-server": "^3.4.3"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "8.6.1",
+    "@sap/eslint-plugin-cds": "^3.1.2",
+    "@sap/ux-specification": "UI5-1.120",
+    "cds-launchpad-plugin": "^2.1.8",
+    "cfenv": "^1.2.4",
+    "concurrently": "^8.2.2",
+    "eslint": "^9.17.0",
+    "eslint-plugin-security": "^3.0.1",
+    "rimraf": "^5.0.5"
+  },
+  "scripts": {
+    "ui": "cd app/clearingapplication/ && npm start",
+    "cap": "cds watch --profile hybrid",
+    "login-dev": "export CF_PASSWORD=$(security find-generic-password -a \"$USER\" -s 'CF_PASSWORD' -w) && cf login -o adev01-dev -s dev -u a.ravichandran@atomdn.com -p $CF_PASSWORD",
+    "login-qa": "export CF_PASSWORD=$(security find-generic-password -a \"$USER\" -s 'CF_PASSWORD' -w) && cf login -o aqa01-qa -s Quality -u a.ravichandran@atomdn.com -p $CF_PASSWORD",
+    "login-elsecoqa": "export CF_PASSWORD=$(security find-generic-password -a \"$USER\" -s 'CF_PASSWORD' -w) && cf login -o aqa02-qa -s default -u a.ravichandran@atomdn.com -p $CF_PASSWORD",
+    "uideploy": "export CF_PASSWORD=$(security find-generic-password -a \"$USER\" -s 'CF_PASSWORD' -w) && mbt build && bun run login-fe && cf deploy mta_archives/atomuiclearingclearingapplication_0.0.1.mtar && rm -rf mta_archives && rm -rf resources",
+    "uideployelsecoqa": "export CF_PASSWORD=$(security find-generic-password -a \"$USER\" -s 'CF_PASSWORD' -w) && mbt build && bun run login-elsecoqa && cf deploy mta_archives/atomuiclearingclearingapplication_0.0.1.mtar && rm -rf mta_archives && rm -rf resources",
+    "capdeploy": "cd mta_cap && mbt build && export CF_PASSWORD=$(security find-generic-password -a \"$USER\" -s 'CF_PASSWORD' -w) && bun run login-be && cf deploy mta_archives/AtomFinanceApplications_1.0.0.mtar && rm -rf mta_archives && rm -rf ../gen && bun run subscribeElseco",
+    "capdeploydb": "cd mta_cap && mbt build && export CF_PASSWORD=$(security find-generic-password -a \"$USER\" -s 'CF_PASSWORD' -w) && bun run login-be && cf deploy mta_archives/AtomFinanceApplications_1.0.0.mtar -m AtomFinanceApplications-srv && rm -rf mta_archives && rm -rf ../gen && bun run subscribeElseco",
+    "capdeployqa": "cd mta_cap && mbt build && export CF_PASSWORD=$(security find-generic-password -a \"$USER\" -s 'CF_PASSWORD' -w) && bun run login-qa && cf deploy mta_archives/AtomFinanceApplications_1.0.0.mtar && rm -rf mta_archives && rm -rf ../gen && bun run subscribeElsecoQa",
+    "subscribeElseco": "export CF_PASSWORD=$(security find-generic-password -a \"$USER\" -s 'CF_PASSWORD' -w) && btp login --url https://cli.btp.cloud.sap --user a.ravichandran@atomdn.com --password $CF_PASSWORD && btp update accounts/subscription --subaccount 5c60ae9d-8d13-4a0b-8ee3-c9da4c8e2129 --to-app AtomFinanceApplications-adev01-dev-dev",
+    "subscribeElsecoQa": "export CF_PASSWORD=$(security find-generic-password -a \"$USER\" -s 'CF_PASSWORD' -w) && btp login --url https://cli.btp.cloud.sap --user a.ravichandran@atomdn.com --password $CF_PASSWORD && btp update accounts/subscription --subaccount 1afe6432-4d11-4754-99ec-8be297d9e797 --to-app AtomFinanceApplications-aqa01-qa-Quality",
+    "start": "cds-serve",
+    "cdsrun": "cds-serve",
+    "login-be": "cf login -o adev01-dev -s dev -u a.ravichandran@atomdn.com -p $CF_PASSWORD",
+    "login-fe": "cf login -o adev02-dev -s Default -u a.ravichandran@atomdn.com -p $CF_PASSWORD",
+    "serve": "concurrently \"npm run cds-hybrid\" \"npm run ui\"",
+    "uibuild": "cd app/clearingapplication/ && mbt build",
+    "capbuild": "mbt build",
+    "uideploycompass": "export CF_PASSWORD=$(security find-generic-password -a \"$USER\" -s 'CF_PASSWORD' -w) && cd app/clearingapplication/ && mbt build && bun run login-fe-compass && cf deploy mta_archives/atomuiclearingclearingapplication_0.0.1.mtar",
+    "deploy": "concurrently \"npm run capdeploy\" \"npm run uideploy\"",
+    "navigateusingnode": "node -e \"process.chdir('../../');\"",
+    "buildcapfrommta": "node -e \"require('child_process').execSync('npm install && npx -p @sap/cds-dk cds build --production', {stdio: 'inherit'})\"",
+    "lint": "cds lint srv/",
+    "mocha-init": "bun install chai@^4.4.1 chai-as-promised@^7.1.2 chai-http@^4.4.0 chai-subset@^1.6.0 mocha@^10.4.0 express@^4.18.2 cors@^2.8.5 @sap/cds@^7.0.0 --no-save",
+    "test": "bun run mocha-init && mocha test/**/*.test.js test/*.test.js --timeout 60000 --exit --quiet",
+    "mock-server": "node test/server.js"
+  },
+  "cds": {
+    "db": {
+      "[development]": {
+        "kind": "sql"
+      },
+      "[production]": {
+        "kind": "hana",
+        "pool": {
+          "acquireTimeoutMillis": 10000
+        }
+      },
+      "[test]": {
+        "kind": "sql"
+      }
+    },
+    "hana": {
+      "deploy-format": "hdbtable"
+    },
+    "requires": {
+      "[production]": {
+        "messaging-ficacreate-response": {
+          "kind": "enterprise-messaging-shared",
+          "queue": {
+            "name": "atom/srv/events/fica-create-response"
+          }
+        }
+      },
+      "[hybrid]": {
+        "messaging-ficacreate-response": {
+          "kind": "enterprise-messaging-shared",
+          "queue": {
+            "name": "atom/srv/events/fica-create-response"
+          }
+        }
+      },
+      "[test]": {
+        "messaging-ficacreate-response": {
+          "kind": "file-based-messaging",
+          "queue": {
+            "name": "atom/srv/events/fica-create-response"
+          }
+        }
+      },
+      "approuter": {
+        "kind": "cloudfoundry"
+      },
+      "auth": {
+        "[production]": {
+          "strategy": "JWT"
+        },
+        "[hybrid]": {
+          "kind": "mock",
+          "auth": {
+            "kind": "basic-auth"
+          },
+          "users": {
+            "alice": {
+              "roles": [
+                "atom-finance-clearing-admin",
+                "atom-finance-clearing-read",
+                "atom-finance-ficadashboard-user"
+              ]
+            },
+            "*": true
+          }
+        },
+        "[test]": {
+          "strategy": "mock",
+          "auth": {
+            "kind": "basic-auth"
+          },
+          "users": {
+            "test": {
+              "roles": [
+                "finance-clearing-read",
+                "finance-clearing-maintain",
+                "finance-ficadashboard-user"
+              ]
+            },
+            "*": true
+          }
+        }
+      },
+      "FicaDashboardService": {
+        "kind": "odata-v2",
+        "model": "srv/external/clearingapplicationservices"
+      },
+      "clearingapplicationservices": {
+        "kind": "odata-v2",
+        "model": "srv/external/clearingapplicationservices"
+      },
+      "BankAccount": {
+        "kind": "odata-v2",
+        "model": "srv/external/BankAccount"
+      },
+      "Product": {
+        "kind": "odata",
+        "model": "srv/external/Product"
+      },
+      "CRM": {
+        "kind": "odata-v2",
+        "model": "srv/external/CRM"
+      },
+      "DealService": {
+        "kind": "odata-v2",
+        "model": "srv/external/DealService"
+      },
+      "MDM": {
+        "kind": "odata-v2",
+        "model": "srv/external/MDM"
+      },
+      "cpi-api": {
+        "kind": "rest",
+        "[test]": {
+          "credentials": {
+            "url": "http://localhost:8080"
+          }
+        },
+        "[hybrid]": {
+          "kind": "rest",
+          "credentials": {
+            "destination": "CPIIntegrations",
+            "requestTimeout": 8000000
+          }
+        },
+        "[production]": {
+          "kind": "rest",
+          "credentials": {
+            "destination": "CPIIntegrations",
+            "requestTimeout": 8000000
+          }
+        }
+      },
+      "s4-onprem-service": {
+        "kind": "odata-v2",
+        "[test]": {
+          "credentials": {
+            "url": "http://localhost:8080"
+          }
+        },
+        "[hybrid]": {
+          "kind": "odata-v2",
+          "csrf": true,
+          "credentials": {
+            "requestTimeout": 2000000,
+            "destination": "FioriOnPremLocal"
+          }
+        },
+        "[production]": {
+          "kind": "odata-v2",
+          "csrf": true,
+          "credentials": {
+            "requestTimeout": 2000000,
+            "destination": "FioriOnPrem",
+            "destinationOptions": {
+              "selectionStrategy": "alwaysProvider",
+              "useCache": true,
+              "jwt": null
+            }
+          }
+        }
+      },
+      "s4-onprem-clearingapp-service": {
+        "kind": "odata-v2",
+        "[test]": {
+          "credentials": {
+            "url": "http://localhost:8080"
+          }
+        },
+        "[hybrid]": {
+          "kind": "odata-v2",
+          "csrf": true,
+          "credentials": {
+            "requestTimeout": 2000000,
+            "destination": "FioriOnPremLocal"
+          }
+        },
+        "[production]": {
+          "kind": "odata-v2",
+          "csrf": true,
+          "credentials": {
+            "requestTimeout": 2000000,
+            "destination": "FioriOnPrem",
+            "destinationOptions": {
+              "selectionStrategy": "alwaysProvider",
+              "useCache": true,
+              "jwt": null
+            }
+          }
+        }
+      },
+      "s4-onprem-ficadashboard-service": {
+        "kind": "odata-v2",
+        "[test]": {
+          "credentials": {
+            "url": "http://localhost:8080",
+            "path": "/sap/opu/odata/sap/ZC_FICADASHBOARD_CDS"
+          }
+        },
+        "[hybrid]": {
+          "kind": "odata-v2",
+          "credentials": {
+            "requestTimeout": 2000000,
+            "destination": "FioriOnPremLocal",
+            "path": "/sap/opu/odata/sap/ZC_FICADASHBOARD_CDS"
+          }
+        },
+        "[production]": {
+          "kind": "odata-v2",
+          "credentials": {
+            "requestTimeout": 2000000,
+            "destination": "FioriOnPrem",
+            "path": "/sap/opu/odata/sap/ZC_FICADASHBOARD_CDS",
+            "destinationOptions": {
+              "selectionStrategy": "alwaysProvider",
+              "useCache": true,
+              "jwt": null
+            }
+          }
+        }
+      },
+      "s4-onprem-ficadashboard-service-prod": {
+        "kind": "odata-v2",
+        "[test]": {
+          "credentials": {
+            "url": "http://localhost:8080",
+            "path": "/sap/opu/odata/sap/ZC_FICADASHBOARD_CDS"
+          }
+        },
+        "[hybrid]": {
+          "kind": "odata-v2",
+          "credentials": {
+            "requestTimeout": 2000000,
+            "destination": "FioriOnPremLocal",
+            "path": "/sap/opu/odata/sap/ZC_FICADASHBOARD_CDS"
+          }
+        },
+        "[production]": {
+          "kind": "odata-v2",
+          "credentials": {
+            "requestTimeout": 2000000,
+            "destination": "FioriOnPremProd",
+            "path": "/sap/opu/odata/sap/ZC_FICADASHBOARD_CDS",
+            "destinationOptions": {
+              "selectionStrategy": "alwaysProvider",
+              "useCache": true,
+              "jwt": null
+            }
+          }
+        }
+      },
+      "claim-mgmt-service": {
+        "kind": "odata-v2",
+        "[test]": {
+          "credentials": {
+            "url": "http://localhost:8080",
+            "path": "/v2/claimmgmt-srv"
+          }
+        },
+        "[hybrid]": {
+          "kind": "odata-v2",
+          "credentials": {
+            "destination": "ClaimManagementPassword",
+            "path": "/v2/claimmgmt-srv"
+          }
+        },
+        "[production]": {
+          "kind": "odata-v2",
+          "credentials": {
+            "destination": "ClaimManagement",
+            "path": "/v2/claimmgmt-srv"
+          }
+        }
+      },
+      "capacity-mgmt-service": {
+        "kind": "odata-v2",
+        "[test]": {
+          "credentials": {
+            "url": "http://localhost:8080"
+          }
+        },
+        "[hybrid]": {
+          "credentials": {
+            "destination": "CapacityManagementPassword"
+          }
+        },
+        "[production]": {
+          "credentials": {
+            "destination": "CapacityManagement"
+          }
+        }
+      },
+      "capacity-check-service": {
+        "kind": "odata-v2",
+        "[test]": {
+          "credentials": {
+            "url": "http://localhost:8080",
+            "path": "/v2/capacitycheck-srv"
+          }
+        },
+        "[hybrid]": {
+          "credentials": {
+            "destination": "CapacityManagementPassword",
+            "path": "/v2/capacitycheck-srv"
+          }
+        },
+        "[production]": {
+          "credentials": {
+            "destination": "CapacityManagement",
+            "path": "/v2/capacitycheck-srv"
+          }
+        }
+      },
+      "deal-mgmt-service": {
+        "kind": "odata-v2",
+        "[test]": {
+          "credentials": {
+            "url": "http://localhost:8080",
+            "path": "/v2/dealmgmt-srv"
+          }
+        },
+        "[hybrid]": {
+          "credentials": {
+            "destination": "DealManagementPassword",
+            "path": "/v2/dealmgmt-srv"
+          }
+        },
+        "[production]": {
+          "credentials": {
+            "destination": "DealManagement",
+            "path": "/v2/dealmgmt-srv"
+          }
+        }
+      },
+      "masterdata-mgmt-service": {
+        "kind": "odata-v2",
+        "[test]": {
+         
+        },
+        "[hybrid]": {
+          "credentials": {
+            "destination": "MasterDataPassword"
+          }
+        },
+        "[production]": {
+          "credentials": {
+            "destination": "MasterDataManagement"
+          }
+        }
+      }
+    },
+    "sapux": [
+      "app/clearingapplication"
+    ]
+  }
+}

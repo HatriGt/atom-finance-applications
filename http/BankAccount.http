@@ -1,0 +1,8 @@
+@server = http://localhost:4004
+@auth = Authorization: Basic alice:
+
+
+### BankAccount.ZC_YEL_TB_BANK_CLEA
+GET {{server}}/odata/v4/bank-account/ZC_YEL_TB_BANK_CLEA
+Content-Type: application/json
+{{auth}}

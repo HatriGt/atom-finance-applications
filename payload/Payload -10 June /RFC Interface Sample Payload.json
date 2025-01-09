@@ -1,0 +1,172 @@
+{
+  "IT_FICA_CREATE": [
+    {
+      "item": "002",
+      "fikey_prefix": "CC",
+      "header": {
+        "fikey": "",
+        "appl_area": "S",
+        "doc_type": "CP",
+        "doc_source_key": "01",
+        "created_by": "a.ravichandran@atomdn.com",
+        "entry_date": "",
+        "entry_time": "",
+        "currency": "USD",
+        "doc_date": "2024-05-29",
+        "post_date": "2024-05-29"
+      },
+      "bp_items": [
+        {
+          "rep_item": "000",
+          "item": "0001",
+          "sub_item": "000",
+          "comp_code": "DX01",
+          "bus_partner": "1100000100",
+          "division": "E1",
+          "cont_acct": "390000000030",
+          "main_trans": "P100",
+          "sub_trans": "2000",
+          "g_l_acct": "0001160030",
+          "doc_date": "2024-05-29",
+          "post_date": "2024-05-29",
+          "net_date": "2024-05-29",
+          "amount": "-8250.00",
+          "profit_ctr": "AV-A"
+        }
+      ],
+      "gl_items": [
+        {
+          "item": "0001",
+          "comp_code": "DX01",
+          "g_l_acct": "0001140100",
+          "profit_ctr": "AV-A",
+          "cost_ctr": null,
+          "amount": "8250.00"
+        }
+      ],
+      "extension_header": {
+        "doc_no": "",
+        "YYEXTREF": "11000110984135389",
+        "YYUAY": "2023",
+        "YYENDORSEMENTREF": "11000110984135389",
+        "YYINSTALLMENT": "X",
+        "YYPREMIUM_ID": "1011021",
+        "YYELSCLAIMNUM": "1201212412451-121",
+        "YYUCR": "TEST UCR",
+        "YYTR_ID": "TR-01",
+        "YYINSTALLMENT_NUM": "01",
+        "YYPREMIUM_TYPE": "AP",
+        "YYPOLICY_NUM": "12130010",
+        "YYBANK_REF": "TEST BANkREF"
+      },
+      "extension_items": [
+        {
+          "doc_no": "",
+          "rep_item": "000",
+          "item": "0001",
+          "sub_item": "000",
+          "YYEXTREF": "11000110984135389",
+          "YYEXT_CURRENCY": "USD",
+          "YYEXT_ROE": "0.13226",
+          "YYMEMBER": "1100013853",
+          "YYFRONTER": "1100000081",
+          "YYCONTRACT": "390000000030",
+          "YYINTREF": "11000110984135389-001",
+          "YYBITREF": "20000120101100",
+          "YYSTAMP_MEMBER_ID": "10001211",
+          "YYELSCLAIMNUM": "1201212412451-121",
+          "YYINSTALLMENT_NUM": "01",
+          "YYAPPTAXCD": "USD",
+          "YYFIXED_ER": "X"
+        }
+      ],
+      "add_info": [
+        {
+          "opbel": "11000110999",
+          "opupw": "000",
+          "opupk": "0001",
+          "opupz": "000",
+          "clearing_amount": "8250.00",
+          "exp_pay_currency": "USD",
+          "delta_due_roe": "0.00",
+          "gl_account": "0001140100",
+          "YYINTREF": "11000110984135389-001",
+          "trtype": "Premium Receivable",
+          "YYENDORSEMENTREF": "E1",
+          "paymemtref": "Test Payment",
+          "ernam": "a@gmail.com",
+          "erdate": "20240529",
+          "erzet": "221117",
+          "businesspartnerno": "1100000100",
+          "soa_count": "12",
+          "allocamn": "1021.00",
+          "original_currency": "GBP",
+          "YYEXTREF": "11000110984135389",
+          "blart": "YY",
+          "bukrs":"DX01",
+          "postingtype":"Test Posting TYpe",
+          "hvorg": "P210"
+        }
+      ]
+    }
+  ],
+  "IT_CDC": [
+    {
+      "item": "002",
+      "fikey_prefix": "CP",
+      "is_fkkko": {
+        "fikey": "",
+        "applk": "S",
+        "blart": "YY",
+        "herkf": "01",
+        "ernam": "AJEE",
+        "cpudt": "2024-07-01",
+        "cputm": "15:52:07",
+        "waers": "USD",
+        "bldat": "2024-07-01",
+        "budat": "2024-07-01",
+        "YYEXTREF": "11000110984135389",
+        "YYUWAY": "2023",
+        "YYENDORSEMENTREF": "11000110984135389",
+        "YYINSTALLMENT": "X",
+        "YYPREMIUM_ID": "1011021",
+        "YYELSECLAIMNUM": "1201212412451-121",
+        "YYUCR": "TEST UCR",
+        "YYTR_ID": "TR-01",
+        "YYINSTALLMENT_NUM": "01",
+        "YYPREMIUM_TYPE": "AP",
+        "YYPOLICY_NUM": "12130010",
+        "YYBANK_REF": "TEST BANkREF"
+      },
+      "add_info": [
+        {
+          "opbel": "11000110999",
+          "opupw": "000", 
+          "opupk": "0001", 
+          "opupz": "000",
+          "clearing_amount": "8250.00",
+          "exp_pay_currency": "USD",
+          "delta_due_roe": "0.00",
+          "gl_account": "0001140100",
+          "YYINTREF": "11000110984135389-001",
+          "trtype": "Premium Receivable",
+          "YYENDORSEMENTREF": "E1",
+          "paymemtref": "Test Payment",
+          "ernam": "a@gmail.com",
+          "erdate": "20240529",
+          "erzet": "221117",
+          "businesspartnerno": "1100000100",
+          "soa_count": "12",
+          "allocamn": "1021.00",
+          "original_currency": "GBP",
+          "YYEXTREF": "11000110984135389",
+          "blart": "YY",
+          "bukrs":"DX01",
+          "postingtype":"Test Posting TYpe",
+          "hvorg": "P210"
+        }
+      ]
+    }
+  ],
+  "PURPOSE": "PR" 
+}

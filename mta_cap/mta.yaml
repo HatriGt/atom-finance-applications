@@ -1,0 +1,133 @@
+## MTA for Backend
+
+_schema-version: '3.1'
+ID: AtomFinanceApplications
+version: 1.0.0
+description: "ATOM Finance Applications API."
+parameters:
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+      - npm run buildcapfrommta
+modules:
+  - name: AtomFinanceApplications-srv
+    type: nodejs
+    path: ../gen/srv
+    parameters:
+      buildpack: nodejs_buildpack
+      memory: 768M
+      disc-quota: 1024M
+      stack: cflinuxfs4
+      command: node ./node_modules/@sap/cds/bin/cds-serve
+    build-parameters:
+      ignore:
+        - 'node_modules'
+        - '*node_modules*'
+        - '.env'
+        - 'default-*.json'
+      builder: npm
+    provides:
+      - name: mtx-api # required by consumers of CAP services (e.g. approuter)
+        properties:
+          mtx-url: ${default-url}
+    requires:
+      - name: uaa-AtomFinanceApplications
+      - name: mtxdb-AtomFinanceApplications
+      - name: destination-AtomFinanceApplications
+      - name: registry-AtomFinanceApplications
+      - name: atom-common-events
+      - name: connectivity-AtomFinanceApplications
+      - name: app-api
+        properties:
+          SUBSCRIPTION_URL: "~{app-protocol}://\\${tenant_subdomain}-~{app-uri}"
+  - name: AtomFinanceApplications-router
+    type: approuter.nodejs
+    path: ../app/atomfinanceapplicationsrouter/
+    build-parameters:
+      ignore:
+        - 'node_modules'
+        - '*node_modules*'
+        - '.env'
+        - 'default-*.json'
+      builder: npm
+      host: atomfinance-app
+      domain: btpdev.atom-platform.com
+    properties:
+      TENANT_HOST_PATTERN: '^(.*)-${default-uri}'
+    parameters:
+      keep-existing-routes: true
+      disk-quota: 256M
+      memory: 256M
+    requires:
+      - name: mtx-api
+        group: destinations
+        properties:
+          name: mtx-api # must be used in xs-app.json as well
+          url: '~{mtx-url}'
+          forwardAuthToken: true
+      - name: uaa-AtomFinanceApplications
+    provides:
+      - name: app-api
+        properties:
+          app-protocol: '${protocol}'
+          app-uri: '${default-uri}'
+
+resources:
+  - name: registry-AtomFinanceApplications
+    type: org.cloudfoundry.managed-service
+    requires:
+      - name: mtx-api
+    parameters:
+      service: saas-registry
+      service-plan: application
+      config:
+        xsappname: AtomFinanceApplications-${org}-${space}
+        appName: AtomFinanceApplications-${org}-${space}
+        displayName: ATOM Platform 3.0 Finance Applications
+        description: ATOM The Insurance Operating System
+        category: ATOM
+        appUrls:
+          getDependencies: ~{mtx-api/mtx-url}/getDependencies
+          onSubscription: ~{mtx-api/mtx-url}/-/cds/saas-provisioning/tenant/{tenantId}
+          onSubscriptionAsync: false
+          onUnSubscriptionAsync: false
+          callbackTimeoutMillis: 300000 # Increase if your deployments are taking longer than that
+          onUpdateDependenciesAsync: true
+  - name: uaa-AtomFinanceApplications
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
+      config:
+        xsappname: AtomFinanceApplications-${org}-${space}
+        tenant-mode: shared
+  - name: mtxdb-AtomFinanceApplications
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: service-manager
+      service-plan: container
+  - name: destination-AtomFinanceApplications
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: destination
+      service-plan: lite
+      service-name: destination-AtomFinanceApplications
+      service-keys:
+        - name: destination-AtomFinanceApplications-service-key
+      config:
+        version: 1.0.0
+  - name: atom-common-events
+    type: org.cloudfoundry.existing-service
+  - name: connectivity-AtomFinanceApplications
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: connectivity
+      service-plan: lite
+      service-name: connectivity-AtomFinanceApplications
+      service-keys:
+        - name: connectivity-AtomFinanceApplications-service-key
+      config:
+        version: 1.0.0

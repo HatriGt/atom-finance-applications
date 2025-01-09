@@ -1,0 +1,314 @@
+/* Enter your custom styles here */
+.box-shadowSep {
+  margin-top: 1em;
+  margin-left: 3em;
+  box-shadow: 0 0 0 0.0625rem rgba(0, 0, 0, 0.1),
+    0 0.125rem 0.5rem 0 rgba(0, 0, 0, 0.1);
+}
+
+
+/* --------------------- Main Page Styling --------------------- */
+
+/* Background Image for Main Page */
+/* .sapUiBody:before {
+  background-image: linear-gradient(
+    to right top,
+    #c191c6,
+    #cbaed8,
+    #d9c9e8,
+    #eae4f4,
+    #ffffff
+  );
+  content: " ";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  background-size: cover;
+} */
+
+/* .sapUiBodyClearingBG:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  background: rgb(0, 212, 255);
+  background-image: linear-gradient(
+    to right top,
+    #c191c6,
+    #cbaed8,
+    #d9c9e8,
+    #eae4f4,
+    #ffffff
+  );
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+} */
+
+/*  Icon Tab Bar Styling  */
+
+.customIconTabBar {
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.435);
+  overflow: hidden;
+  /* background-image: url("../images/BGPatternNew.png");  */
+  background-image: url("../images/BGPatternNewDiff.png"); 
+  background-blend-mode: overlay;
+  position: relative;
+}
+
+
+/* Styling for Disabled Input Fields */
+.disableDateIP input {
+  pointer-events: none;
+  color: transparent;
+  text-shadow: 0 0 0 rgb(18, 18, 18);
+}
+
+.disableBPIP input {
+    /* Disable the IP for BP to have value help for claim receivables selection screen */
+  pointer-events: none;
+  color: transparent;
+  text-shadow: 0 0 0 gray;
+}
+
+.dialog-maxwidth {
+  /* max-width: 105rem;; */
+  width: 40%;
+}
+
+
+/* --------------------- Clearing Page Styling --------------------- */
+
+
+
+
+/* Adds Border Box Styling */
+.borderbox {
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.495);
+  background-image: url("../images/BGPatternNewDiff.png"); 
+  background-blend-mode: overlay;
+  position: relative;
+}
+
+/* Overflow Toolbar Styling */
+.hoverHighlight {
+  transition: all 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+  width: 100%;
+  min-width: 100%;
+  max-width: fit-content;
+}
+
+.hoverHighlight:is(:hover, :focus) {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.customRoundedToolbar {
+  border-radius: 10px;
+}
+
+.customResponsiveToolbar {
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.customResponsiveToolbar .sapMBarChild {
+  margin: 0.25rem;
+}
+
+.customResponsiveOverflowToolbar {
+  width: 100% !important;
+  flex-wrap: wrap;
+}
+
+.customResponsiveOverflowToolbar .sapMBarChild {
+  margin: 0.25rem;
+}
+
+@media (min-width: 1024px) {
+  .customResponsiveOverflowToolbar {
+      flex-wrap: nowrap;
+  }
+}
+
+/* Rounded Table Styling For Processing Status Table*/
+.customRoundedTableForProcessingStatus {
+  border-radius: 13px; /* Adjust this value to control the roundness of the corners */
+  overflow: hidden; /* Ensures the inner content also conforms to the rounded corners */
+  /* padding: 5px; */
+}
+
+.tableContainer {
+  padding: 56px; /* Adjust based on your desired padding */
+  background-color: #ffffff; /* Assuming a white background; adjust as needed */
+  border-radius: 10px; /* Adjust for desired roundness of corners */
+  overflow: hidden; /* Ensures the rounded corners are respected by child elements */
+}
+
+/* Optional: If you specifically need to target the table for rounded corners */
+.sapUiTable {
+  border-radius: 10px; /* Adjust for desired roundness of corners */
+  overflow: hidden; /* Ensures the content respects the border radius */
+}
+
+.customPaddingButtonForClearingTableTB {
+  padding-top: 10px; /* Adjust the value for desired space on top */
+  padding-bottom: 10px;
+}
+
+.customFilterBar {
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0);
+  overflow: hidden;
+}
+
+.workInProgress{
+  border-radius: 16px;
+  overflow: hidden;
+  width: 100%;
+  height: 50%;
+  /* background-image: url("Background.png");  */
+}
+
+.customHBoxForTotalLayout {
+  background-color: #fffcfc; /* Light grey background */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px; /* Padding inside the box */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
+  display: flex;
+  justify-content: space-between; /* Distributes space between children */
+  flex-wrap: wrap; /* Allows children to wrap onto next line on small screens */
+  margin: 5px 0; /* Vertical spacing */
+}
+
+.customHBoxForProcessingLayoutAndTotalValueTable {
+  background-color: #fffcfc; /* Light grey background */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px; /* Padding inside the box */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
+  display: flex;
+  justify-content: space-between; /* Distributes space between children */
+  flex-wrap: wrap; /* Allows children to wrap onto next line on small screens */
+  margin: 10px 0; /* Vertical spacing */
+  overflow: hidden;
+}
+
+.customRoundedTable {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+
+
+/* Cursor - Customization */
+
+
+/* Cursor - Link */
+/* .sapMBtn,
+.sapMBtnInner,
+.sapMBtnIcon,
+.sapMBtnContent,
+.sapMITBItem {
+    cursor: url('cursors/link.png') 2 2, pointer !important;
+}
+
+.sapMBtn:hover,
+.sapMBtnInner:hover,
+.sapMBtnIcon:hover,
+.sapMBtnContent:hover {
+    cursor: url('cursors/link.png') 2 2, pointer !important;
+} */
+
+/* Ensure the alternate cursor is used for all button states */
+/* .sapMBtn:active,
+.sapMBtnInner:active,
+.sapMBtnIcon:active,
+.sapMBtnContent:active,
+.sapMBtn:focus,
+.sapMBtnInner:focus,
+.sapMBtnIcon:focus,
+.sapMBtnContent:focus {
+    cursor: url('cursors/link.png') 2 2, pointer !important;
+} */
+
+/* Apply to any element with a 'button' role for accessibility */
+/* [role="button"] {
+    cursor: url('cursors/link.png') 2 2, pointer !important;
+} */
+
+/* Apply to any clickable elements that might act as buttons */
+/* .sapMBarChild,
+.sapMSltLabel,
+.sapMSlt,
+.sapMCb,
+.sapMSwt {
+    cursor: url('cursors/link.png') 2 2, pointer !important;
+}
+
+.sapMLIBActionable, .sapMLIBActionable>.sapMLIBImgNav, .sapMListTblNavCol>.sapMLIBImgNav, .sapMLIBActionable .sapMSLIThumbnail, .sapMLIBActionable .sapMSLIImgIcon {
+  cursor: url('cursors/link.png') 2 2, pointer !important;
+} */
+
+/* Cursor - Default */
+
+/* .sapUiBody, .sapMInputBaseInner {
+  cursor: url('cursors/cursor.png') 2 2, auto;
+}
+
+.sapUiBody input:focus, .sapMInputBaseInner:focus {
+  cursor: url('cursors/cursor-edit.gif') 2 2, auto;
+}
+
+body {
+  cursor: url('cursors/cursor.png'), auto;
+} */
+
+/* .sapUiCalWH, .sapUiCalItem {   */
+  /* Cursor - Calendar - Default*/
+  /* cursor: url('cursors/cursor.png'), auto;
+} */
+
+
+
+/* Action Log OverView - Smart Table Styling */
+
+.actionLoggerOverViewFailed {
+  background-color: rgba(255, 0, 0, 0.1);
+  color: #E1390C;
+  font-weight: bold;
+  text-shadow: none;
+  border-left: 4px solid #E1390C;
+  padding: 10px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.actionLoggerOverViewFailed:hover {
+  background-color: rgba(255, 0, 0, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.actionLoggerOverViewInProcess:hover {
+  background-color: rgba(255, 165, 0, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.actionLoggerOverViewSuccess:hover {
+  background-color: rgba(0, 128, 0, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+

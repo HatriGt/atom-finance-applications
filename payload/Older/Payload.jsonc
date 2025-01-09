@@ -1,0 +1,621 @@
+{
+  "IM_ASYNC_MODE": "",
+  "IM_UNDERWRITER_REF": {
+    "PARTICIPATION": "10.000000"
+  },
+  "IM_HEADER_DATA": {
+    "BOOKING_DATE": "Tue Aug 15 10:43:28 GST 2023",
+    "USER_ID": "vinny chawla",
+    "END_DATE": "2024-06-19",
+    "SALES_OFFICE": "D",
+    "DEAL_EXT": "",
+    "PARTICIPATION_ID": 4128904,
+    "DEAL_TYPE": "001",
+    "POLICY_TYPE": "AL",
+    "GROSS_AMOUNT": "2500.00",
+    "BROKER": "1100000100",
+    "STATUS": "CR",
+    "LLOYDS_RISK_CD": "H2",
+    "PAYMENT_TERMS": "",
+    "COMPANY_CODE": "DX01",
+    "INCEPTION_DATE": "2023-06-20",
+    "HEADER_DATA_DED": [
+      {
+        "DEDUCTION_TYPE": "BROK",
+        "DEDUCTION_BASIS": "GP",
+        "DESCRIPTION": "Brokerage",
+        "PPD_DUE_DATE": "",
+        "DEDUCTION": "10.000000000000",
+        "DEDUCTION_AMOUNT": "250.00"
+      },
+      {
+        "DEDUCTION_TYPE": "IPT",
+        "DEDUCTION_BASIS": "GP",
+        "DESCRIPTION": "Insurance Premium Tax",
+        "PPD_DUE_DATE": "",
+        "DEDUCTION": "20.000000000000",
+        "DEDUCTION_AMOUNT": "250.00"
+      },
+      {
+        "DEDUCTION_TYPE": "WHT",
+        "DEDUCTION_BASIS": "GP",
+        "DESCRIPTION": "Withholding Tax",
+        "PPD_DUE_DATE": "",
+        "DEDUCTION": "10.000000000000",
+        "DEDUCTION_AMOUNT": "125.00"
+      },
+      {
+        "DEDUCTION_TYPE": "WHT",
+        "DEDUCTION_BASIS": "GP",
+        "DESCRIPTION": "Withholding Tax",
+        "PPD_DUE_DATE": "",
+        "DEDUCTION": "10.000000000000",
+        "DEDUCTION_AMOUNT": "125.00"
+      }
+    ],
+    "LOB": "AVIATION",
+    "REINSURED": "",
+    "CURRENCY": "USD",
+    "EMPLOYEE": "1300000000",
+    "NET_AMOUNT": "2000.00",
+    "PAYMENT_METHOD": "",
+    "INSURED": "1100000652",
+    "EXT_REF": "11000006524128912",
+    "HEADER_DATA_INT": [
+      {
+        "END_DATE": "2024-06-19",
+        "START_DATE": "2023-06-20",
+        "TAX_CODE": "",
+        "INT_REF": "11000006524128912-001",
+        "SPLIT_PERCENTAGE": "50.000000000000",
+        "ELSECO_RISK_CODE": "Hull Airline"
+      },
+      {
+        "END_DATE": "2024-06-19",
+        "START_DATE": "2023-06-20",
+        "TAX_CODE": "",
+        "INT_REF": "11000006524128912-002",
+        "SPLIT_PERCENTAGE": "50.000000000000",
+        "ELSECO_RISK_CODE": "Spares Airline"
+      }
+    ],
+    "DEAL": "Vinny_BRIMREP_FINAL",
+    "PAYER": "1100000100",
+    "POOL": "B",
+    "RISK_LOCATION_CD": "SG"
+  },
+  "IT_STAMP": [
+    {
+      "ATYPE": "QS",
+      "MEMBER_IPT": "",
+      "CONTRACTUAL_AMT": "9000000.0",
+      "ADMIN_PAYABLE": "",
+      "FRONTER": "1100000081",
+      "STAMP_MEMBER_ID": "703421",
+      "CLAIMCOLLECTEDFROM_BPID": "1100000564",
+      "CONTRACTUAL_VL": "50.000",
+      "INT_REF": "11000006524128912-001",
+      "MEMBER": "1100013853",
+      "CLAIMCOLLECTIONTYPE": "CLAIMFUND",
+      "OWN_VL": "50.000",
+      "AGREEMENT_ID": "189298",
+      "PERC_UNDERWRITING": "100.0000",
+      "FRONTING_AGREEMENT_ID": "189297",
+      "PREMIUMRECEIVER_BPID": "1100000564",
+      "OWN_AMT": "9000000.0",
+      "EXPOSED_AMT": "0.0",
+      "STAMP_COMMISION": [
+        {
+          "PAY_TO": "",
+          "FEE": "6",
+          "ID": "ELSECO",
+          "BASIS": "NP"
+        },
+        {
+          "PAY_TO": "1100000564",
+          "FEE": "0.5",
+          "ID": "PB",
+          "BASIS": "ANP"
+        },
+        {
+          "PAY_TO": "",
+          "FEE": 0.5,
+          "ID": "AF",
+          "BASIS": "NP"
+        },
+        {
+          "PAY_TO": "1100000564",
+          "FEE": "5",
+          "ID": "FF",
+          "BASIS": "ANP"
+        },
+        {
+          "PAY_TO": "1100000564",
+          "FEE": "2",
+          "ID": "RIB",
+          "BASIS": "ANP"
+        }
+      ],
+      "UWAY": "PB23",
+      "EXPOSED_VL": "0.000",
+      "PERC_CLAIMS": "0.0000"
+    },
+    {
+      "ATYPE": "QS",
+      "MEMBER_IPT": "",
+      "CONTRACTUAL_AMT": "5000400.0",
+      "ADMIN_PAYABLE": "",
+      "FRONTER": "1100000081",
+      "STAMP_MEMBER_ID": "703435",
+      "CLAIMCOLLECTEDFROM_BPID": "1100000564",
+      "CONTRACTUAL_VL": "27.780",
+      "INT_REF": "11000006524128912-001",
+      "MEMBER": "1100013849",
+      "CLAIMCOLLECTIONTYPE": "CLAIMFUND",
+      "OWN_VL": "27.780",
+      "AGREEMENT_ID": "189298",
+      "PERC_UNDERWRITING": "100.0000",
+      "FRONTING_AGREEMENT_ID": "189297",
+      "PREMIUMRECEIVER_BPID": "1100000564",
+      "OWN_AMT": "5000400.0",
+      "EXPOSED_AMT": "0.0",
+      "STAMP_COMMISION": [
+        {
+          "PAY_TO": "",
+          "FEE": "6",
+          "ID": "ELSECO",
+          "BASIS": "NP"
+        },
+        {
+          "PAY_TO": "1100000564",
+          "FEE": "0.5",
+          "ID": "PB",
+          "BASIS": "ANP"
+        },
+        {
+          "PAY_TO": "",
+          "FEE": 0.5,
+          "ID": "AF",
+          "BASIS": "NP"
+        },
+        {
+          "PAY_TO": "1100000564",
+          "FEE": "5",
+          "ID": "FF",
+          "BASIS": "ANP"
+        },
+        {
+          "PAY_TO": "1100000564",
+          "FEE": "2",
+          "ID": "RIB",
+          "BASIS": "ANP"
+        }
+      ],
+      "UWAY": "PB23",
+      "EXPOSED_VL": "0.000",
+      "PERC_CLAIMS": "0.0000"
+    },
+    {
+      "ATYPE": "UAA",
+      "MEMBER_IPT": "",
+      "CONTRACTUAL_AMT": "1.8E7",
+      "ADMIN_PAYABLE": "",
+      "FRONTER": "",
+      "STAMP_MEMBER_ID": "703449",
+      "CLAIMCOLLECTEDFROM_BPID": "1100000564",
+      "CONTRACTUAL_VL": "100.000",
+      "INT_REF": "11000006524128912-001",
+      "MEMBER": "1100000081",
+      "CLAIMCOLLECTIONTYPE": "CLAIMFUND",
+      "OWN_VL": "22.220",
+      "AGREEMENT_ID": "189297",
+      "PERC_UNDERWRITING": "100.0000",
+      "FRONTING_AGREEMENT_ID": "0",
+      "PREMIUMRECEIVER_BPID": "1100000564",
+      "OWN_AMT": "3999600.0",
+      "EXPOSED_AMT": "1.8E7",
+      "STAMP_COMMISION": [
+        {
+          "PAY_TO": "",
+          "FEE": "6",
+          "ID": "ELSECO",
+          "BASIS": "NP"
+        },
+        {
+          "PAY_TO": "1100000564",
+          "FEE": "0.5",
+          "ID": "PB",
+          "BASIS": "ANP"
+        },
+        {
+          "PAY_TO": "",
+          "FEE": 0.5,
+          "ID": "AF",
+          "BASIS": "NP"
+        }
+      ],
+      "UWAY": "PB23",
+      "EXPOSED_VL": "100.000",
+      "PERC_CLAIMS": "0.0000"
+    },
+    {
+      "ATYPE": "QS",
+      "MEMBER_IPT": "",
+      "CONTRACTUAL_AMT": "9000000.0",
+      "ADMIN_PAYABLE": "",
+      "FRONTER": "1100000081",
+      "STAMP_MEMBER_ID": "703422",
+      "CLAIMCOLLECTEDFROM_BPID": "1100000564",
+      "CONTRACTUAL_VL": "50.000",
+      "INT_REF": "11000006524128912-002",
+      "MEMBER": "1100013853",
+      "CLAIMCOLLECTIONTYPE": "CLAIMFUND",
+      "OWN_VL": "50.000",
+      "AGREEMENT_ID": "189298",
+      "PERC_UNDERWRITING": "100.0000",
+      "FRONTING_AGREEMENT_ID": "189297",
+      "PREMIUMRECEIVER_BPID": "1100000564",
+      "OWN_AMT": "9000000.0",
+      "EXPOSED_AMT": "0.0",
+      "STAMP_COMMISION": [
+        {
+          "PAY_TO": "",
+          "FEE": "6",
+          "ID": "ELSECO",
+          "BASIS": "NP"
+        },
+        {
+          "PAY_TO": "1100000564",
+          "FEE": "0.5",
+          "ID": "PB",
+          "BASIS": "ANP"
+        },
+        {
+          "PAY_TO": "",
+          "FEE": 0.5,
+          "ID": "AF",
+          "BASIS": "NP"
+        },
+        {
+          "PAY_TO": "1100000564",
+          "FEE": "5",
+          "ID": "FF",
+          "BASIS": "ANP"
+        },
+        {
+          "PAY_TO": "1100000564",
+          "FEE": "2",
+          "ID": "RIB",
+          "BASIS": "ANP"
+        }
+      ],
+      "UWAY": "PB23",
+      "EXPOSED_VL": "0.000",
+      "PERC_CLAIMS": "0.0000"
+    },
+    {
+      "ATYPE": "QS",
+      "MEMBER_IPT": "",
+      "CONTRACTUAL_AMT": "5000400.0",
+      "ADMIN_PAYABLE": "",
+      "FRONTER": "1100000081",
+      "STAMP_MEMBER_ID": "703436",
+      "CLAIMCOLLECTEDFROM_BPID": "1100000564",
+      "CONTRACTUAL_VL": "27.780",
+      "INT_REF": "11000006524128912-002",
+      "MEMBER": "1100013849",
+      "CLAIMCOLLECTIONTYPE": "CLAIMFUND",
+      "OWN_VL": "27.780",
+      "AGREEMENT_ID": "189298",
+      "PERC_UNDERWRITING": "100.0000",
+      "FRONTING_AGREEMENT_ID": "189297",
+      "PREMIUMRECEIVER_BPID": "1100000564",
+      "OWN_AMT": "5000400.0",
+      "EXPOSED_AMT": "0.0",
+      "STAMP_COMMISION": [
+        {
+          "PAY_TO": "",
+          "FEE": "6",
+          "ID": "ELSECO",
+          "BASIS": "NP"
+        },
+        {
+          "PAY_TO": "1100000564",
+          "FEE": "0.5",
+          "ID": "PB",
+          "BASIS": "ANP"
+        },
+        {
+          "PAY_TO": "",
+          "FEE": 0.5,
+          "ID": "AF",
+          "BASIS": "NP"
+        },
+        {
+          "PAY_TO": "1100000564",
+          "FEE": "5",
+          "ID": "FF",
+          "BASIS": "ANP"
+        },
+        {
+          "PAY_TO": "1100000564",
+          "FEE": "2",
+          "ID": "RIB",
+          "BASIS": "ANP"
+        }
+      ],
+      "UWAY": "PB23",
+      "EXPOSED_VL": "0.000",
+      "PERC_CLAIMS": "0.0000"
+    },
+    {
+      "ATYPE": "UAA",
+      "MEMBER_IPT": "",
+      "CONTRACTUAL_AMT": "1.8E7",
+      "ADMIN_PAYABLE": "",
+      "FRONTER": "",
+      "STAMP_MEMBER_ID": "703450",
+      "CLAIMCOLLECTEDFROM_BPID": "1100000564",
+      "CONTRACTUAL_VL": "100.000",
+      "INT_REF": "11000006524128912-002",
+      "MEMBER": "1100000081",
+      "CLAIMCOLLECTIONTYPE": "CLAIMFUND",
+      "OWN_VL": "22.220",
+      "AGREEMENT_ID": "189297",
+      "PERC_UNDERWRITING": "100.0000",
+      "FRONTING_AGREEMENT_ID": "0",
+      "PREMIUMRECEIVER_BPID": "1100000564",
+      "OWN_AMT": "3999600.0",
+      "EXPOSED_AMT": "1.8E7",
+      "STAMP_COMMISION": [
+        {
+          "PAY_TO": "",
+          "FEE": "6",
+          "ID": "ELSECO",
+          "BASIS": "NP"
+        },
+        {
+          "PAY_TO": "1100000564",
+          "FEE": "0.5",
+          "ID": "PB",
+          "BASIS": "ANP"
+        },
+        {
+          "PAY_TO": "",
+          "FEE": 0.5,
+          "ID": "AF",
+          "BASIS": "NP"
+        }
+      ],
+      "UWAY": "PB23",
+      "EXPOSED_VL": "100.000",
+      "PERC_CLAIMS": "0.0000"
+    }
+  ],
+  "IT_PREMIUM_PAYMENT_PLAN": [
+    {
+      "PREMIUM_ID": 4128919,
+      "FXED_ER": "0",
+      "PREMFREQ_START_DT": "2023-08-03",
+      "PREMIUM_TYPE_CD": "DP",
+      "STATUS": "RE",
+      "PREMIUM_DETAILS": [
+        {
+          "PREMIUM_ID": "4128919",
+          "PREMIUM_TYPE_CD": "DP",
+          "POSTING_DATE": "2023-08-15",
+          "PAYMENT_DUE_DT": "2023-08-03",
+          "NET_PREMIUM_AM": "1000.00",
+          "INSTALLMENT_NO_AM": "1",
+          "GROSS_PREMIUM_AM": "1250.00",
+          "PREMIUM_SPLIT": [
+            {
+              "ELSECO_RISK_CD": "Hull Airline",
+              "PREMIUM_SPLIT_VL": "50.000000000000",
+              "PREMIUM_TYPE_CD": "DP",
+              "PREMIUM_TAXES": [
+                {
+                  "TAX_RATE_VL": "20.000000000000",
+                  "TAX_AMOUNT": "125.00",
+                  "TAX_PAYABLE_BY_CD": "MR",
+                  "TAX_DEDUCTED": "N",
+                  "APPLICABLE_TAX_CD": "IPT",
+                  "TAX_BASE_CD": "GP",
+                  "TAX_JURISDICTION_CD": "IN",
+                  "AMT_TAXABLE_PRM": "1250.00",
+                  "ADMINISTERED_BY_CD": "IC"
+                },
+                {
+                  "TAX_RATE_VL": "10.000000000000",
+                  "TAX_AMOUNT": "62.50",
+                  "TAX_PAYABLE_BY_CD": "MR",
+                  "TAX_DEDUCTED": "Y",
+                  "APPLICABLE_TAX_CD": "WHT",
+                  "TAX_BASE_CD": "GP",
+                  "TAX_JURISDICTION_CD": "IN",
+                  "AMT_TAXABLE_PRM": "1250.00",
+                  "ADMINISTERED_BY_CD": "IC"
+                }
+              ],
+              "INSTALLMENT_NO_AM": "1",
+              "INTERNAL_REFERENCE_NO": "11000006524128912-001"
+            },
+            {
+              "ELSECO_RISK_CD": "Spares Airline",
+              "PREMIUM_SPLIT_VL": "50.000000000000",
+              "PREMIUM_TYPE_CD": "DP",
+              "PREMIUM_TAXES": [
+                {
+                  "TAX_RATE_VL": "10.000000000000",
+                  "TAX_AMOUNT": "62.50",
+                  "TAX_PAYABLE_BY_CD": "MR",
+                  "TAX_DEDUCTED": "Y",
+                  "APPLICABLE_TAX_CD": "WHT",
+                  "TAX_BASE_CD": "GP",
+                  "TAX_JURISDICTION_CD": "IS",
+                  "AMT_TAXABLE_PRM": "1250.00",
+                  "ADMINISTERED_BY_CD": "IC"
+                }
+              ],
+              "INSTALLMENT_NO_AM": "1",
+              "INTERNAL_REFERENCE_NO": "11000006524128912-002"
+            }
+          ]
+        },
+        {
+          "PREMIUM_ID": "4128919",
+          "PREMIUM_TYPE_CD": "DP",
+          "POSTING_DATE": "2023-08-15",
+          "PAYMENT_DUE_DT": "2024-02-03",
+          "NET_PREMIUM_AM": "1000.00",
+          "INSTALLMENT_NO_AM": "2",
+          "GROSS_PREMIUM_AM": "1250.00",
+          "PREMIUM_SPLIT": [
+            {
+              "ELSECO_RISK_CD": "Hull Airline",
+              "PREMIUM_SPLIT_VL": "50.000000000000",
+              "PREMIUM_TYPE_CD": "DP",
+              "PREMIUM_TAXES": [
+                {
+                  "TAX_RATE_VL": "20.000000000000",
+                  "TAX_AMOUNT": "125.00",
+                  "TAX_PAYABLE_BY_CD": "MR",
+                  "TAX_DEDUCTED": "N",
+                  "APPLICABLE_TAX_CD": "IPT",
+                  "TAX_BASE_CD": "GP",
+                  "TAX_JURISDICTION_CD": "IN",
+                  "AMT_TAXABLE_PRM": "1250.00",
+                  "ADMINISTERED_BY_CD": "IC"
+                },
+                {
+                  "TAX_RATE_VL": "10.000000000000",
+                  "TAX_AMOUNT": "62.50",
+                  "TAX_PAYABLE_BY_CD": "MR",
+                  "TAX_DEDUCTED": "Y",
+                  "APPLICABLE_TAX_CD": "WHT",
+                  "TAX_BASE_CD": "GP",
+                  "TAX_JURISDICTION_CD": "IN",
+                  "AMT_TAXABLE_PRM": "1250.00",
+                  "ADMINISTERED_BY_CD": "IC"
+                }
+              ],
+              "INSTALLMENT_NO_AM": "2",
+              "INTERNAL_REFERENCE_NO": "11000006524128912-001"
+            },
+            {
+              "ELSECO_RISK_CD": "Spares Airline",
+              "PREMIUM_SPLIT_VL": "50.000000000000",
+              "PREMIUM_TYPE_CD": "DP",
+              "PREMIUM_TAXES": [
+                {
+                  "TAX_RATE_VL": "10.000000000000",
+                  "TAX_AMOUNT": "62.50",
+                  "TAX_PAYABLE_BY_CD": "MR",
+                  "TAX_DEDUCTED": "Y",
+                  "APPLICABLE_TAX_CD": "WHT",
+                  "TAX_BASE_CD": "GP",
+                  "TAX_JURISDICTION_CD": "IS",
+                  "AMT_TAXABLE_PRM": "1250.00",
+                  "ADMINISTERED_BY_CD": "IC"
+                }
+              ],
+              "INSTALLMENT_NO_AM": "2",
+              "INTERNAL_REFERENCE_NO": "11000006524128912-002"
+            }
+          ]
+        }
+      ],
+      "PREMIUM_AM": "2000.00",
+      "ENDORSEMENT_REF": "",
+      "ORIGINAL_CURR": "USD",
+      "SETTLE_CURR": "USD",
+      "PRMFREQUENCY_CD": "2",
+      "PREMIUM_DEDUCTIONS": [
+        {
+          "DEDUCTION_TYPE": "BROK",
+          "PREMIUM_ID": "4128919",
+          "PREMIUM_TYPE_CD": "DP",
+          "DEDUCTION_BASIS": "GP",
+          "DESCRIPTION": "Brokerage",
+          "NET_PREMIUM_CALC": "Y",
+          "PPD_DUE_DATE": "",
+          "ENDORSEMENT_REF": "",
+          "INSTALLMENT_NO_AM": "1",
+          "DEDUCTION": "50.000000000000",
+          "DEDUCTION_AMOUNT": "62.50",
+          "INTERNAL_REFERENCE_NO": "11000006524128912-001"
+        },
+        {
+          "DEDUCTION_TYPE": "BROK",
+          "PREMIUM_ID": "4128919",
+          "PREMIUM_TYPE_CD": "DP",
+          "DEDUCTION_BASIS": "GP",
+          "DESCRIPTION": "Brokerage",
+          "NET_PREMIUM_CALC": "Y",
+          "PPD_DUE_DATE": "",
+          "ENDORSEMENT_REF": "",
+          "INSTALLMENT_NO_AM": "2",
+          "DEDUCTION": "50.000000000000",
+          "DEDUCTION_AMOUNT": "62.50",
+          "INTERNAL_REFERENCE_NO": "11000006524128912-001"
+        },
+        {
+          "DEDUCTION_TYPE": "BROK",
+          "PREMIUM_ID": "4128919",
+          "PREMIUM_TYPE_CD": "DP",
+          "DEDUCTION_BASIS": "GP",
+          "DESCRIPTION": "Brokerage",
+          "NET_PREMIUM_CALC": "Y",
+          "PPD_DUE_DATE": "",
+          "ENDORSEMENT_REF": "",
+          "INSTALLMENT_NO_AM": "1",
+          "DEDUCTION": "50.000000000000",
+          "DEDUCTION_AMOUNT": "62.50",
+          "INTERNAL_REFERENCE_NO": "11000006524128912-002"
+        },
+        {
+          "DEDUCTION_TYPE": "BROK",
+          "PREMIUM_ID": "4128919",
+          "PREMIUM_TYPE_CD": "DP",
+          "DEDUCTION_BASIS": "GP",
+          "DESCRIPTION": "Brokerage",
+          "NET_PREMIUM_CALC": "Y",
+          "PPD_DUE_DATE": "",
+          "ENDORSEMENT_REF": "",
+          "INSTALLMENT_NO_AM": "2",
+          "DEDUCTION": "50.000000000000",
+          "DEDUCTION_AMOUNT": "62.50",
+          "INTERNAL_REFERENCE_NO": "11000006524128912-002"
+        }
+      ]
+    },
+    {
+      "PREMIUM_ID": 4128935,
+      "FXED_ER": "0",
+      "PREMFREQ_START_DT": "2023-08-04",
+      "PREMIUM_TYPE_CD": "AP",
+      "STATUS": "WO",
+      "PREMIUM_DETAILS": [],
+      "PREMIUM_AM": "2000.00",
+      "ENDORSEMENT_REF": "End_VC",
+      "ORIGINAL_CURR": "USD",
+      "SETTLE_CURR": "USD",
+      "PRMFREQUENCY_CD": "2",
+      "PREMIUM_DEDUCTIONS": []
+    },
+    {
+      "PREMIUM_ID": 4128949,
+      "FXED_ER": "0",
+      "PREMFREQ_START_DT": "2023-08-11",
+      "PREMIUM_TYPE_CD": "AP",
+      "STATUS": "WO",
+      "PREMIUM_DETAILS": [],
+      "PREMIUM_AM": "2000.00",
+      "ENDORSEMENT_REF": "End_02",
+      "ORIGINAL_CURR": "USD",
+      "SETTLE_CURR": "USD",
+      "PRMFREQUENCY_CD": "2",
+      "PREMIUM_DEDUCTIONS": []
+    }
+  ]
+}

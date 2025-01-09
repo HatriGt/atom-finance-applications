@@ -1,0 +1,8 @@
+@server = http://localhost:4004
+@auth = Authorization: Basic alice:
+
+
+### FicaDashboardService.ZC_FICADASHBOARD
+GET {{server}}/odata/v4/fica-dashboard/ZC_FICADASHBOARD
+Content-Type: application/json
+{{auth}}
